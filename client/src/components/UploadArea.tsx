@@ -71,8 +71,8 @@ export default function UploadArea({
 
   return (
     <motion.div
-      className={`w-full mt-8 bg-white border-2 border-dashed rounded-lg p-6 text-center ${
-        isDragging ? "bg-green-50 border-[#4CAF50]" : "border-[#A0D995]"
+      className={`w-full mt-8 bg-white pixel-border p-6 text-center ${
+        isDragging ? "bg-green-50 border-[#26A269]" : ""
       }`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -83,15 +83,24 @@ export default function UploadArea({
       onDrop={handleDrop}
     >
       <div className="flex flex-col items-center space-y-4">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#4CAF50]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-        </svg>
+        {/* Pixel Art Upload Icon */}
+        <div className="w-12 h-12 pixel-art">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shapeRendering="crispEdges">
+            <rect x="2" y="2" width="12" height="12" fill="#26A269" />
+            <rect x="4" y="4" width="8" height="1" fill="white" />
+            <rect x="4" y="6" width="8" height="1" fill="white" />
+            <rect x="4" y="8" width="8" height="1" fill="white" />
+            <rect x="7" y="10" width="2" height="3" fill="white" />
+            <rect x="5" y="11" width="2" height="1" fill="white" />
+            <rect x="9" y="11" width="2" height="1" fill="white" />
+          </svg>
+        </div>
         
-        <h3 className="font-['Bubblegum_Sans'] text-xl text-[#388E3C]">
-          Upload Your Images
+        <h3 className="font-['Bubblegum_Sans'] text-xl text-[#26A269] pixel-art">
+          Upload Valeria's Photos
         </h3>
         
-        <p className="text-gray-500">
+        <p className="text-teal-800 pixel-art">
           Drag and drop your pictures here or click to browse
         </p>
         
@@ -108,26 +117,26 @@ export default function UploadArea({
         
         <Button
           onClick={handleBrowseClick}
-          className="bg-[#4CAF50] hover:bg-[#388E3C] text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors"
+          className="bg-[#26A269] hover:bg-[#1A7048] text-white font-bold py-2 px-4 pixel-border shadow-none"
           disabled={isUploading}
         >
-          Browse Files
+          <span className="pixel-art">Browse Files</span>
         </Button>
       </div>
       
       {/* Uploaded Images List */}
       {images.length > 0 && (
-        <ScrollArea className="mt-6 h-60">
-          <div className="grid grid-cols-2 gap-2">
+        <ScrollArea className="mt-6 h-60 pixel-border">
+          <div className="grid grid-cols-2 gap-4 p-2">
             {images.map((img) => (
-              <div key={img.id} className="relative bg-gray-100 rounded-lg overflow-hidden h-24">
+              <div key={img.id} className="relative bg-gray-100 pixel-border overflow-hidden h-24">
                 <img
                   src={`data:image/jpeg;base64,${img.data}`}
                   className="w-full h-full object-cover"
                   alt={img.filename}
                 />
                 <button
-                  className="absolute top-1 right-1 bg-red-500 rounded-full p-1 text-white"
+                  className="absolute top-1 right-1 bg-red-500 p-1 text-white pixel-art"
                   onClick={() => onDelete(img.id)}
                   disabled={isDeleting}
                 >
@@ -142,17 +151,17 @@ export default function UploadArea({
       <div className="mt-6 flex justify-between">
         <Button
           onClick={onCancel}
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full shadow-md transition-colors"
+          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 pixel-border shadow-none"
           disabled={isUploading || isDeleting}
         >
-          Cancel
+          <span className="pixel-art">Cancel</span>
         </Button>
         <Button
           onClick={onComplete}
-          className="bg-[#4CAF50] hover:bg-[#388E3C] text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors"
+          className="bg-[#26A269] hover:bg-[#1A7048] text-white font-bold py-2 px-4 pixel-border shadow-none"
           disabled={isUploading || isDeleting}
         >
-          Done
+          <span className="pixel-art">Done</span>
         </Button>
       </div>
     </motion.div>

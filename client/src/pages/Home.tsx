@@ -123,14 +123,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-green-50 font-[Nunito] text-gray-700">
+    <div className="min-h-screen bg-[#87CEEB] font-[Nunito] text-gray-800">
       <div className="container mx-auto px-4 max-w-md py-6 flex flex-col items-center">
         {/* Header */}
         <header className="w-full text-center mb-6">
-          <h1 className="font-['Bubblegum_Sans'] text-3xl md:text-4xl text-[#4CAF50] mb-2">
-            Froggy Friend
+          <h1 className="font-['Bubblegum_Sans'] text-3xl md:text-4xl text-[#26A269] mb-2 pixel-art">
+            Valeria's Froggy Friend
           </h1>
-          <p className="text-gray-600 text-sm md:text-base">
+          <p className="text-teal-800 text-sm md:text-base pixel-art">
             Tap the frog for a special surprise!
           </p>
         </header>
@@ -163,8 +163,8 @@ export default function Home() {
         />
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-sm text-gray-500">
-          <p>Made with ❤️ for my favorite person</p>
+        <footer className="mt-12 text-center text-sm text-teal-800 pixel-art">
+          <p>Made with ❤️ for my sweet Valeria</p>
         </footer>
       </div>
     </div>

@@ -30,9 +30,9 @@ export default function ContentDisplay({
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Image Container */}
+      {/* Image Container - Pixel Art Style */}
       <motion.div 
-        className="bg-white rounded-lg shadow-lg overflow-hidden transition-all"
+        className="bg-white pixel-border p-2 pixel-art overflow-hidden"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         animate={{ scale: [1, 1.02, 1] }}
@@ -49,36 +49,36 @@ export default function ContentDisplay({
         )}
       </motion.div>
 
-      {/* Message Card */}
+      {/* Message Card - Pixel Art Style*/}
       <motion.div
-        className="bg-[#FFB6C1] p-5 rounded-lg shadow-md"
+        className="bg-[#FFAEC9] p-4 pixel-border"
         animate={{ scale: [1, 1.02, 1] }}
         transition={{ duration: 1, delay: 0.2 }}
       >
         {isLoading || !message ? (
           <Skeleton className="w-full h-8" />
         ) : (
-          <p className="text-center font-['Bubblegum_Sans'] text-xl text-gray-700">
+          <p className="text-center font-['Bubblegum_Sans'] text-xl text-teal-900 pixel-art">
             {message.text}
           </p>
         )}
       </motion.div>
 
-      {/* Action Buttons */}
+      {/* Action Buttons - Pixel Art Style */}
       <div className="flex justify-center space-x-4">
         <Button 
           onClick={onShowAnother}
-          className="bg-[#4CAF50] hover:bg-[#388E3C] text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors"
+          className="bg-[#26A269] hover:bg-[#1A7048] text-white font-bold py-2 px-4 pixel-border shadow-none"
           disabled={isLoading}
         >
-          Show Another
+          <span className="pixel-art">Show Another</span>
         </Button>
         <Button
           onClick={onUploadToggle}
-          className="bg-[#FF69B4] hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors"
+          className="bg-[#FFAEC9] hover:bg-[#FF69B4] text-teal-900 font-bold py-2 px-4 pixel-border shadow-none"
           disabled={isLoading}
         >
-          Add Images
+          <span className="pixel-art">Add Images</span>
         </Button>
       </div>
     </motion.div>

@@ -9,5 +9,39 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
   }
+}
+
+/* Pixel Art Styling */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pixel-border {
+  box-shadow: 
+    -3px 0 0 0 #000,
+    3px 0 0 0 #000,
+    0 -3px 0 0 #000,
+    0 3px 0 0 #000;
+}
+
+/* Falling cherry blossoms animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.cherry-blossom {
+  position: fixed;
+  z-index: 1;
+  animation: fall linear forwards;
 }
