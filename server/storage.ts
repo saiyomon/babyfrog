@@ -28,28 +28,28 @@ export class MemStorage implements IStorage {
     this.imageId = 1;
     this.messageId = 1;
     
-    // Add default motivational messages for Valeria
+    // Add default motivational messages for Valeria with cute pet names
     const defaultMessages = [
-      "Valeria, your smile makes my world brighter! ❤️",
-      "My little dumpling, you make my heart hop with joy! 🐸",
-      "Being with you, Val, is my favorite place to be 💕",
-      "You're toad-ally amazing, amor! I ribbit you! 🐸",
-      "Every day with my baby feels like a sunny day! ☀️",
-      "Val, your laugh is my favorite sound in the world 🎵",
-      "You're my sunshine on cloudy days, dumpling ☁️",
-      "Just thinking about you, crybaby, makes me smile 😊",
-      "Amor, you make ordinary moments extraordinary ✨",
-      "I'm so lucky to have you in my life, Valeria 🍀",
-      "To my sweet Val, you're the most precious gift 💝",
-      "My little dumpling, you're perfect in every way 💖",
-      "Amor, I cherish every moment we spend together 💗",
-      "Valeria, you're the cutest thing in my world 🌸",
-      "Baby, your love fills my heart completely 💓",
-      "Crybaby, your tears are as precious as pearls 💧",
-      "Val, you're the melody that plays in my heart 🎵",
-      "My dumpling, I fall more in love with you every day 💘",
-      "To my amor, you light up even the darkest days ✨",
-      "Valeria, you're my favorite thought every night and day 💭"
+      "dumpling, ur the cutest bean in the world 🐸",
+      "my smol baby, you make my heart go boing! 💕",
+      "amor, ur smile is my sunshine & moonshine! ✨",
+      "val, u r the pixelated princess of my heart! 👑",
+      "crybaby, i love your tiny cheeks so much! 💖",
+      "dumpling, ur tummy is the best place 4 cuddles 🫂",
+      "baby, no frog could ever be as cute as u! 🐸💚",
+      "amor, let's have a picnic by the pond soon! 🧺",
+      "val, ur eyes sparkle brighter than pixel stars! ⭐",
+      "crybaby, pls never stop being so smol & cute 🥹",
+      "my dumpling is the most precious treasure! 💝",
+      "amor, i love ur tiny hands & feet so much! 👣",
+      "val, ur my player 2 in this game of life! 🎮",
+      "baby, i'd cross 1000 pixel ponds 4 u! 🏊‍♀️",
+      "crybaby, ur tears make the prettiest pearls 💧",
+      "smol dumpling, ur the queen of this safe zone! 👑",
+      "amor, let's craft our future together, block by block! 🏠",
+      "val, when u smile my heart does a lil hop! 🦘",
+      "baby, ur more precious than all the cherry blossoms! 🌸",
+      "dumpling, ur voice is my favorite game soundtrack! 🎵"
     ];
     
     defaultMessages.forEach((text) => {

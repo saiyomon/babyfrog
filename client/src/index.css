@@ -11,6 +11,7 @@
     @apply font-sans antialiased bg-background text-foreground;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
+    overflow-x: hidden;
   }
 }
 
@@ -18,30 +19,96 @@
 .pixel-art {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
 }
 
+/* Pixel Border */
 .pixel-border {
+  position: relative;
+  border: none;
   box-shadow: 
-    -3px 0 0 0 #000,
-    3px 0 0 0 #000,
-    0 -3px 0 0 #000,
-    0 3px 0 0 #000;
+    0 0 0 2px white,
+    0 0 0 4px #26A269,
+    4px 4px 0 0 rgba(0,0,0,0.2);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pixel-border::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+  pointer-events: none;
 }
 
 /* Falling cherry blossoms animation */
 @keyframes fall {
   0% {
     transform: translateY(-10vh) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateY(25vh) rotate(90deg) translateX(5px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) translateX(-5px);
     opacity: 1;
+  }
+  75% {
+    transform: translateY(75vh) rotate(270deg) translateX(5px);
+    opacity: 0.9;
   }
   100% {
     transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
+    opacity: 0.6;
   }
 }
 
 .cherry-blossom {
   position: fixed;
   z-index: 1;
+  top: -10px;
   animation: fall linear forwards;
+}
+
+.cherry-blossom::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 40%;
+  height: 40%;
+  background-color: #FFD1DC;
+}
+
+/* Custom Button Styles */
+button:active {
+  transform: translateY(2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5F5; 
+  border: 2px solid #26A269;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #26A269; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1A7048; 
 }
