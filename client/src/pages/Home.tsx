@@ -77,9 +77,9 @@ export default function Home() {
   });
 
   const handleFrogTap = () => {
-    // The frog tap should only show animations, not generate content
-    console.log("Frog tapped, showing animations only");
-    // No content generation here
+    // The frog tap now generates content
+    console.log("Frog tapped, generating content");
+    handleGenerateContent();
   };
   
   const handleGenerateContent = () => {
@@ -219,7 +219,7 @@ export default function Home() {
             </h1>
           </div>
           <p className="text-purple-800 text-xs md:text-sm font-pixel">
-            Click the 'i'm baby' button for a special surprise!
+            Click the froggy for a special surprise!
           </p>
         </header>
 

@@ -87,15 +87,7 @@ export default function ContentDisplay({
         )}
       </motion.div>
 
-      {/* "i'm baby" button added back */}
-      <div className="flex justify-center mt-8">
-        <Button
-          onClick={onGenerateContent}
-          className="pixel-border bg-pink-500 hover:bg-pink-600 text-white font-pixel py-2 px-6 rounded-none"
-        >
-          i'm baby
-        </Button>
-      </div>
+      {/* No buttons here anymore */}
     </motion.div>
   );
 }
