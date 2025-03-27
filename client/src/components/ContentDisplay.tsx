@@ -60,7 +60,7 @@ export default function ContentDisplay({
         {isLoading || !message ? (
           <Skeleton className="w-full h-24 mt-3" />
         ) : (
-          <div className="pokemon-textbox-content p-3 pt-4">
+          <div className="pokemon-textbox-content p-3 pt-8">
             {/* Left Heart */}
             <div className="absolute top-2 left-4">
               <div className="pokemon-yellow-heart"></div>
@@ -71,7 +71,7 @@ export default function ContentDisplay({
               <div className="pokemon-yellow-heart"></div>
             </div>
             
-            <p className="text-left font-pixel text-xs text-black pokemon-yellow-text pb-1">
+            <p className="text-left font-pixel text-xs text-black pokemon-yellow-text pb-1 mt-2">
               {message.text}
             </p>
             
@@ -88,23 +88,7 @@ export default function ContentDisplay({
         )}
       </motion.div>
 
-      {/* Action Buttons - Classic Pokemon Yellow Style */}
-      <div className="flex justify-center space-x-4 mt-4">
-        <Button 
-          onClick={onShowAnother}
-          className="pokemon-yellow-button pokemon-button-a shadow-none"
-          disabled={isLoading}
-        >
-          <span className="font-pixel text-sm text-black">Show Another</span>
-        </Button>
-        <Button
-          onClick={onUploadToggle}
-          className="pokemon-yellow-button pokemon-button-b shadow-none"
-          disabled={isLoading}
-        >
-          <span className="font-pixel text-sm text-black">Add Images</span>
-        </Button>
-      </div>
+      {/* No action buttons as per request - user will click the frog instead */}
     </motion.div>
   );
 }

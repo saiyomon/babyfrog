@@ -130,14 +130,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#87CEEB] font-[Nunito] text-gray-800">
       <div className="container mx-auto px-4 max-w-md py-6 flex flex-col items-center">
-        {/* Pokemon-Style Header */}
+        {/* Cute Pastel Header */}
         <header className="w-full text-center mb-6">
-          <div className="pokemon-header-container relative inline-block mb-3">
-            <h1 className="font-['Bubblegum_Sans'] text-3xl md:text-4xl pokemon-text mb-2 pixel-art">
+          <div className="pastel-header-container relative inline-block mb-3">
+            <h1 className="font-pixel text-3xl md:text-4xl mb-2 text-pink-700">
               Valeria's Froggy Friend
             </h1>
           </div>
-          <p className="text-teal-800 text-sm md:text-base pokemon-text">
+          <p className="text-purple-800 text-sm md:text-base font-pixel">
             Tap the frog for a special surprise!
           </p>
         </header>
@@ -167,10 +167,10 @@ export default function Home() {
           isDeleting={deleteImageMutation.isPending}
         />
 
-        {/* Pokemon-Style Footer */}
+        {/* Cute Pastel Footer */}
         <footer className="mt-12 text-center">
-          <div className="pokemon-footer inline-block">
-            <p className="pokemon-text text-sm">smol dumplings safe zone</p>
+          <div className="pastel-footer-container inline-block">
+            <p className="font-pixel text-sm text-pink-700">smol dumplings safe zone</p>
           </div>
         </footer>
       </div>

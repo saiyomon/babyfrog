@@ -479,3 +479,41 @@ button:active {
 ::-webkit-scrollbar-thumb:hover {
   background: #1A7048; 
 }
+
+/* Pastel Header and Footer Styles */
+.pastel-header-container {
+  position: relative;
+  padding: 8px 20px;
+  background: linear-gradient(to right, #ff80bf, #9580ff);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pastel-header-container::before,
+.pastel-header-container::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pastel-header-container::before {
+  left: 5px;
+}
+
+.pastel-header-container::after {
+  right: 5px;
+}
+
+.pastel-footer-container {
+  position: relative;
+  padding: 6px 15px;
+  background: linear-gradient(to right, #ff80bf, #9580ff);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
