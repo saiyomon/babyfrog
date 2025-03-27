@@ -164,7 +164,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="mt-12 text-center text-sm text-teal-800 pixel-art">
-          <p>Made with ❤️ for my sweet Valeria</p>
+          <p>smol dumplings safe zone</p>
         </footer>
       </div>
     </div>
