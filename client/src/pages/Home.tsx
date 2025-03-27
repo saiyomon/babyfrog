@@ -225,11 +225,11 @@ export default function Home() {
         {/* Frog Character - The button will generate content, not the frog itself */}
         <FrogCharacter onTap={handleFrogTap} />
         
-        {/* "I'm baby" Button - Direct in Home component with unique style */}
+        {/* "I'm baby" Button - Direct in Home component */}
         <div className="flex justify-center mt-4 mb-4">
-          <div className="im-baby-button-container">
+          <div className="pixel-button-container">
             <button 
-              className="im-baby-button" 
+              className="pixel-cute-button" 
               onClick={() => {
                 console.log("I'm baby button clicked directly from Home");
                 handleGenerateContent();
