@@ -82,12 +82,9 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
         />
       ))}
 
-      {/* Frog Character Container */}
+      {/* Frog Character Container - no longer clickable */}
       <motion.div 
-        className="relative mb-8 cursor-pointer"
-        onClick={onTap}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        className="relative mb-8"
         animate={isBouncing ? { y: [0, -3, -5, -3, 0] } : {}} 
         transition={isBouncing ? { 
           duration: 2.5, 

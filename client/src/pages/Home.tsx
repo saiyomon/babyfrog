@@ -2,6 +2,7 @@ import { useState } from "react";
 import FrogCharacter from "@/components/FrogCharacter";
 import ContentDisplay from "@/components/ContentDisplay";
 import UploadArea from "@/components/UploadArea";
+import { Button } from "@/components/ui/button";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -201,12 +202,22 @@ export default function Home() {
             </h1>
           </div>
           <p className="text-purple-800 text-xs md:text-sm font-pixel">
-            Tap the frog for a special surprise!
+            Click the button for a special surprise!
           </p>
         </header>
 
-        {/* Frog Character */}
-        <FrogCharacter onTap={handleFrogTap} />
+        {/* Frog Character - no longer clickable */}
+        <FrogCharacter onTap={() => {}} />
+        
+        {/* "I'm baby" button - This is the main button for generating content */}
+        <div className="mb-8">
+          <Button
+            onClick={handleFrogTap}
+            className="bg-[#FFD1DC] hover:bg-[#FF9CB4] text-black font-bold py-3 px-5 pixel-border shadow-none"
+          >
+            <span className="pixel-art text-sm">i'm baby</span>
+          </Button>
+        </div>
 
         {/* Content Display */}
         <ContentDisplay 
