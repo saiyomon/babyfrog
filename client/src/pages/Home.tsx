@@ -82,6 +82,7 @@ export default function Home() {
   };
   
   const handleGenerateContent = () => {
+    console.log("Generate content button clicked");
     // Make sure content area is visible
     setIsContentVisible(true);
     
@@ -94,6 +95,7 @@ export default function Home() {
     
     // Simulate loading/generation delay (1.5 seconds)
     setTimeout(() => {
+      console.log("Timeout fired, showing random content");
       // Show random content after delay
       showRandomContent();
       setIsGenerating(false);
@@ -101,20 +103,30 @@ export default function Home() {
   };
 
   const showRandomContent = () => {
+    console.log("showRandomContent called. Messages:", messages.length, "Images:", images.length);
+    
     // Always show a message even if there are no images
-    if (messages.length === 0) return;
+    if (messages.length === 0) {
+      console.log("No messages available");
+      return;
+    }
     
     // Get random image (if available)
     if (images.length > 0) {
       const randomImageIndex = Math.floor(Math.random() * images.length);
+      console.log("Setting random image index:", randomImageIndex);
       setCurrentImage(images[randomImageIndex]);
     } else {
+      console.log("No images available");
       setCurrentImage(null);
     }
     
     // Get random message
     const randomMessageIndex = Math.floor(Math.random() * messages.length);
+    console.log("Setting random message index:", randomMessageIndex);
     setCurrentMessage(messages[randomMessageIndex]);
+    
+    console.log("Content generated successfully");
   };
 
   const handleShowAnother = () => {
