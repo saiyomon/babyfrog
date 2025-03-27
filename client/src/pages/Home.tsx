@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FrogCharacter from "@/components/FrogCharacter";
 import ContentDisplay from "@/components/ContentDisplay";
 import UploadArea from "@/components/UploadArea";
@@ -224,8 +224,23 @@ export default function Home() {
 
         {/* Frog Character - The button will generate content, not the frog itself */}
         <FrogCharacter onTap={handleFrogTap} />
+        
+        {/* "I'm baby" Button - Direct in Home component */}
+        <div className="flex justify-center mt-4 mb-4">
+          <div className="pixel-button-container">
+            <button 
+              className="pixel-cute-button" 
+              onClick={() => {
+                console.log("I'm baby button clicked directly from Home");
+                handleGenerateContent();
+              }}
+            >
+              <span className="font-pixel text-sm text-black">i'm baby</span>
+            </button>
+          </div>
+        </div>
 
-        {/* Content Display */}
+        {/* Content Display - No button in this component */}
         <ContentDisplay 
           isVisible={isContentVisible}
           image={currentImage}

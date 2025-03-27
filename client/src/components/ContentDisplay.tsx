@@ -91,22 +91,7 @@ export default function ContentDisplay({
         )}
       </motion.div>
 
-      {/* "I'm baby" Button - No other buttons */}
-      <div className="flex justify-center mt-5">
-        <div className="pixel-button-container">
-          <button 
-            className="pixel-cute-button" 
-            onClick={() => {
-              console.log("I'm baby button clicked");
-              if (onGenerateContent) {
-                onGenerateContent();
-              }
-            }}
-          >
-            <span className="font-pixel text-sm text-black">i'm baby</span>
-          </button>
-        </div>
-      </div>
+      {/* No buttons here anymore */}
     </motion.div>
   );
 }
