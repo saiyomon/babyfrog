@@ -116,16 +116,16 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
           times: [0, 0.25, 0.5, 0.75, 1]
         } : {}}
       >
-        {/* Shy emojis that appear when frog is clicked */}
+        {/* Shy emojis that appear when frog is clicked - positioned under frog's mouth */}
         {showEmojis && (
           <motion.div 
-            className="absolute top-10 right-12 z-10"
+            className="absolute top-[43%] left-1/2 transform -translate-x-1/2 z-10"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <span className="text-3xl" role="img" aria-label="shy">👉🏻👈🏻</span>
+            <span className="text-2xl" role="img" aria-label="shy">👉🏻👈🏻</span>
           </motion.div>
         )}
         
@@ -134,10 +134,7 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
           viewBox="0 0 64 64" 
           xmlns="http://www.w3.org/2000/svg" 
           shapeRendering="crispEdges"
-          onClick={() => {
-            handleFrogClick();
-            onTap(); // Still call the original handler for the content generation
-          }}>
+          onClick={handleFrogClick}>
           
 
           
