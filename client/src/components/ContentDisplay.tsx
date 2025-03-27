@@ -11,7 +11,6 @@ interface ContentDisplayProps {
   onShowAnother: () => void;
   onUploadToggle: () => void;
   isLoading: boolean;
-  onGenerateContent?: () => void; // Made optional since we moved the button
 }
 
 export default function ContentDisplay({
@@ -20,8 +19,7 @@ export default function ContentDisplay({
   message,
   onShowAnother,
   onUploadToggle,
-  isLoading,
-  onGenerateContent
+  isLoading
 }: ContentDisplayProps) {
   if (!isVisible) return null;
 

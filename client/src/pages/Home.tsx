@@ -9,11 +9,14 @@ import { useToast } from "@/hooks/use-toast";
 import type { Image, Message } from "@shared/schema";
 
 export default function Home() {
+  // Show content area but don't show loading initially
   const [isContentVisible, setIsContentVisible] = useState(true);
   const [isUploadAreaVisible, setIsUploadAreaVisible] = useState(false);
   const [currentImage, setCurrentImage] = useState<Image | null>(null);
   const [currentMessage, setCurrentMessage] = useState<Message | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  // Control whether to show loading animations
+  const [showLoadingAnimations, setShowLoadingAnimations] = useState(false);
   const { toast } = useToast();
 
   // Fetch images with pagination
@@ -84,8 +87,9 @@ export default function Home() {
       setIsContentVisible(true);
     }
     
-    // Set loading state
+    // Set loading state and show loading animations
     setIsGenerating(true);
+    setShowLoadingAnimations(true);
     
     // Reset current content
     setCurrentImage(null);
@@ -117,8 +121,9 @@ export default function Home() {
   };
 
   const handleShowAnother = () => {
-    // Set loading state
+    // Set loading state and show loading animations
     setIsGenerating(true);
+    setShowLoadingAnimations(true);
     
     // Reset current content
     setCurrentImage(null);
@@ -207,7 +212,10 @@ export default function Home() {
         </header>
 
         {/* Frog Character - Just for animations, doesn't generate content */}
-        <FrogCharacter onTap={() => {}} />
+        <FrogCharacter onTap={() => {
+          // The frog shouldn't generate content, it just does visual effects when clicked
+          // The handleFrogClick method in FrogCharacter.tsx handles this internally
+        }} />
 
         {/* Content Display */}
         <ContentDisplay 
@@ -216,8 +224,7 @@ export default function Home() {
           message={currentMessage}
           onShowAnother={handleShowAnother}
           onUploadToggle={handleToggleUploadArea}
-          isLoading={isLoadingImages || isLoadingMessages || isGenerating}
-          onGenerateContent={handleFrogTap}
+          isLoading={(isLoadingImages || isLoadingMessages || isGenerating) && showLoadingAnimations}
         />
         
         {/* "I'm baby" Button - Below Content */}
