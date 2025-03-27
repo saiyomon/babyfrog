@@ -483,10 +483,10 @@ button:active {
 /* Pastel Header and Footer Styles */
 .pastel-header-container {
   position: relative;
-  padding: 8px 20px;
+  padding: 5px 15px;
   background: linear-gradient(to right, #ff80bf, #9580ff);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
 .pastel-header-container::before,

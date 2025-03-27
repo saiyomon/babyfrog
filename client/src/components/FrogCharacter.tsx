@@ -107,43 +107,75 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             {/* Sky row 21-30 */}
             <rect x="0" y="20" width="64" height="10" fill="#99DDFF" />
             
-            {/* Sun - pixel by pixel */}
-            <rect x="8" y="6" width="1" height="1" fill="#FFDD00" />
-            <rect x="9" y="6" width="1" height="1" fill="#FFDD00" />
-            <rect x="10" y="6" width="1" height="1" fill="#FFDD00" />
-            <rect x="11" y="6" width="1" height="1" fill="#FFDD00" />
+            {/* Sun - improved pixel by pixel with more detail */}
+            <rect x="7" y="5" width="1" height="1" fill="#FFEE55" />
+            <rect x="8" y="5" width="1" height="1" fill="#FFEE55" />
+            <rect x="9" y="5" width="1" height="1" fill="#FFEE55" />
+            <rect x="10" y="5" width="1" height="1" fill="#FFEE55" />
+            <rect x="11" y="5" width="1" height="1" fill="#FFEE55" />
+            <rect x="12" y="5" width="1" height="1" fill="#FFEE55" />
             
-            <rect x="7" y="7" width="1" height="1" fill="#FFDD00" />
-            <rect x="8" y="7" width="1" height="1" fill="#FFEE00" />
-            <rect x="9" y="7" width="1" height="1" fill="#FFEE00" />
-            <rect x="10" y="7" width="1" height="1" fill="#FFEE00" />
-            <rect x="11" y="7" width="1" height="1" fill="#FFEE00" />
-            <rect x="12" y="7" width="1" height="1" fill="#FFDD00" />
+            <rect x="6" y="6" width="1" height="1" fill="#FFEE55" />
+            <rect x="7" y="6" width="1" height="1" fill="#FFEE00" />
+            <rect x="8" y="6" width="1" height="1" fill="#FFFF00" />
+            <rect x="9" y="6" width="1" height="1" fill="#FFFF33" />
+            <rect x="10" y="6" width="1" height="1" fill="#FFFF33" />
+            <rect x="11" y="6" width="1" height="1" fill="#FFFF00" />
+            <rect x="12" y="6" width="1" height="1" fill="#FFEE00" />
+            <rect x="13" y="6" width="1" height="1" fill="#FFEE55" />
             
-            <rect x="7" y="8" width="1" height="1" fill="#FFDD00" />
-            <rect x="8" y="8" width="1" height="1" fill="#FFEE00" />
-            <rect x="9" y="8" width="1" height="1" fill="#FFFF00" />
-            <rect x="10" y="8" width="1" height="1" fill="#FFFF00" />
-            <rect x="11" y="8" width="1" height="1" fill="#FFEE00" />
-            <rect x="12" y="8" width="1" height="1" fill="#FFDD00" />
+            <rect x="6" y="7" width="1" height="1" fill="#FFEE55" />
+            <rect x="7" y="7" width="1" height="1" fill="#FFFF00" />
+            <rect x="8" y="7" width="1" height="1" fill="#FFFF33" />
+            <rect x="9" y="7" width="1" height="1" fill="#FFFFAA" />
+            <rect x="10" y="7" width="1" height="1" fill="#FFFFAA" />
+            <rect x="11" y="7" width="1" height="1" fill="#FFFF33" />
+            <rect x="12" y="7" width="1" height="1" fill="#FFFF00" />
+            <rect x="13" y="7" width="1" height="1" fill="#FFEE55" />
             
-            <rect x="7" y="9" width="1" height="1" fill="#FFDD00" />
-            <rect x="8" y="9" width="1" height="1" fill="#FFEE00" />
-            <rect x="9" y="9" width="1" height="1" fill="#FFFF00" />
-            <rect x="10" y="9" width="1" height="1" fill="#FFFF00" />
-            <rect x="11" y="9" width="1" height="1" fill="#FFEE00" />
-            <rect x="12" y="9" width="1" height="1" fill="#FFDD00" />
+            <rect x="6" y="8" width="1" height="1" fill="#FFEE55" />
+            <rect x="7" y="8" width="1" height="1" fill="#FFFF00" />
+            <rect x="8" y="8" width="1" height="1" fill="#FFFF33" />
+            <rect x="9" y="8" width="1" height="1" fill="#FFFFAA" />
+            <rect x="10" y="8" width="1" height="1" fill="#FFFFFF" />
+            <rect x="11" y="8" width="1" height="1" fill="#FFFF33" />
+            <rect x="12" y="8" width="1" height="1" fill="#FFFF00" />
+            <rect x="13" y="8" width="1" height="1" fill="#FFEE55" />
             
-            <rect x="8" y="10" width="1" height="1" fill="#FFDD00" />
-            <rect x="9" y="10" width="1" height="1" fill="#FFDD00" />
-            <rect x="10" y="10" width="1" height="1" fill="#FFDD00" />
-            <rect x="11" y="10" width="1" height="1" fill="#FFDD00" />
+            <rect x="6" y="9" width="1" height="1" fill="#FFEE55" />
+            <rect x="7" y="9" width="1" height="1" fill="#FFFF00" />
+            <rect x="8" y="9" width="1" height="1" fill="#FFFF33" />
+            <rect x="9" y="9" width="1" height="1" fill="#FFFFAA" />
+            <rect x="10" y="9" width="1" height="1" fill="#FFFFAA" />
+            <rect x="11" y="9" width="1" height="1" fill="#FFFF33" />
+            <rect x="12" y="9" width="1" height="1" fill="#FFFF00" />
+            <rect x="13" y="9" width="1" height="1" fill="#FFEE55" />
             
-            {/* Sun rays */}
-            <rect x="10" y="3" width="1" height="3" fill="#FFDD00" />
-            <rect x="10" y="11" width="1" height="3" fill="#FFDD00" />
-            <rect x="4" y="8" width="3" height="1" fill="#FFDD00" />
-            <rect x="13" y="8" width="3" height="1" fill="#FFDD00" />
+            <rect x="6" y="10" width="1" height="1" fill="#FFEE55" />
+            <rect x="7" y="10" width="1" height="1" fill="#FFEE00" />
+            <rect x="8" y="10" width="1" height="1" fill="#FFFF00" />
+            <rect x="9" y="10" width="1" height="1" fill="#FFFF33" />
+            <rect x="10" y="10" width="1" height="1" fill="#FFFF33" />
+            <rect x="11" y="10" width="1" height="1" fill="#FFFF00" />
+            <rect x="12" y="10" width="1" height="1" fill="#FFEE00" />
+            <rect x="13" y="10" width="1" height="1" fill="#FFEE55" />
+            
+            <rect x="7" y="11" width="1" height="1" fill="#FFEE55" />
+            <rect x="8" y="11" width="1" height="1" fill="#FFEE55" />
+            <rect x="9" y="11" width="1" height="1" fill="#FFEE55" />
+            <rect x="10" y="11" width="1" height="1" fill="#FFEE55" />
+            <rect x="11" y="11" width="1" height="1" fill="#FFEE55" />
+            <rect x="12" y="11" width="1" height="1" fill="#FFEE55" />
+            
+            {/* Sun rays - enhanced */}
+            <rect x="10" y="2" width="1" height="3" fill="#FFEE55" />
+            <rect x="10" y="12" width="1" height="2" fill="#FFEE55" />
+            <rect x="3" y="8" width="3" height="1" fill="#FFEE55" />
+            <rect x="14" y="8" width="3" height="1" fill="#FFEE55" />
+            <rect x="5" y="5" width="1" height="1" fill="#FFEE55" />
+            <rect x="14" y="5" width="1" height="1" fill="#FFEE55" />
+            <rect x="5" y="11" width="1" height="1" fill="#FFEE55" />
+            <rect x="14" y="11" width="1" height="1" fill="#FFEE55" />
             
             {/* Pixel Art Clouds */}
             {/* Cloud 1 */}
@@ -346,8 +378,8 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             <rect x="55" y="24" width="1" height="1" fill="#007700" />
             <rect x="56" y="24" width="1" height="1" fill="#006600" />
             
-            {/* Shrine - Pixel by Pixel */}
-            {/* Roof */}
+            {/* Shrine - Pixel by Pixel - Enhanced with more details */}
+            {/* Roof Top Ridge */}
             <rect x="22" y="19" width="1" height="1" fill="#773300" />
             <rect x="23" y="19" width="1" height="1" fill="#884400" />
             <rect x="24" y="19" width="1" height="1" fill="#884400" />
@@ -472,42 +504,155 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             <rect x="58" y="41" width="1" height="1" fill="#77AA44" />
             <rect x="62" y="41" width="1" height="1" fill="#77AA44" />
             
-            {/* Pond in the bottom right */}
-            <rect x="42" y="43" width="1" height="1" fill="#3377AA" />
-            <rect x="43" y="43" width="1" height="1" fill="#3377AA" />
-            <rect x="44" y="43" width="1" height="1" fill="#3377AA" />
-            <rect x="45" y="43" width="1" height="1" fill="#3377AA" />
-            <rect x="46" y="43" width="1" height="1" fill="#3377AA" />
+            {/* Larger Pond with more detail */}
+            <rect x="36" y="42" width="1" height="1" fill="#2266AA" />
+            <rect x="37" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="38" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="39" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="40" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="41" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="42" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="43" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="44" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="45" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="46" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="47" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="48" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="49" y="42" width="1" height="1" fill="#3377AA" />
+            <rect x="50" y="42" width="1" height="1" fill="#2266AA" />
             
-            <rect x="41" y="44" width="1" height="1" fill="#3377AA" />
-            <rect x="42" y="44" width="1" height="1" fill="#4488BB" />
-            <rect x="43" y="44" width="1" height="1" fill="#4488BB" />
-            <rect x="44" y="44" width="1" height="1" fill="#4488BB" />
-            <rect x="45" y="44" width="1" height="1" fill="#4488BB" />
-            <rect x="46" y="44" width="1" height="1" fill="#4488BB" />
-            <rect x="47" y="44" width="1" height="1" fill="#3377AA" />
+            <rect x="35" y="43" width="1" height="1" fill="#2266AA" />
+            <rect x="36" y="43" width="1" height="1" fill="#3377AA" />
+            <rect x="37" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="38" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="39" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="40" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="41" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="42" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="43" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="44" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="45" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="46" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="47" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="48" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="49" y="43" width="1" height="1" fill="#4488BB" />
+            <rect x="50" y="43" width="1" height="1" fill="#3377AA" />
+            <rect x="51" y="43" width="1" height="1" fill="#2266AA" />
             
-            <rect x="40" y="45" width="1" height="1" fill="#3377AA" />
-            <rect x="41" y="45" width="1" height="1" fill="#4488BB" />
-            <rect x="42" y="45" width="1" height="1" fill="#55AADD" />
-            <rect x="43" y="45" width="1" height="1" fill="#55AADD" />
-            <rect x="44" y="45" width="1" height="1" fill="#55AADD" />
-            <rect x="45" y="45" width="1" height="1" fill="#55AADD" />
-            <rect x="46" y="45" width="1" height="1" fill="#55AADD" />
-            <rect x="47" y="45" width="1" height="1" fill="#4488BB" />
-            <rect x="48" y="45" width="1" height="1" fill="#3377AA" />
+            <rect x="34" y="44" width="1" height="1" fill="#2266AA" />
+            <rect x="35" y="44" width="1" height="1" fill="#3377AA" />
+            <rect x="36" y="44" width="1" height="1" fill="#4488BB" />
+            <rect x="37" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="38" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="39" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="40" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="41" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="42" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="43" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="44" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="45" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="46" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="47" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="48" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="49" y="44" width="1" height="1" fill="#55AADD" />
+            <rect x="50" y="44" width="1" height="1" fill="#4488BB" />
+            <rect x="51" y="44" width="1" height="1" fill="#3377AA" />
+            <rect x="52" y="44" width="1" height="1" fill="#2266AA" />
             
-            <rect x="41" y="46" width="1" height="1" fill="#3377AA" />
-            <rect x="42" y="46" width="1" height="1" fill="#4488BB" />
-            <rect x="43" y="46" width="1" height="1" fill="#4488BB" />
-            <rect x="44" y="46" width="1" height="1" fill="#4488BB" />
-            <rect x="45" y="46" width="1" height="1" fill="#4488BB" />
-            <rect x="46" y="46" width="1" height="1" fill="#4488BB" />
-            <rect x="47" y="46" width="1" height="1" fill="#3377AA" />
+            <rect x="33" y="45" width="1" height="1" fill="#2266AA" />
+            <rect x="34" y="45" width="1" height="1" fill="#3377AA" />
+            <rect x="35" y="45" width="1" height="1" fill="#4488BB" />
+            <rect x="36" y="45" width="1" height="1" fill="#55AADD" />
+            <rect x="37" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="38" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="39" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="40" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="41" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="42" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="43" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="44" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="45" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="46" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="47" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="48" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="49" y="45" width="1" height="1" fill="#66CCFF" />
+            <rect x="50" y="45" width="1" height="1" fill="#55AADD" />
+            <rect x="51" y="45" width="1" height="1" fill="#4488BB" />
+            <rect x="52" y="45" width="1" height="1" fill="#3377AA" />
+            <rect x="53" y="45" width="1" height="1" fill="#2266AA" />
             
-            {/* Lily pad */}
-            <rect x="43" y="45" width="1" height="1" fill="#009900" />
-            <rect x="44" y="45" width="1" height="1" fill="#00AA00" />
+            <rect x="33" y="46" width="1" height="1" fill="#2266AA" />
+            <rect x="34" y="46" width="1" height="1" fill="#3377AA" />
+            <rect x="35" y="46" width="1" height="1" fill="#4488BB" />
+            <rect x="36" y="46" width="1" height="1" fill="#55AADD" />
+            <rect x="37" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="38" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="39" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="40" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="41" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="42" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="43" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="44" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="45" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="46" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="47" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="48" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="49" y="46" width="1" height="1" fill="#66CCFF" />
+            <rect x="50" y="46" width="1" height="1" fill="#55AADD" />
+            <rect x="51" y="46" width="1" height="1" fill="#4488BB" />
+            <rect x="52" y="46" width="1" height="1" fill="#3377AA" />
+            <rect x="53" y="46" width="1" height="1" fill="#2266AA" />
+            
+            <rect x="34" y="47" width="1" height="1" fill="#2266AA" />
+            <rect x="35" y="47" width="1" height="1" fill="#3377AA" />
+            <rect x="36" y="47" width="1" height="1" fill="#4488BB" />
+            <rect x="37" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="38" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="39" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="40" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="41" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="42" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="43" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="44" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="45" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="46" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="47" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="48" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="49" y="47" width="1" height="1" fill="#55AADD" />
+            <rect x="50" y="47" width="1" height="1" fill="#4488BB" />
+            <rect x="51" y="47" width="1" height="1" fill="#3377AA" />
+            <rect x="52" y="47" width="1" height="1" fill="#2266AA" />
+            
+            <rect x="35" y="48" width="1" height="1" fill="#2266AA" />
+            <rect x="36" y="48" width="1" height="1" fill="#3377AA" />
+            <rect x="37" y="48" width="1" height="1" fill="#3377AA" />
+            <rect x="38" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="39" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="40" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="41" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="42" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="43" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="44" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="45" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="46" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="47" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="48" y="48" width="1" height="1" fill="#4488BB" />
+            <rect x="49" y="48" width="1" height="1" fill="#3377AA" />
+            <rect x="50" y="48" width="1" height="1" fill="#3377AA" />
+            <rect x="51" y="48" width="1" height="1" fill="#2266AA" />
+            
+            {/* Lily pads */}
+            <rect x="38" y="44" width="1" height="1" fill="#009900" />
+            <rect x="39" y="44" width="1" height="1" fill="#00AA00" />
+            <rect x="40" y="44" width="1" height="1" fill="#00BB00" />
+            <rect x="41" y="44" width="1" height="1" fill="#00AA00" />
+            <rect x="42" y="44" width="1" height="1" fill="#009900" />
+            
+            <rect x="44" y="46" width="1" height="1" fill="#009900" />
+            <rect x="45" y="46" width="1" height="1" fill="#00AA00" />
+            <rect x="46" y="46" width="1" height="1" fill="#00BB00" />
+            <rect x="47" y="46" width="1" height="1" fill="#00AA00" />
+            <rect x="48" y="46" width="1" height="1" fill="#009900" />
             
             {/* True Pixel Art Frog Character */}
             {/* Each pixel is represented by a 1x1 square with sharp edges */}
@@ -613,18 +758,18 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             <rect x="38" y="40" width="1" height="1" fill="#00BB00" />
             <rect x="39" y="40" width="1" height="1" fill="#00AA00" />
             
-            {/* Row 7 - Mouth starts */}
+            {/* Row 7 - Happy smiling Mouth */}
             <rect x="24" y="41" width="1" height="1" fill="#00AA00" />
             <rect x="25" y="41" width="1" height="1" fill="#00BB00" />
             <rect x="26" y="41" width="1" height="1" fill="#00CC00" />
             <rect x="27" y="41" width="1" height="1" fill="#00DD00" />
             <rect x="28" y="41" width="1" height="1" fill="#00DD00" />
             <rect x="29" y="41" width="1" height="1" fill="#00DD00" />
-            <rect x="30" y="41" width="1" height="1" fill="#00DD00" />
-            <rect x="31" y="41" width="1" height="1" fill="#FF9999" />
-            <rect x="32" y="41" width="1" height="1" fill="#FF9999" />
-            <rect x="33" y="41" width="1" height="1" fill="#FF9999" />
-            <rect x="34" y="41" width="1" height="1" fill="#00DD00" />
+            <rect x="30" y="40" width="1" height="1" fill="#FF9999" />
+            <rect x="31" y="40" width="1" height="1" fill="#FF5555" />
+            <rect x="32" y="40" width="1" height="1" fill="#FF5555" />
+            <rect x="33" y="40" width="1" height="1" fill="#FF5555" />
+            <rect x="34" y="40" width="1" height="1" fill="#FF9999" />
             <rect x="35" y="41" width="1" height="1" fill="#00DD00" />
             <rect x="36" y="41" width="1" height="1" fill="#00DD00" />
             <rect x="37" y="41" width="1" height="1" fill="#00CC00" />

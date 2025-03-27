@@ -81,7 +81,7 @@ export default function ContentDisplay({
             </p>
             
             {/* Bottom Arrow Indicator (classic Pokemon style) */}
-            <div className="absolute bottom-2 right-4">
+            <div className="absolute bottom-2 right-6">
               <div className="pokemon-arrow-indicator"></div>
             </div>
           </div>
