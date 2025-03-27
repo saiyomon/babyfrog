@@ -77,8 +77,9 @@ export default function Home() {
   });
 
   const handleFrogTap = () => {
-    // The frog tap now only shows animations via FrogCharacter component
-    // It doesn't generate content anymore
+    // The frog tap now generates content
+    console.log("Frog tapped, generating content");
+    handleGenerateContent();
   };
   
   const handleGenerateContent = () => {
@@ -218,27 +219,12 @@ export default function Home() {
             </h1>
           </div>
           <p className="text-purple-800 text-xs md:text-sm font-pixel">
-            Click the button for a special surprise!
+            Click the froggy for a special surprise!
           </p>
         </header>
 
-        {/* Frog Character - The button will generate content, not the frog itself */}
+        {/* Frog Character */}
         <FrogCharacter onTap={handleFrogTap} />
-        
-        {/* "I'm baby" Button - Direct in Home component */}
-        <div className="flex justify-center mt-4 mb-4">
-          <div className="pixel-button-container">
-            <button 
-              className="pixel-cute-button" 
-              onClick={() => {
-                console.log("I'm baby button clicked directly from Home");
-                handleGenerateContent();
-              }}
-            >
-              <span className="font-pixel text-sm text-black">i'm baby</span>
-            </button>
-          </div>
-        </div>
 
         {/* Content Display - No button in this component */}
         <ContentDisplay 
