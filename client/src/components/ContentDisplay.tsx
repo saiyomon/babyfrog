@@ -27,7 +27,7 @@ export default function ContentDisplay({
 
   return (
     <motion.div
-      className="w-full space-y-6"
+      className="w-full space-y-6 mb-8"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}

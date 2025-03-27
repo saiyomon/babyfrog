@@ -223,10 +223,7 @@ export default function Home() {
           </p>
         </header>
 
-        {/* Frog Character */}
-        <FrogCharacter onTap={handleFrogTap} />
-
-        {/* Content Display - No button in this component */}
+        {/* Content Display - Now positioned above the frog */}
         <ContentDisplay 
           isVisible={isContentVisible}
           image={currentImage}
@@ -236,6 +233,9 @@ export default function Home() {
           isLoading={isLoadingImages || isLoadingMessages || isGenerating}
           onGenerateContent={handleGenerateContent}
         />
+        
+        {/* Frog Character */}
+        <FrogCharacter onTap={handleFrogTap} />
 
         {/* Upload Area */}
         <UploadArea 

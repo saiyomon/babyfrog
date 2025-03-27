@@ -69,17 +69,24 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
   // Generate cherry blossoms
   useEffect(() => {
     const createBlossoms = () => {
-      const newBlossoms: CherryBlossom[] = [];
-      for (let i = 0; i < 20; i++) {
-        newBlossoms.push({
-          id: i,
-          size: Math.floor(Math.random() * 10) + 5,
-          left: `${Math.random() * 100}%`,
-          delay: Math.random() * 20,
-          duration: Math.random() * 10 + 10,
-        });
-      }
-      setCherryBlossoms(newBlossoms);
+      // Update the blossom ID counter first to ensure unique IDs
+      setBlossomIdCounter(prevId => {
+        const newBaseId = prevId + 20; // Reserve 20 new IDs
+        
+        const newBlossoms: CherryBlossom[] = [];
+        for (let i = 0; i < 20; i++) {
+          newBlossoms.push({
+            id: newBaseId + i, // Use new unique IDs
+            size: Math.floor(Math.random() * 10) + 5,
+            left: `${Math.random() * 100}%`,
+            delay: Math.random() * 20,
+            duration: Math.random() * 10 + 10,
+          });
+        }
+        setCherryBlossoms(newBlossoms);
+        
+        return newBaseId + 20; // Return the updated counter
+      });
     };
 
     createBlossoms();
