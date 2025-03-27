@@ -76,13 +76,13 @@ export default function Home() {
     },
   });
 
-  // This function now only handles visual effects for frog click, not content generation
+  // This function is only for visual effects when clicking the frog
   const handleFrogTap = () => {
-    // Frog tap is now only for visual effects, not content generation
-    // No logic here since FrogCharacter component handles the animation internally
+    // Frog tap only triggers visual effects, no content generation
+    // Animation handled in FrogCharacter component
   };
   
-  // Separate function for generating content that's triggered by the "I'm baby" button
+  // Function to generate content when clicking the "I'm baby" button
   const handleGenerateContent = () => {
     if (isUploadAreaVisible) return;
     
