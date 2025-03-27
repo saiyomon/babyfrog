@@ -80,6 +80,25 @@ export default function Home() {
     // The frog tap now only shows animations via FrogCharacter component
     // It doesn't generate content anymore
   };
+  
+  const handleGenerateContent = () => {
+    // Make sure content area is visible
+    setIsContentVisible(true);
+    
+    // Set loading state
+    setIsGenerating(true);
+    
+    // Reset current content
+    setCurrentImage(null);
+    setCurrentMessage(null);
+    
+    // Simulate loading/generation delay (1.5 seconds)
+    setTimeout(() => {
+      // Show random content after delay
+      showRandomContent();
+      setIsGenerating(false);
+    }, 1500);
+  };
 
   const showRandomContent = () => {
     // Always show a message even if there are no images
@@ -202,7 +221,7 @@ export default function Home() {
           onShowAnother={handleShowAnother}
           onUploadToggle={handleToggleUploadArea}
           isLoading={isLoadingImages || isLoadingMessages || isGenerating}
-          onGenerateContent={handleShowAnother}
+          onGenerateContent={handleGenerateContent}
         />
 
         {/* Upload Area */}
