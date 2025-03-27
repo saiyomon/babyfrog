@@ -77,26 +77,8 @@ export default function Home() {
   });
 
   const handleFrogTap = () => {
-    if (isUploadAreaVisible) return;
-    
-    // Show content area if not already visible
-    if (!isContentVisible) {
-      setIsContentVisible(true);
-    }
-    
-    // Set loading state
-    setIsGenerating(true);
-    
-    // Reset current content
-    setCurrentImage(null);
-    setCurrentMessage(null);
-    
-    // Simulate loading/generation delay (1.5 seconds)
-    setTimeout(() => {
-      // Show random content after delay
-      showRandomContent();
-      setIsGenerating(false);
-    }, 1500);
+    // The frog tap now only shows animations via FrogCharacter component
+    // It doesn't generate content anymore
   };
 
   const showRandomContent = () => {
@@ -117,6 +99,9 @@ export default function Home() {
   };
 
   const handleShowAnother = () => {
+    // Make sure content area is visible
+    setIsContentVisible(true);
+    
     // Set loading state
     setIsGenerating(true);
     
@@ -217,7 +202,7 @@ export default function Home() {
           onShowAnother={handleShowAnother}
           onUploadToggle={handleToggleUploadArea}
           isLoading={isLoadingImages || isLoadingMessages || isGenerating}
-          onGenerateContent={handleFrogTap}
+          onGenerateContent={handleShowAnother}
         />
 
         {/* Upload Area */}
