@@ -127,17 +127,41 @@ export default function Home() {
     deleteImageMutation.mutate(id);
   };
 
+  // Create cherry blossoms
+  const cherryBlossoms = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    size: Math.floor(Math.random() * 8) + 8, // 8-16px
+    left: `${Math.floor(Math.random() * 95)}%`,
+    delay: Math.random() * 5,
+    duration: Math.random() * 10 + 15 // 15-25s
+  }));
+  
   return (
-    <div className="min-h-screen bg-[#87CEEB] font-[Nunito] text-gray-800">
+    <div className="min-h-screen bg-[#87CEEB] font-[Nunito] text-gray-800 overflow-hidden relative">
+      {/* Cherry Blossoms */}
+      {cherryBlossoms.map(blossom => (
+        <div
+          key={`blossom-${blossom.id}`}
+          className="cherry-blossom"
+          style={{
+            width: `${blossom.size}px`,
+            height: `${blossom.size}px`,
+            left: blossom.left,
+            animationDuration: `${blossom.duration}s`,
+            animationDelay: `${blossom.delay}s`
+          }}
+        />
+      ))}
+    
       <div className="container mx-auto px-4 max-w-md py-6 flex flex-col items-center">
         {/* Cute Pastel Header */}
-        <header className="w-full text-center mb-6">
-          <div className="pastel-header-container relative inline-block mb-3">
-            <h1 className="font-pixel text-3xl md:text-4xl mb-2 text-pink-700">
+        <header className="w-full text-center mb-4">
+          <div className="pastel-header-container relative inline-block mb-2">
+            <h1 className="font-pixel text-2xl md:text-3xl mb-1 text-pink-700">
               Valeria's Froggy Friend
             </h1>
           </div>
-          <p className="text-purple-800 text-sm md:text-base font-pixel">
+          <p className="text-purple-800 text-xs md:text-sm font-pixel">
             Tap the frog for a special surprise!
           </p>
         </header>

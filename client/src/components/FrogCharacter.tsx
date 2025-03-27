@@ -217,33 +217,33 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             <rect x="58" y="26" width="2" height="1" fill="#228822" /> {/* Right shadow */}
             <rect x="54" y="20" width="2" height="1" fill="#55EE55" /> {/* Highlight */}
             
-            {/* Shrine - 8-Bit Blocky Style */}
+            {/* Shrine - 8-Bit Blocky Style - BIGGER */}
             {/* Roof Top - Simple triangular shape */}
-            <rect x="22" y="18" width="20" height="2" fill="#8B4513" /> {/* Roof base */}
-            <rect x="24" y="16" width="16" height="2" fill="#A0522D" /> {/* Roof middle */}
-            <rect x="27" y="14" width="10" height="2" fill="#CD853F" /> {/* Roof top */}
-            <rect x="30" y="12" width="4" height="2" fill="#DEB887" /> {/* Roof peak */}
+            <rect x="18" y="14" width="28" height="3" fill="#8B4513" /> {/* Roof base */}
+            <rect x="20" y="11" width="24" height="3" fill="#A0522D" /> {/* Roof middle */}
+            <rect x="24" y="8" width="16" height="3" fill="#CD853F" /> {/* Roof top */}
+            <rect x="28" y="5" width="8" height="3" fill="#DEB887" /> {/* Roof peak */}
             
             {/* Building - Simplified blocky structure */}
-            <rect x="25" y="20" width="14" height="12" fill="#D32F2F" /> {/* Main building block */}
-            <rect x="27" y="20" width="10" height="12" fill="#F44336" /> {/* Building highlight */}
+            <rect x="20" y="17" width="24" height="15" fill="#D32F2F" /> {/* Main building block */}
+            <rect x="23" y="17" width="18" height="15" fill="#F44336" /> {/* Building highlight */}
             
             {/* Decorative band */}
-            <rect x="25" y="23" width="14" height="2" fill="#FFD700" /> {/* Gold decoration band */}
-            <rect x="27" y="23" width="10" height="2" fill="#FFEB3B" /> {/* Band highlight */}
+            <rect x="20" y="21" width="24" height="3" fill="#FFD700" /> {/* Gold decoration band */}
+            <rect x="23" y="21" width="18" height="3" fill="#FFEB3B" /> {/* Band highlight */}
             
             {/* Door - Blocky style */}
-            <rect x="29" y="27" width="6" height="5" fill="#E8C170" /> {/* Door block */}
-            <rect x="30" y="27" width="4" height="5" fill="#F9E79F" /> {/* Door highlight */}
+            <rect x="26" y="25" width="12" height="7" fill="#E8C170" /> {/* Door block */}
+            <rect x="28" y="25" width="8" height="7" fill="#F9E79F" /> {/* Door highlight */}
             
             {/* Door Handles - Simple squares */}
-            <rect x="30" y="29" width="1" height="1" fill="#8B4513" /> {/* Left handle */}
-            <rect x="33" y="29" width="1" height="1" fill="#8B4513" /> {/* Right handle */}
+            <rect x="29" y="28" width="2" height="2" fill="#8B4513" /> {/* Left handle */}
+            <rect x="33" y="28" width="2" height="2" fill="#8B4513" /> {/* Right handle */}
             
             {/* Stairs - Blocky pyramid style */}
-            <rect x="27" y="32" width="10" height="1" fill="#BDC3C7" /> {/* Top stair */}
-            <rect x="26" y="33" width="12" height="1" fill="#D0D3D4" /> {/* Middle stair */}
-            <rect x="25" y="34" width="14" height="1" fill="#E5E7E9" /> {/* Bottom stair */}
+            <rect x="25" y="32" width="14" height="2" fill="#BDC3C7" /> {/* Top stair */}
+            <rect x="23" y="34" width="18" height="2" fill="#D0D3D4" /> {/* Middle stair */}
+            <rect x="21" y="36" width="22" height="2" fill="#E5E7E9" /> {/* Bottom stair */}
             
             {/* Ground - Grass - 8-bit style with distinct layers */}
             <rect x="0" y="42" width="64" height="2" fill="#7EC850" /> {/* Top grass layer - bright */}
@@ -385,11 +385,11 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             <rect x="37" y="39" width="1" height="1" fill="#00BB00" />
             <rect x="38" y="39" width="1" height="1" fill="#00AA00" />
             
-            {/* Row 6 */}
+            {/* Row 6 - Happier, smiling frog */}
             <rect x="24" y="40" width="1" height="1" fill="#00AA00" />
             <rect x="25" y="40" width="1" height="1" fill="#00BB00" />
             <rect x="26" y="40" width="1" height="1" fill="#00CC00" />
-            <rect x="27" y="40" width="1" height="1" fill="#FF9999" />
+            <rect x="27" y="40" width="1" height="1" fill="#00DD00" />
             <rect x="28" y="40" width="1" height="1" fill="#00DD00" />
             <rect x="29" y="40" width="1" height="1" fill="#00DD00" />
             <rect x="30" y="40" width="1" height="1" fill="#00DD00" />
@@ -398,25 +398,25 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             <rect x="33" y="40" width="1" height="1" fill="#00DD00" />
             <rect x="34" y="40" width="1" height="1" fill="#00DD00" />
             <rect x="35" y="40" width="1" height="1" fill="#00DD00" />
-            <rect x="36" y="40" width="1" height="1" fill="#FF9999" />
+            <rect x="36" y="40" width="1" height="1" fill="#00DD00" />
             <rect x="37" y="40" width="1" height="1" fill="#00CC00" />
             <rect x="38" y="40" width="1" height="1" fill="#00BB00" />
             <rect x="39" y="40" width="1" height="1" fill="#00AA00" />
             
-            {/* Row 7 - Happy smiling Mouth */}
+            {/* Row 7 - Big Happy Smiling Mouth */}
             <rect x="24" y="41" width="1" height="1" fill="#00AA00" />
             <rect x="25" y="41" width="1" height="1" fill="#00BB00" />
             <rect x="26" y="41" width="1" height="1" fill="#00CC00" />
             <rect x="27" y="41" width="1" height="1" fill="#00DD00" />
-            <rect x="28" y="41" width="1" height="1" fill="#00DD00" />
-            <rect x="29" y="41" width="1" height="1" fill="#00DD00" />
-            <rect x="30" y="40" width="1" height="1" fill="#FF9999" />
-            <rect x="31" y="40" width="1" height="1" fill="#FF5555" />
-            <rect x="32" y="40" width="1" height="1" fill="#FF5555" />
-            <rect x="33" y="40" width="1" height="1" fill="#FF5555" />
-            <rect x="34" y="40" width="1" height="1" fill="#FF9999" />
-            <rect x="35" y="41" width="1" height="1" fill="#00DD00" />
-            <rect x="36" y="41" width="1" height="1" fill="#00DD00" />
+            <rect x="28" y="41" width="1" height="1" fill="#FF9999" />
+            <rect x="29" y="41" width="1" height="1" fill="#FF5555" />
+            <rect x="30" y="41" width="1" height="1" fill="#FF5555" />
+            <rect x="31" y="41" width="1" height="1" fill="#FF0000" />
+            <rect x="32" y="41" width="1" height="1" fill="#FF0000" />
+            <rect x="33" y="41" width="1" height="1" fill="#FF0000" />
+            <rect x="34" y="41" width="1" height="1" fill="#FF5555" />
+            <rect x="35" y="41" width="1" height="1" fill="#FF5555" />
+            <rect x="36" y="41" width="1" height="1" fill="#FF9999" />
             <rect x="37" y="41" width="1" height="1" fill="#00CC00" />
             <rect x="38" y="41" width="1" height="1" fill="#00BB00" />
             <rect x="39" y="41" width="1" height="1" fill="#00AA00" />

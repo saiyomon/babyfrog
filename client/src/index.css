@@ -88,19 +88,15 @@
 .cherry-blossom::before {
   content: '';
   position: absolute;
-  top: 30%;
-  left: 30%;
-  width: 40%;
-  height: 40%;
-  background-color: #FFD1DC;
-  clip-path: polygon(
-    0% 50%, 
-    25% 0%, 
-    75% 0%, 
-    100% 50%, 
-    75% 100%, 
-    25% 100%
-  ); /* Create a pixel-art petal shape */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFB6C1;
+  box-shadow: 0 0 0 1px #FFCCCB;
+  /* Make it square for 8-bit aesthetic */
+  clip-path: none;
+  image-rendering: pixelated;
 }
 
 /* Message Scroll Styling */
@@ -398,9 +394,9 @@ button:active {
 .pokemon-arrow-indicator {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 8px solid #000;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #000;
   animation: bounce 0.8s infinite;
 }
 
@@ -494,40 +490,44 @@ button:active {
   background: #1A7048; 
 }
 
-/* Pastel Header and Footer Styles */
+/* Pixel Art Header and Footer Styles */
 .pastel-header-container {
   position: relative;
   padding: 5px 15px;
-  background: linear-gradient(to right, #ff80bf, #9580ff);
-  border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  background-color: #ff80bf;
+  border: 2px solid #000;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow: 0 3px 0 #cc4099, 0 0 0 3px rgba(0,0,0,0.1);
 }
 
 .pastel-header-container::before,
 .pastel-header-container::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   top: 50%;
   transform: translateY(-50%);
   background-color: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid #000;
+  image-rendering: pixelated;
 }
 
 .pastel-header-container::before {
-  left: 5px;
+  left: 4px;
 }
 
 .pastel-header-container::after {
-  right: 5px;
+  right: 4px;
 }
 
 .pastel-footer-container {
   position: relative;
-  padding: 6px 15px;
-  background: linear-gradient(to right, #ff80bf, #9580ff);
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 5px 15px;
+  background-color: #ff80bf;
+  border: 2px solid #000;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow: 0 3px 0 #cc4099, 0 0 0 3px rgba(0,0,0,0.1);
 }
