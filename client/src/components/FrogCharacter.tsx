@@ -93,16 +93,34 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
           <rect x="12" y="7" width="1" height="2" fill="#FFFF55" />
           <rect x="7" y="12" width="2" height="1" fill="#FFFF55" />
           
-          {/* Shrine in Background */}
-          <rect x="18" y="10" width="12" height="14" fill="#D32F2F" />
-          <rect x="16" y="8" width="16" height="3" fill="#B71C1C" />
-          <rect x="14" y="6" width="20" height="2" fill="#C62828" />
-          <rect x="20" y="18" width="8" height="6" fill="#FAFAFA" />
-          <rect x="22" y="18" width="4" height="6" fill="#EEEEEE" />
-          <rect x="20" y="16" width="8" height="2" fill="#BDBDBD" />
-          <rect x="21" y="24" width="6" height="1" fill="#8B4513" />
-          <rect x="16" y="24" width="2" height="5" fill="#8B4513" />
-          <rect x="30" y="24" width="2" height="5" fill="#8B4513" />
+          {/* Large Shrine in Background */}
+          <rect x="0" y="0" width="64" height="64" fill="#FFE9D2" />
+          
+          {/* Shrine Architecture */}
+          <rect x="10" y="2" width="44" height="30" fill="#D32F2F" />
+          <rect x="8" y="0" width="48" height="6" fill="#B71C1C" />
+          <rect x="14" y="6" width="36" height="4" fill="#C62828" />
+          <rect x="16" y="12" width="32" height="20" fill="#FAFAFA" />
+          <rect x="18" y="12" width="28" height="20" fill="#EEEEEE" />
+          <rect x="16" y="10" width="32" height="4" fill="#BDBDBD" />
+          
+          <rect x="6" y="32" width="4" height="20" fill="#8B4513" />
+          <rect x="54" y="32" width="4" height="20" fill="#8B4513" />
+          <rect x="10" y="32" width="44" height="2" fill="#8B4513" />
+          
+          {/* Shrine Door */}
+          <rect x="26" y="18" width="12" height="14" fill="#C62828" />
+          <rect x="28" y="20" width="8" height="12" fill="#8B4513" />
+          <rect x="30" y="20" width="4" height="12" fill="#6D3500" />
+          
+          {/* Shrine Decorative Elements */}
+          <rect x="20" y="8" width="6" height="2" fill="#FFD700" />
+          <rect x="38" y="8" width="6" height="2" fill="#FFD700" />
+          <rect x="14" y="36" width="36" height="2" fill="#FFD700" />
+          
+          {/* Windows */}
+          <rect x="20" y="14" width="4" height="6" fill="#87CEEB" />
+          <rect x="40" y="14" width="4" height="6" fill="#87CEEB" />
           
           {/* Clouds */}
           <rect x="32" y="6" width="16" height="4" fill="#FFFFFF" />

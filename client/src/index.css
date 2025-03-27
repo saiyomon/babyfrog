@@ -89,6 +89,82 @@
   background-color: #FFD1DC;
 }
 
+/* Message Scroll Styling */
+.message-scroll {
+  position: relative;
+  box-shadow: 
+    0 0 0 2px #D9A066,
+    0 0 0 4px #8B4513,
+    4px 4px 0 0 rgba(0,0,0,0.2);
+}
+
+/* Pixel Art Decorations */
+.pixel-heart {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+}
+
+.pixel-heart::before,
+.pixel-heart::after {
+  content: "";
+  width: 10px;
+  height: 16px;
+  position: absolute;
+  background-color: #FF6B81;
+  border-radius: 50px 50px 0 0;
+}
+
+.pixel-heart::before {
+  left: 0;
+  transform: rotate(-45deg);
+  transform-origin: 100% 100%;
+}
+
+.pixel-heart::after {
+  left: 10px;
+  transform: rotate(45deg);
+  transform-origin: 0% 100%;
+}
+
+.pixel-star {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  background-color: #FFD700;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.pixel-flower {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.pixel-flower::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #FF9EDF;
+  border-radius: 50%;
+}
+
+.pixel-flower::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 6px;
+  height: 6px;
+  background-color: #FFFF00;
+  border-radius: 50%;
+}
+
 /* Custom Button Styles */
 button:active {
   transform: translateY(2px);

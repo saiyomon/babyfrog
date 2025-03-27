@@ -80,11 +80,16 @@ export default function Home() {
   };
 
   const showRandomContent = () => {
-    if (images.length === 0 || messages.length === 0) return;
+    // Always show a message even if there are no images
+    if (messages.length === 0) return;
     
-    // Get random image
-    const randomImageIndex = Math.floor(Math.random() * images.length);
-    setCurrentImage(images[randomImageIndex]);
+    // Get random image (if available)
+    if (images.length > 0) {
+      const randomImageIndex = Math.floor(Math.random() * images.length);
+      setCurrentImage(images[randomImageIndex]);
+    } else {
+      setCurrentImage(null);
+    }
     
     // Get random message
     const randomMessageIndex = Math.floor(Math.random() * messages.length);
@@ -139,16 +144,14 @@ export default function Home() {
         <FrogCharacter onTap={handleFrogTap} />
 
         {/* Content Display */}
-        {images.length > 0 && (
-          <ContentDisplay 
-            isVisible={isContentVisible}
-            image={currentImage}
-            message={currentMessage}
-            onShowAnother={handleShowAnother}
-            onUploadToggle={handleToggleUploadArea}
-            isLoading={isLoadingImages || isLoadingMessages}
-          />
-        )}
+        <ContentDisplay 
+          isVisible={isContentVisible}
+          image={currentImage}
+          message={currentMessage}
+          onShowAnother={handleShowAnother}
+          onUploadToggle={handleToggleUploadArea}
+          isLoading={isLoadingImages || isLoadingMessages}
+        />
 
         {/* Upload Area */}
         <UploadArea 
