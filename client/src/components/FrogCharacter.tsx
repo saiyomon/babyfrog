@@ -527,11 +527,13 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             </motion.g>
           </motion.g>
         </svg>
-        {/* Pokemon Yellow Style Button */}
-        <div className="absolute bottom-[-20px] w-full flex justify-center">
-          <div className="pokemon-yellow-button-container">
-            <button className="pokemon-yellow-small-button">
+        {/* Cute Pixel Button with Heart */}
+        <div className="absolute bottom-[-18px] w-full flex justify-center">
+          <div className="pixel-button-container">
+            <button className="pixel-cute-button">
+              <span className="pokemon-yellow-heart mr-1 inline-block scale-75"></span>
               <span className="font-pixel text-sm text-black">i'm baby</span>
+              <span className="pokemon-yellow-heart ml-1 inline-block scale-75"></span>
             </button>
           </div>
         </div>

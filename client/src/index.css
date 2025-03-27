@@ -336,21 +336,24 @@ button:active {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
 
-/* Classic Pokemon Yellow Textbox */
+/* Classic Pokemon Yellow Textbox - Smaller and more refined */
 .pokemon-textbox {
   position: relative;
   width: 100%;
   background-color: #F0F0F0;
-  border: 3px solid #000000;
-  border-radius: 5px;
+  border: 2px solid #000000;
+  border-radius: 3px;
   box-shadow: 0px 2px 0px #666, inset 0px 2px 0px #FFF;
   overflow: visible;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .pokemon-textbox-content {
   background-color: #F0F0F0;
-  min-height: 100px;
+  min-height: 80px; /* Reduced height */
   position: relative;
+  font-size: 0.85rem;
 }
 
 /* Classic Pokemon Yellow Heart */
@@ -449,26 +452,38 @@ button:active {
   background-color: #43A047;
 }
 
-/* Pokemon Yellow Small Button */
-.pokemon-yellow-button-container {
+/* Cute Pixel Button */
+.pixel-button-container {
   position: relative;
   display: inline-block;
 }
 
-.pokemon-yellow-small-button {
-  padding: 4px 10px;
-  background-color: #4CAF50;
+.pixel-cute-button {
+  padding: 4px 12px;
+  background-color: #FFB7C5;
   border: 2px solid #000;
   border-radius: 0;
-  box-shadow: 0 3px 0 #2E7D32, 0 0 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.1);
   margin-bottom: 3px;
-  transition: all 0.1s;
+  transition: all 0.15s;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
-.pokemon-yellow-small-button:active {
+.pixel-cute-button:hover {
+  background-color: #FFC1CC;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+.pixel-cute-button:active {
   transform: translateY(3px);
-  box-shadow: 0 0 0 #2E7D32, 0 0 0 3px rgba(0,0,0,0.1);
+  background-color: #FF9AAC;
+  box-shadow: 0 0 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.1);
 }
 
 /* Custom Scrollbar */
