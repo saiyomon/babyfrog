@@ -153,7 +153,7 @@ export default function Home() {
         />
       ))}
     
-      <div className="container mx-auto px-4 max-w-md py-6 flex flex-col items-center">
+      <div className="w-full px-4 py-6 flex flex-col items-center">
         {/* Cute Pastel Header */}
         <header className="w-full text-center mb-4">
           <div className="pastel-header-container relative inline-block mb-2">

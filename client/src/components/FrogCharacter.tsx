@@ -217,33 +217,33 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             <rect x="58" y="26" width="2" height="1" fill="#228822" /> {/* Right shadow */}
             <rect x="54" y="20" width="2" height="1" fill="#55EE55" /> {/* Highlight */}
             
-            {/* Shrine - 8-Bit Blocky Style - BIGGER */}
+            {/* Shrine - 8-Bit Blocky Style - BIGGER and PROPERLY GROUNDED */}
             {/* Roof Top - Simple triangular shape */}
-            <rect x="18" y="14" width="28" height="3" fill="#8B4513" /> {/* Roof base */}
-            <rect x="20" y="11" width="24" height="3" fill="#A0522D" /> {/* Roof middle */}
-            <rect x="24" y="8" width="16" height="3" fill="#CD853F" /> {/* Roof top */}
-            <rect x="28" y="5" width="8" height="3" fill="#DEB887" /> {/* Roof peak */}
+            <rect x="16" y="19" width="32" height="3" fill="#8B4513" /> {/* Roof base - wider */}
+            <rect x="18" y="16" width="28" height="3" fill="#A0522D" /> {/* Roof middle */}
+            <rect x="22" y="13" width="20" height="3" fill="#CD853F" /> {/* Roof top */}
+            <rect x="27" y="10" width="10" height="3" fill="#DEB887" /> {/* Roof peak */}
             
-            {/* Building - Simplified blocky structure */}
-            <rect x="20" y="17" width="24" height="15" fill="#D32F2F" /> {/* Main building block */}
-            <rect x="23" y="17" width="18" height="15" fill="#F44336" /> {/* Building highlight */}
+            {/* Building - Simplified blocky structure - TALLER */}
+            <rect x="18" y="22" width="28" height="16" fill="#D32F2F" /> {/* Main building block */}
+            <rect x="22" y="22" width="20" height="16" fill="#F44336" /> {/* Building highlight */}
             
             {/* Decorative band */}
-            <rect x="20" y="21" width="24" height="3" fill="#FFD700" /> {/* Gold decoration band */}
-            <rect x="23" y="21" width="18" height="3" fill="#FFEB3B" /> {/* Band highlight */}
+            <rect x="18" y="25" width="28" height="3" fill="#FFD700" /> {/* Gold decoration band */}
+            <rect x="22" y="25" width="20" height="3" fill="#FFEB3B" /> {/* Band highlight */}
             
             {/* Door - Blocky style */}
-            <rect x="26" y="25" width="12" height="7" fill="#E8C170" /> {/* Door block */}
-            <rect x="28" y="25" width="8" height="7" fill="#F9E79F" /> {/* Door highlight */}
+            <rect x="25" y="30" width="14" height="8" fill="#E8C170" /> {/* Door block */}
+            <rect x="27" y="30" width="10" height="8" fill="#F9E79F" /> {/* Door highlight */}
             
             {/* Door Handles - Simple squares */}
-            <rect x="29" y="28" width="2" height="2" fill="#8B4513" /> {/* Left handle */}
-            <rect x="33" y="28" width="2" height="2" fill="#8B4513" /> {/* Right handle */}
+            <rect x="28" y="33" width="2" height="2" fill="#8B4513" /> {/* Left handle */}
+            <rect x="34" y="33" width="2" height="2" fill="#8B4513" /> {/* Right handle */}
             
-            {/* Stairs - Blocky pyramid style */}
-            <rect x="25" y="32" width="14" height="2" fill="#BDC3C7" /> {/* Top stair */}
-            <rect x="23" y="34" width="18" height="2" fill="#D0D3D4" /> {/* Middle stair */}
-            <rect x="21" y="36" width="22" height="2" fill="#E5E7E9" /> {/* Bottom stair */}
+            {/* Stairs - Blocky pyramid style - PROPERLY TOUCHING GROUND */}
+            <rect x="22" y="38" width="20" height="2" fill="#BDC3C7" /> {/* Top stair */}
+            <rect x="20" y="40" width="24" height="2" fill="#D0D3D4" /> {/* Middle stair */}
+            <rect x="16" y="42" width="32" height="2" fill="#E5E7E9" /> {/* Bottom stair - touches grass */}
             
             {/* Ground - Grass - 8-bit style with distinct layers */}
             <rect x="0" y="42" width="64" height="2" fill="#7EC850" /> {/* Top grass layer - bright */}
@@ -269,35 +269,42 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             <rect x="52" y="41" width="1" height="1" fill="#5BB032" />
             <rect x="61" y="41" width="2" height="1" fill="#5BB032" />
             
-            {/* 8-bit Pond - Simplified with larger blocks of color */}
+            {/* 8-bit Pond - MUCH LARGER and wider */}
             {/* Outer edge - dark blue border */}
-            <rect x="33" y="42" width="20" height="1" fill="#264F73" /> {/* Top edge */}
-            <rect x="33" y="43" width="1" height="6" fill="#264F73" /> {/* Left edge */}
-            <rect x="52" y="43" width="1" height="6" fill="#264F73" /> {/* Right edge */}
-            <rect x="34" y="49" width="18" height="1" fill="#264F73" /> {/* Bottom edge */}
+            <rect x="3" y="42" width="36" height="1" fill="#264F73" /> {/* Top edge */}
+            <rect x="3" y="43" width="1" height="6" fill="#264F73" /> {/* Left edge */}
+            <rect x="38" y="43" width="1" height="6" fill="#264F73" /> {/* Right edge */}
+            <rect x="4" y="49" width="34" height="1" fill="#264F73" /> {/* Bottom edge */}
             
             {/* Main water area - medium blue */}
-            <rect x="34" y="43" width="18" height="6" fill="#3A7CA5" />
+            <rect x="4" y="43" width="34" height="6" fill="#3A7CA5" />
             
             {/* Water highlight areas - light blue */}
-            <rect x="36" y="44" width="14" height="4" fill="#5AAFDF" />
+            <rect x="6" y="44" width="30" height="4" fill="#5AAFDF" />
             
             {/* Brightest center area */}
-            <rect x="38" y="45" width="10" height="2" fill="#81D4FA" />
+            <rect x="10" y="45" width="22" height="2" fill="#81D4FA" />
             
             {/* Water sparkle/highlights - tiny white dots */}
-            <rect x="40" y="44" width="1" height="1" fill="#FFFFFF" />
-            <rect x="45" y="45" width="1" height="1" fill="#FFFFFF" />
-            <rect x="42" y="47" width="1" height="1" fill="#FFFFFF" />
+            <rect x="8" y="44" width="1" height="1" fill="#FFFFFF" />
+            <rect x="14" y="45" width="1" height="1" fill="#FFFFFF" />
+            <rect x="22" y="44" width="1" height="1" fill="#FFFFFF" />
+            <rect x="30" y="46" width="1" height="1" fill="#FFFFFF" />
+            <rect x="11" y="47" width="1" height="1" fill="#FFFFFF" />
+            <rect x="26" y="47" width="1" height="1" fill="#FFFFFF" />
             
             {/* Lily pads - chunky 8-bit style */}
             {/* First lily pad - larger blocky shape */}
-            <rect x="37" y="44" width="4" height="2" fill="#4CAF50" /> {/* Main pad */}
-            <rect x="38" y="44" width="2" height="1" fill="#81C784" /> {/* Highlight */}
+            <rect x="7" y="44" width="4" height="2" fill="#4CAF50" /> {/* Main pad */}
+            <rect x="8" y="44" width="2" height="1" fill="#81C784" /> {/* Highlight */}
             
             {/* Second lily pad */}
-            <rect x="44" y="46" width="5" height="2" fill="#4CAF50" /> {/* Main pad */}
-            <rect x="45" y="46" width="3" height="1" fill="#81C784" /> {/* Highlight */}
+            <rect x="18" y="46" width="5" height="2" fill="#4CAF50" /> {/* Main pad */}
+            <rect x="19" y="46" width="3" height="1" fill="#81C784" /> {/* Highlight */}
+            
+            {/* Third lily pad */}
+            <rect x="32" y="45" width="4" height="2" fill="#4CAF50" /> {/* Main pad */}
+            <rect x="33" y="45" width="2" height="1" fill="#81C784" /> {/* Highlight */}
             
             {/* True Pixel Art Frog Character */}
             {/* Each pixel is represented by a 1x1 square with sharp edges */}
@@ -527,13 +534,11 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             </motion.g>
           </motion.g>
         </svg>
-        {/* Cute Pixel Button with Heart */}
+        {/* Cute Pixel Button */}
         <div className="absolute bottom-[-18px] w-full flex justify-center">
           <div className="pixel-button-container">
             <button className="pixel-cute-button">
-              <span className="pokemon-yellow-heart mr-1 inline-block scale-75"></span>
               <span className="font-pixel text-sm text-black">i'm baby</span>
-              <span className="pokemon-yellow-heart ml-1 inline-block scale-75"></span>
             </button>
           </div>
         </div>
