@@ -39,8 +39,6 @@ export default function ContentDisplay({
           className="bg-white pixel-border p-2 pixel-art overflow-hidden"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          animate={{ scale: [1, 1.02, 1] }}
-          transition={{ duration: 1 }}
         >
           {isLoading || !image ? (
             <PixelLoadingAnimation variant="image" />
@@ -57,8 +55,6 @@ export default function ContentDisplay({
       {/* Message Card - Classic Pokemon Yellow Style Text Box */}
       <motion.div
         className="relative pokemon-textbox max-w-[280px] mx-auto"
-        animate={{ scale: [1, 1.02, 1] }}
-        transition={{ duration: 1, delay: 0.2 }}
       >
         {isLoading || !message ? (
           <PixelLoadingAnimation variant="message" />
