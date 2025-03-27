@@ -71,7 +71,7 @@ export default function ContentDisplay({
               <div className="pokemon-yellow-heart"></div>
             </div>
             
-            <p className="text-left font-pixel text-base text-black pokemon-yellow-text pb-1">
+            <p className="text-left font-pixel text-xs text-black pokemon-yellow-text pb-1">
               {message.text}
             </p>
             

@@ -198,58 +198,79 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             animate={{ y: isBouncing ? [-4, 0, -3, 0] : 0 }}
             transition={{ duration: 1, repeat: isBouncing ? 1 : 0 }}
           >
-            {/* Pokemon-Style Frog Character */}
-            {/* Head and Body */}
-            <rect x="26" y="36" width="12" height="8" fill="#6ABD45" stroke="#000" strokeWidth="1" />
-            <rect x="24" y="40" width="16" height="4" fill="#6ABD45" stroke="#000" strokeWidth="1" />
-            <rect x="24" y="39" width="2" height="2" fill="#6ABD45" stroke="#000" strokeWidth="1" />
-            <rect x="38" y="39" width="2" height="2" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+            {/* Background - Pixel Art Shrine and Trees */}
+            {/* Sky */}
+            <rect x="0" y="0" width="64" height="50" fill="#87CEEB" />
             
-            {/* Frog Belly - Pokemon Style */}
-            <rect x="28" y="40" width="8" height="4" fill="#9BE855" stroke="#000" strokeWidth="1" />
+            {/* Ground */}
+            <rect x="0" y="42" width="64" height="8" fill="#7CFC00" />
             
-            {/* Eyes - Pokemon Style */}
+            {/* Left Tree */}
+            <rect x="5" y="30" width="6" height="12" fill="#8B4513" stroke="#000" strokeWidth="0.5" />
+            <rect x="1" y="24" width="14" height="7" fill="#006400" stroke="#000" strokeWidth="0.5" />
+            <rect x="2" y="20" width="12" height="5" fill="#006400" stroke="#000" strokeWidth="0.5" />
+            <rect x="3" y="17" width="10" height="4" fill="#006400" stroke="#000" strokeWidth="0.5" />
+            
+            {/* Right Tree */}
+            <rect x="53" y="32" width="6" height="10" fill="#8B4513" stroke="#000" strokeWidth="0.5" />
+            <rect x="49" y="26" width="14" height="7" fill="#006400" stroke="#000" strokeWidth="0.5" />
+            <rect x="50" y="22" width="12" height="5" fill="#006400" stroke="#000" strokeWidth="0.5" />
+            <rect x="51" y="19" width="10" height="4" fill="#006400" stroke="#000" strokeWidth="0.5" />
+            
+            {/* Shrine */}
+            <rect x="25" y="22" width="14" height="20" fill="#FF6347" stroke="#000" strokeWidth="0.5" />
+            <rect x="22" y="20" width="20" height="3" fill="#8B4513" stroke="#000" strokeWidth="0.5" />
+            <rect x="24" y="17" width="16" height="3" fill="#8B4513" stroke="#000" strokeWidth="0.5" />
+            <rect x="28" y="33" width="8" height="9" fill="#F5F5DC" stroke="#000" strokeWidth="0.5" />
+            
+            {/* Cute Pokemon-Style Frog Character */}
+            {/* Head - Rounder for cuteness */}
+            <rect x="27" y="36" width="10" height="7" fill="#98FB98" stroke="#000" strokeWidth="0.5" rx="3" />
+            
+            {/* Body - Smaller and rounder */}
+            <rect x="26" y="40" width="12" height="5" fill="#98FB98" stroke="#000" strokeWidth="0.5" rx="2" />
+            
+            {/* Frog Belly - Light colored and cute */}
+            <rect x="28" y="41" width="8" height="3" fill="#E0FFE0" stroke="#000" strokeWidth="0.5" rx="1" />
+            
+            {/* Eyes - Larger, rounder, more cute */}
             <motion.g
               animate={{ y: isBouncing ? [-1, 0, -1] : 0 }}
               transition={{ duration: 0.5, repeat: isBouncing ? 2 : 0 }}
             >
-              <rect x="26" y="36" width="4" height="4" fill="white" stroke="#000" strokeWidth="1" />
-              <rect x="34" y="36" width="4" height="4" fill="white" stroke="#000" strokeWidth="1" />
-              <rect x="28" y="37" width="2" height="2" fill="black" />
-              <rect x="35" y="37" width="2" height="2" fill="black" />
-              <rect x="28" y="36" width="1" height="1" fill="white" />
-              <rect x="35" y="36" width="1" height="1" fill="white" />
+              <circle cx="29" cy="38" r="2" fill="white" stroke="#000" strokeWidth="0.5" />
+              <circle cx="35" cy="38" r="2" fill="white" stroke="#000" strokeWidth="0.5" />
+              <circle cx="29" cy="38" r="1" fill="black" />
+              <circle cx="35" cy="38" r="1" fill="black" />
+              <circle cx="28.5" cy="37.5" r="0.5" fill="white" />
+              <circle cx="34.5" cy="37.5" r="0.5" fill="white" />
             </motion.g>
             
-            {/* Mouth - Pokemon Style */}
+            {/* Mouth - Cute smile */}
             <motion.g
               animate={{ y: isBouncing ? [0, 1, 0] : 0 }}
               transition={{ duration: 0.5 }}
             >
-              <rect x="30" y="42" width="4" height="1" fill="#333" />
-              <rect x="29" y="41" width="1" height="1" fill="#333" />
-              <rect x="34" y="41" width="1" height="1" fill="#333" />
+              <path d="M 30 42 Q 32 43 34 42" stroke="#000" strokeWidth="0.5" fill="none" />
             </motion.g>
 
-            {/* Legs - Pokemon Style */}
+            {/* Legs - Small and cute */}
             <motion.g
               animate={{ x: isBouncing ? [-1, 0, -1] : 0 }}
               transition={{ duration: 0.5 }}
             >
-              <rect x="23" y="44" width="5" height="2" fill="#6ABD45" stroke="#000" strokeWidth="1" />
-              <rect x="22" y="45" width="2" height="1" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+              <rect x="26" y="44" width="3" height="2" fill="#98FB98" stroke="#000" strokeWidth="0.5" rx="1" />
             </motion.g>
             <motion.g
               animate={{ x: isBouncing ? [1, 0, 1] : 0 }}
               transition={{ duration: 0.5 }}
             >
-              <rect x="36" y="44" width="5" height="2" fill="#6ABD45" stroke="#000" strokeWidth="1" />
-              <rect x="40" y="45" width="2" height="1" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+              <rect x="35" y="44" width="3" height="2" fill="#98FB98" stroke="#000" strokeWidth="0.5" rx="1" />
             </motion.g>
             
-            {/* Pokemon Style Details */}
-            <rect x="27" y="35" width="2" height="1" fill="#6ABD45" stroke="#000" strokeWidth="1" />
-            <rect x="35" y="35" width="2" height="1" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+            {/* Cute details - Rosy cheeks */}
+            <circle cx="27" cy="40" r="1" fill="#FFCCCB" opacity="0.6" />
+            <circle cx="37" cy="40" r="1" fill="#FFCCCB" opacity="0.6" />
           </motion.g>
         </svg>
         {/* Pokemon Yellow Style Button */}
