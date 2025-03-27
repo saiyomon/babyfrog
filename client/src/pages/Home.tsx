@@ -76,13 +76,13 @@ export default function Home() {
     },
   });
 
-  // This function now only handles visual effects for frog click, not content generation
+  // The frog tap just triggers visual effects in the FrogCharacter component
   const handleFrogTap = () => {
-    // Frog tap is now only for visual effects, not content generation
-    // No logic here since FrogCharacter component handles the animation internally
+    // This function is now empty since the FrogCharacter handles animations internally
+    // We don't want the frog click to generate content
   };
   
-  // Separate function for generating content that's triggered by the "I'm baby" button
+  // Function for generating content (used by "I'm baby" button)
   const handleGenerateContent = () => {
     if (isUploadAreaVisible) return;
     
@@ -215,6 +215,21 @@ export default function Home() {
 
         {/* Frog Character - The button will generate content, not the frog itself */}
         <FrogCharacter onTap={handleFrogTap} />
+        
+        {/* Standalone "I'm baby" button that appears when content is not visible */}
+        {!isContentVisible && !isUploadAreaVisible && (
+          <div className="flex justify-center mt-5">
+            <div className="pixel-button-container">
+              <button 
+                className="pixel-cute-button" 
+                onClick={handleGenerateContent}
+                type="button"
+              >
+                <span className="font-pixel text-sm text-black">i'm baby</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Content Display */}
         <ContentDisplay 
