@@ -326,6 +326,141 @@ button:active {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
 
+/* Classic Pokemon Yellow Textbox */
+.pokemon-textbox {
+  position: relative;
+  width: 100%;
+  background-color: #F0F0F0;
+  border: 3px solid #000000;
+  border-radius: 5px;
+  box-shadow: 0px 2px 0px #666, inset 0px 2px 0px #FFF;
+  overflow: visible;
+}
+
+.pokemon-textbox-content {
+  background-color: #F0F0F0;
+  min-height: 100px;
+  position: relative;
+}
+
+/* Classic Pokemon Yellow Heart */
+.pokemon-yellow-heart {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  background-color: #FF0000;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.pokemon-yellow-heart:before,
+.pokemon-yellow-heart:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #FF0000;
+}
+
+.pokemon-yellow-heart:before {
+  top: -5px;
+  left: 0;
+}
+
+.pokemon-yellow-heart:after {
+  top: 0;
+  left: -5px;
+}
+
+/* Pokemon Yellow Text Style */
+.pokemon-yellow-text {
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+/* Pokemon Yellow Arrow Indicator */
+.pokemon-arrow-indicator {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 12px solid #000;
+  animation: bounce 0.8s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+/* Define a pixel font class */
+.font-pixel {
+  font-family: monospace;
+  font-weight: bold;
+  text-rendering: pixelated;
+}
+
+/* Pokemon Yellow Style Buttons */
+.pokemon-yellow-button {
+  position: relative;
+  padding: 8px 16px;
+  background-color: #F8F8F8;
+  border: 2px solid #000;
+  border-radius: 0;
+  box-shadow: 0 4px 0 #666, 0 0 0 4px rgba(0,0,0,0.1);
+  margin-bottom: 4px;
+  transition: all 0.1s;
+}
+
+.pokemon-yellow-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #666, 0 0 0 4px rgba(0,0,0,0.1);
+}
+
+.pokemon-button-a {
+  background-color: #58ABF6;
+}
+
+.pokemon-button-a:hover {
+  background-color: #7CC0FF;
+}
+
+.pokemon-button-b {
+  background-color: #FF5252;
+}
+
+.pokemon-button-b:hover {
+  background-color: #FF7575;
+}
+
+/* Pokemon Yellow Small Button */
+.pokemon-yellow-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.pokemon-yellow-small-button {
+  padding: 4px 10px;
+  background-color: #FDD835;
+  border: 2px solid #000;
+  border-radius: 0;
+  box-shadow: 0 3px 0 #B39700, 0 0 0 3px rgba(0,0,0,0.1);
+  margin-bottom: 3px;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+.pokemon-yellow-small-button:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 #B39700, 0 0 0 3px rgba(0,0,0,0.1);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

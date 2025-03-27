@@ -51,57 +51,58 @@ export default function ContentDisplay({
         </motion.div>
       )}
 
-      {/* Message Card - Smaller Pixel Art Scroll Style (Pokemon Style) */}
+      {/* Message Card - Classic Pokemon Yellow Style Text Box */}
       <motion.div
-        className="relative bg-[#FFF9E5] p-4 pb-8 pixel-border message-scroll max-w-xs mx-auto"
+        className="relative pokemon-textbox max-w-xs mx-auto"
         animate={{ scale: [1, 1.02, 1] }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        {/* Top Scroll Border - Pokemon Style */}
-        <div className="absolute top-0 left-0 right-0 h-3 bg-[#D9A066] border-b-2 border-[#8B4513]">
-          <div className="absolute top-0 left-0 w-3 h-3 bg-[#D9A066] border-r-2 border-b-2 border-[#8B4513] rounded-br-lg"></div>
-          <div className="absolute top-0 right-0 w-3 h-3 bg-[#D9A066] border-l-2 border-b-2 border-[#8B4513] rounded-bl-lg"></div>
-        </div>
-        
-        {/* Bottom Scroll Border - Pokemon Style */}
-        <div className="absolute bottom-0 left-0 right-0 h-3 bg-[#D9A066] border-t-2 border-[#8B4513]">
-          <div className="absolute bottom-0 left-0 w-3 h-3 bg-[#D9A066] border-r-2 border-t-2 border-[#8B4513] rounded-tr-lg"></div>
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-[#D9A066] border-l-2 border-t-2 border-[#8B4513] rounded-tl-lg"></div>
-        </div>
-        
         {isLoading || !message ? (
-          <Skeleton className="w-full h-10 mt-3" />
+          <Skeleton className="w-full h-24 mt-3" />
         ) : (
-          <div className="mt-1">
-            <p className="text-center font-['Bubblegum_Sans'] text-base text-teal-900 pixel-art py-2 pokemon-text">
+          <div className="pokemon-textbox-content p-3 pt-4">
+            {/* Left Heart */}
+            <div className="absolute top-2 left-4">
+              <div className="pokemon-yellow-heart"></div>
+            </div>
+            
+            {/* Right Heart */}
+            <div className="absolute top-2 right-4">
+              <div className="pokemon-yellow-heart"></div>
+            </div>
+            
+            <p className="text-left font-pixel text-base text-black pokemon-yellow-text pb-1">
               {message.text}
             </p>
             
-            {/* Pokemon-Style Pixel Decorations */}
-            <div className="mt-2 flex justify-center space-x-3 pixel-art">
-              <div className="pokemon-heart"></div>
-              <div className="pokemon-pokeball"></div>
-              <div className="pokemon-heart"></div>
+            {/* Signature with random selection between "saiyo" and "shrimp" */}
+            <p className="text-right font-pixel text-sm text-black pokemon-yellow-text mt-1">
+              - {Math.random() > 0.5 ? "saiyo" : "shrimp"} ♥
+            </p>
+            
+            {/* Bottom Arrow Indicator (classic Pokemon style) */}
+            <div className="absolute bottom-2 right-4">
+              <div className="pokemon-arrow-indicator"></div>
             </div>
           </div>
         )}
       </motion.div>
 
-      {/* Action Buttons - Pokemon Style */}
+      {/* Action Buttons - Classic Pokemon Yellow Style */}
       <div className="flex justify-center space-x-4 mt-4">
         <Button 
           onClick={onShowAnother}
-          className="pokemon-button pokemon-button-green shadow-none"
+          className="pokemon-yellow-button pokemon-button-a shadow-none"
           disabled={isLoading}
         >
-          <span className="pokemon-text text-sm font-['Bubblegum_Sans']">Show Another</span>
+          <span className="font-pixel text-sm text-black">Show Another</span>
         </Button>
         <Button
           onClick={onUploadToggle}
-          className="pokemon-button pokemon-button-pink shadow-none"
+          className="pokemon-yellow-button pokemon-button-b shadow-none"
           disabled={isLoading}
         >
-          <span className="pokemon-text text-sm font-['Bubblegum_Sans']">Add Images</span>
+          <span className="font-pixel text-sm text-black">Add Images</span>
         </Button>
       </div>
     </motion.div>

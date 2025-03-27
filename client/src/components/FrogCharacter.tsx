@@ -198,56 +198,66 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             animate={{ y: isBouncing ? [-4, 0, -3, 0] : 0 }}
             transition={{ duration: 1, repeat: isBouncing ? 1 : 0 }}
           >
-            {/* Frog Body */}
-            <rect x="28" y="36" width="8" height="6" fill="#26A269" />
-            <rect x="26" y="38" width="12" height="6" fill="#26A269" />
-            <rect x="24" y="40" width="16" height="4" fill="#26A269" />
+            {/* Pokemon-Style Frog Character */}
+            {/* Head and Body */}
+            <rect x="26" y="36" width="12" height="8" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+            <rect x="24" y="40" width="16" height="4" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+            <rect x="24" y="39" width="2" height="2" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+            <rect x="38" y="39" width="2" height="2" fill="#6ABD45" stroke="#000" strokeWidth="1" />
             
-            {/* Frog Belly */}
-            <rect x="28" y="40" width="8" height="4" fill="#57E389" />
+            {/* Frog Belly - Pokemon Style */}
+            <rect x="28" y="40" width="8" height="4" fill="#9BE855" stroke="#000" strokeWidth="1" />
             
-            {/* Eyes */}
+            {/* Eyes - Pokemon Style */}
             <motion.g
               animate={{ y: isBouncing ? [-1, 0, -1] : 0 }}
               transition={{ duration: 0.5, repeat: isBouncing ? 2 : 0 }}
             >
-              <rect x="26" y="36" width="4" height="4" fill="white" />
-              <rect x="34" y="36" width="4" height="4" fill="white" />
-              <rect x="27" y="37" width="2" height="2" fill="black" />
+              <rect x="26" y="36" width="4" height="4" fill="white" stroke="#000" strokeWidth="1" />
+              <rect x="34" y="36" width="4" height="4" fill="white" stroke="#000" strokeWidth="1" />
+              <rect x="28" y="37" width="2" height="2" fill="black" />
               <rect x="35" y="37" width="2" height="2" fill="black" />
+              <rect x="28" y="36" width="1" height="1" fill="white" />
+              <rect x="35" y="36" width="1" height="1" fill="white" />
             </motion.g>
             
-            {/* Mouth */}
+            {/* Mouth - Pokemon Style */}
             <motion.g
               animate={{ y: isBouncing ? [0, 1, 0] : 0 }}
               transition={{ duration: 0.5 }}
             >
-              <rect x="30" y="42" width="4" height="1" fill="#1A7048" />
+              <rect x="30" y="42" width="4" height="1" fill="#333" />
+              <rect x="29" y="41" width="1" height="1" fill="#333" />
+              <rect x="34" y="41" width="1" height="1" fill="#333" />
             </motion.g>
 
-            {/* Legs */}
+            {/* Legs - Pokemon Style */}
             <motion.g
               animate={{ x: isBouncing ? [-1, 0, -1] : 0 }}
               transition={{ duration: 0.5 }}
             >
-              <rect x="24" y="44" width="4" height="2" fill="#26A269" />
+              <rect x="23" y="44" width="5" height="2" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+              <rect x="22" y="45" width="2" height="1" fill="#6ABD45" stroke="#000" strokeWidth="1" />
             </motion.g>
             <motion.g
               animate={{ x: isBouncing ? [1, 0, 1] : 0 }}
               transition={{ duration: 0.5 }}
             >
-              <rect x="36" y="44" width="4" height="2" fill="#26A269" />
+              <rect x="36" y="44" width="5" height="2" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+              <rect x="40" y="45" width="2" height="1" fill="#6ABD45" stroke="#000" strokeWidth="1" />
             </motion.g>
+            
+            {/* Pokemon Style Details */}
+            <rect x="27" y="35" width="2" height="1" fill="#6ABD45" stroke="#000" strokeWidth="1" />
+            <rect x="35" y="35" width="2" height="1" fill="#6ABD45" stroke="#000" strokeWidth="1" />
           </motion.g>
         </svg>
-        {/* Pokemon-Style Scroll Button */}
+        {/* Pokemon Yellow Style Button */}
         <div className="absolute bottom-[-20px] w-full flex justify-center">
-          <div className="pokemon-scroll-button relative">
-            <div className="pokemon-scroll-top"></div>
-            <div className="pokemon-scroll-middle">
-              <span className="font-['Bubblegum_Sans'] text-teal-900 text-sm pokemon-text">i'm baby</span>
-            </div>
-            <div className="pokemon-scroll-bottom"></div>
+          <div className="pokemon-yellow-button-container">
+            <button className="pokemon-yellow-small-button">
+              <span className="font-pixel text-sm text-black">i'm baby</span>
+            </button>
           </div>
         </div>
       </motion.div>
