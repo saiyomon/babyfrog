@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 
 interface FrogCharacterProps {
@@ -15,18 +15,30 @@ interface CherryBlossom {
 
 export default function FrogCharacter({ onTap }: FrogCharacterProps) {
   const [isBouncing, setIsBouncing] = useState(false);
-  const [cherryBlossoms, setCherryBlossoms] = useState<CherryBlossom[]>([]);
+  
+  // Generate 15 cherry blossoms with random properties
+  const initialCherryBlossoms = useMemo(() => {
+    return Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      size: Math.random() * 5 + 3,
+      left: `${Math.random() * 100}%`,
+      delay: Math.random() * 5,
+      duration: Math.random() * 5 + 5,
+    }));
+  }, []);
+  
+  const [cherryBlossoms, setCherryBlossoms] = useState<CherryBlossom[]>(initialCherryBlossoms);
 
-  // Start bounce animation periodically
+  // Start bounce animation periodically with smoother transitions
   useEffect(() => {
     const bounceInterval = setInterval(() => {
       setIsBouncing(true);
       
-      // Stop bouncing after 2 seconds
+      // Stop bouncing after 2.5 seconds
       setTimeout(() => {
         setIsBouncing(false);
-      }, 2000);
-    }, 6000);
+      }, 2500);
+    }, 8000); // Increased interval to make animations less frequent
     
     return () => clearInterval(bounceInterval);
   }, []);
@@ -74,10 +86,15 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
       <motion.div 
         className="relative mb-8 cursor-pointer"
         onClick={onTap}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        animate={isBouncing ? { y: [0, -10, 0, -8, 0] } : {}}
-        transition={isBouncing ? { duration: 1.5, repeat: 1 } : {}}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        animate={isBouncing ? { y: [0, -3, -5, -3, 0] } : {}} 
+        transition={isBouncing ? { 
+          duration: 2.5, 
+          repeat: 0, 
+          ease: "easeInOut",
+          times: [0, 0.25, 0.5, 0.75, 1]
+        } : {}}
       >
         <svg className="w-72 h-72 pixel-art" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shapeRendering="crispEdges">
           
@@ -85,8 +102,13 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
           
           {/* Pixel Frog Character */}
           <motion.g
-            animate={{ y: isBouncing ? [-4, 0, -3, 0] : 0 }}
-            transition={{ duration: 1, repeat: isBouncing ? 1 : 0 }}
+            animate={{ y: isBouncing ? [-1, -2, -1, 0] : 0 }}
+            transition={{ 
+              duration: 2.5, 
+              repeat: 0, 
+              ease: "easeInOut",
+              times: [0, 0.25, 0.75, 1]
+            }}
           >
             {/* Background - Pixel Art Shrine and Trees */}
             {/* Detailed True Pixel Art Background - Each pixel is a 1x1 rectangle */}
