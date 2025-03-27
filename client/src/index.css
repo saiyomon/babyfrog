@@ -452,7 +452,7 @@ button:active {
   background-color: #43A047;
 }
 
-/* Cute Pixel Button */
+/* Cute Pixel Button - Standard version */
 .pixel-button-container {
   position: relative;
   display: inline-block;
@@ -484,6 +484,69 @@ button:active {
   transform: translateY(3px);
   background-color: #FF9AAC;
   box-shadow: 0 0 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+/* I'm Baby Button - Special style */
+.im-baby-button-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.im-baby-button {
+  padding: 6px 18px;
+  background-color: #86EFAC; /* Light mint green */
+  border: 3px solid #000;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #22C55E, 4px 4px 0 rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transform: rotate(-1deg);
+  position: relative;
+  overflow: visible;
+}
+
+.im-baby-button:hover {
+  background-color: #A7F3C1;
+  transform: rotate(1deg) scale(1.05);
+  box-shadow: 0 5px 0 #22C55E, 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+.im-baby-button:active {
+  transform: rotate(0deg) translateY(4px);
+  background-color: #6EE7A0;
+  box-shadow: 0 0 0 #22C55E, 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.im-baby-button::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #FFC0CB;
+  border: 2px solid #000;
+  border-radius: 50%;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.im-baby-button::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #FFC0CB;
+  border: 2px solid #000;
+  border-radius: 50%;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* Custom Scrollbar */
