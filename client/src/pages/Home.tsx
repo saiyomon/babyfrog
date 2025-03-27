@@ -140,9 +140,17 @@ export default function Home() {
   };
 
   const handleFileUpload = (files: File[]) => {
+    // Log file info for debugging
+    console.log("Uploading files:", files.map(f => f.name));
+    
     files.forEach(file => {
       const formData = new FormData();
+      // Make sure to use the correct field name that matches the server expectation
       formData.append("image", file);
+      
+      // Log the FormData (for debugging)
+      console.log("FormData created with file:", file.name, file.type, file.size);
+      
       uploadImageMutation.mutate(formData);
     });
   };

@@ -35,6 +35,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Route to upload an image
   app.post("/api/images", upload.single("image"), async (req, res) => {
     try {
+      console.log("Upload request received");
+      console.log("Request body:", req.body);
+      console.log("Request file:", req.file);
+      
       if (!req.file) {
         return res.status(400).json({ message: "No image file provided" });
       }
@@ -42,6 +46,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Convert the image to base64
       const base64Image = req.file.buffer.toString("base64");
       const filename = req.file.originalname;
+      
+      console.log(`Processing image: ${filename} (${req.file.size} bytes)`);
 
       // Validate and insert the image
       const validatedData = insertImageSchema.parse({
@@ -50,8 +56,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       const image = await storage.addImage(validatedData);
+      console.log("Image added successfully with ID:", image.id);
       res.status(201).json(image);
     } catch (error) {
+      console.error("Error uploading image:", error);
       if (error instanceof z.ZodError) {
         return res.status(400).json({ message: "Invalid data format", error });
       }

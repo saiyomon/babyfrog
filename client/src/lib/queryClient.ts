@@ -12,10 +12,17 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
+  const isFormData = data instanceof FormData;
+  
+  // Log for debugging
+  console.log(`API Request: ${method} ${url}`, isFormData ? "FormData upload" : data);
+  
   const res = await fetch(url, {
     method,
-    headers: data ? { "Content-Type": "application/json" } : {},
-    body: data ? JSON.stringify(data) : undefined,
+    // Don't set Content-Type for FormData (browser will set with boundary)
+    headers: data && !isFormData ? { "Content-Type": "application/json" } : {},
+    // Don't stringify FormData, pass it directly
+    body: isFormData ? data : data ? JSON.stringify(data) : undefined,
     credentials: "include",
   });
 
