@@ -114,14 +114,7 @@ export default function ContentDisplay({
         </motion.div>
       )}
       
-      {/* "I'm baby" Button - Always below content, but outside the motion.div above */}
-      <div className="flex justify-center mt-5">
-        <div className="pixel-button-container">
-          <button className="pixel-cute-button" onClick={onGenerateContent}>
-            <span className="font-pixel text-sm text-black">i'm baby</span>
-          </button>
-        </div>
-      </div>
+      {/* The "I'm baby" button is now in the Home component */}
     </div>
   );
 }

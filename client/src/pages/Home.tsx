@@ -226,6 +226,15 @@ export default function Home() {
           isLoading={isLoadingImages || isLoadingMessages || isGenerating}
           onGenerateContent={handleGenerateContent}
         />
+        
+        {/* "I'm baby" Button - Always below content */}
+        <div className="flex justify-center mt-5">
+          <div className="pixel-button-container">
+            <button className="pixel-cute-button" onClick={handleGenerateContent}>
+              <span className="font-pixel text-sm text-black">i'm baby</span>
+            </button>
+          </div>
+        </div>
 
         {/* Upload Area */}
         <UploadArea 
