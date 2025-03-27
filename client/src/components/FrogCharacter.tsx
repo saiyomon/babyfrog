@@ -45,11 +45,12 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
     setCherryBlossoms(prevBlossoms => [...prevBlossoms, ...newBlossoms]);
   };
   
-  // Function to handle frog click
+  // Function to handle frog click - only for visual effects, not for content generation
   const handleFrogClick = () => {
     addMoreBlossoms();
     setShowEmojis(true);
     setTimeout(() => setShowEmojis(false), 1500); // Show emojis for 1.5 seconds
+    // No longer calls onTap() to generate content
   };
 
   // Start bounce animation periodically with smoother transitions

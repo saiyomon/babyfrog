@@ -91,22 +91,7 @@ export default function ContentDisplay({
         )}
       </motion.div>
 
-      {/* Action Buttons */}
-      <div className="flex justify-center space-x-4 mt-6">
-        <Button
-          onClick={onShowAnother}
-          className="bg-[#87CEFA] hover:bg-[#1E90FF] text-black font-bold py-2 px-3 pixel-border shadow-none"
-        >
-          <span className="pixel-art text-xs">Show Another</span>
-        </Button>
-        
-        <Button
-          onClick={onUploadToggle}
-          className="bg-[#FFA6C9] hover:bg-[#FF69B4] text-black font-bold py-2 px-3 pixel-border shadow-none"
-        >
-          <span className="pixel-art text-xs">Upload Pictures</span>
-        </Button>
-      </div>
+{/* Action Buttons removed */}
       
       {/* "I'm baby" Button - Below Content */}
       <div className="flex justify-center mt-5">
