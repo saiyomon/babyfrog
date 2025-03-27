@@ -219,6 +219,17 @@ export default function Home() {
           isLoading={isLoadingImages || isLoadingMessages || isGenerating}
           onGenerateContent={handleFrogTap}
         />
+        
+        {/* "I'm baby" Button - Below Content */}
+        {isContentVisible && (
+          <div className="flex justify-center mt-5">
+            <div className="pixel-button-container">
+              <button className="pixel-cute-button" onClick={handleFrogTap}>
+                <span className="font-pixel text-sm text-black">i'm baby</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Upload Area */}
         <UploadArea 
