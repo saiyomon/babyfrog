@@ -22,6 +22,8 @@ export default function Home() {
 
   // Fetch images with pagination
   const [currentPage, setCurrentPage] = useState(1);
+  
+  // For display in UI - paginated (used in UploadArea component)
   const { data: imagesData, isLoading: isLoadingImages } = useQuery<{
     images: Image[];
     pagination: { total: number; page: number; limit: number; pages: number };
@@ -29,8 +31,20 @@ export default function Home() {
     queryKey: ['/api/images', { page: currentPage, limit: 10 }],
   });
   
+  // For random display - fetch all images (non-paginated)
+  const { data: allImagesData, isLoading: isLoadingAllImages } = useQuery<{
+    images: Image[];
+    pagination: { total: number; page: number; limit: number; pages: number };
+  }>({
+    queryKey: ['/api/images', { page: 1, limit: 100 }], // Get up to 100 images
+  });
+  
+  // Images for the UploadArea component (paginated)
   const images = imagesData?.images || [];
   const pagination = imagesData?.pagination || { total: 0, page: 1, limit: 10, pages: 1 };
+  
+  // All images for random content generation (non-paginated)
+  const allImages = allImagesData?.images || [];
 
   // Fetch messages
   const { data: messages = [], isLoading: isLoadingMessages } = useQuery<Message[]>({
@@ -39,11 +53,11 @@ export default function Home() {
   
   // Reset tracking arrays when new content is loaded
   useEffect(() => {
-    if (images.length > 0 && shownImageIds.length === 0) {
+    if (allImages.length > 0 && shownImageIds.length === 0) {
       // Initialize with empty array when images first load
       setShownImageIds([]);
     }
-  }, [images]);
+  }, [allImages]);
   
   useEffect(() => {
     if (messages.length > 0 && shownMessageIds.length === 0) {
@@ -123,7 +137,7 @@ export default function Home() {
   };
 
   const showRandomContent = () => {
-    console.log("showRandomContent called. Messages:", messages.length, "Images:", images.length);
+    console.log("showRandomContent called. Messages:", messages.length, "Images:", allImages.length);
     console.log("Already shown images:", shownImageIds.length, "Already shown messages:", shownMessageIds.length);
     
     // Always show a message even if there are no images
@@ -132,10 +146,10 @@ export default function Home() {
       return;
     }
     
-    // Handle images
-    if (images.length > 0) {
+    // Handle images - use allImages (non-paginated) for selection
+    if (allImages.length > 0) {
       // Get image that hasn't been shown yet
-      const remainingImages = images.filter(img => !shownImageIds.includes(img.id));
+      const remainingImages = allImages.filter(img => !shownImageIds.includes(img.id));
       
       if (remainingImages.length > 0) {
         // We still have unseen images
@@ -150,11 +164,11 @@ export default function Home() {
         // All images have been shown, reset and start over
         console.log("All images have been shown. Resetting image history.");
         // Pick a random image from all
-        const randomIndex = Math.floor(Math.random() * images.length);
-        setCurrentImage(images[randomIndex]);
+        const randomIndex = Math.floor(Math.random() * allImages.length);
+        setCurrentImage(allImages[randomIndex]);
         
         // Reset tracking with just this image
-        setShownImageIds([images[randomIndex].id]);
+        setShownImageIds([allImages[randomIndex].id]);
       }
     } else {
       console.log("No images available");
@@ -290,7 +304,7 @@ export default function Home() {
           message={currentMessage}
           onShowAnother={handleShowAnother}
           onUploadToggle={handleToggleUploadArea}
-          isLoading={isLoadingImages || isLoadingMessages || isGenerating}
+          isLoading={isLoadingImages || isLoadingAllImages || isLoadingMessages || isGenerating}
           onGenerateContent={handleGenerateContent}
         />
 
