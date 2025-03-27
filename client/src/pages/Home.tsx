@@ -15,10 +15,17 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const { toast } = useToast();
 
-  // Fetch images
-  const { data: images = [], isLoading: isLoadingImages } = useQuery<Image[]>({
-    queryKey: ['/api/images'],
+  // Fetch images with pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const { data: imagesData, isLoading: isLoadingImages } = useQuery<{
+    images: Image[];
+    pagination: { total: number; page: number; limit: number; pages: number };
+  }>({
+    queryKey: ['/api/images', { page: currentPage, limit: 10 }],
   });
+  
+  const images = imagesData?.images || [];
+  const pagination = imagesData?.pagination || { total: 0, page: 1, limit: 10, pages: 1 };
 
   // Fetch messages
   const { data: messages = [], isLoading: isLoadingMessages } = useQuery<Message[]>({
@@ -221,6 +228,8 @@ export default function Home() {
           onComplete={handleUploadComplete}
           isUploading={uploadImageMutation.isPending}
           isDeleting={deleteImageMutation.isPending}
+          pagination={pagination}
+          onPageChange={(page) => setCurrentPage(page)}
         />
 
         {/* Cute Pastel Footer */}

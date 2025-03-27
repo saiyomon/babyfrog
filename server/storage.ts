@@ -3,12 +3,13 @@ import {
   messages, type Message, type InsertMessage
 } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, sql, desc } from "drizzle-orm";
 
 // Interface with CRUD methods for storage
 export interface IStorage {
   // Image methods
-  getImages(): Promise<Image[]>;
+  getImages(page?: number, limit?: number): Promise<Image[]>;
+  getImagesCount(): Promise<number>;
   addImage(image: InsertImage): Promise<Image>;
   deleteImage(id: number): Promise<boolean>;
   
@@ -20,8 +21,17 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   // Image methods
-  async getImages(): Promise<Image[]> {
-    return await db.select().from(images);
+  async getImages(page: number = 1, limit: number = 10): Promise<Image[]> {
+    const offset = (page - 1) * limit;
+    const results = await db.execute(
+      sql`SELECT * FROM images ORDER BY id DESC LIMIT ${limit} OFFSET ${offset}`
+    );
+    return results.rows as Image[];
+  }
+  
+  async getImagesCount(): Promise<number> {
+    const result = await db.execute(sql`SELECT COUNT(*) FROM images`);
+    return Number(result.rows[0].count);
   }
   
   async addImage(insertImage: InsertImage): Promise<Image> {

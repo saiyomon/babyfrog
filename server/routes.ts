@@ -22,12 +22,25 @@ const upload = multer({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Route to get all images
-  app.get("/api/images", async (_req, res) => {
+  // Route to get images with pagination
+  app.get("/api/images", async (req, res) => {
     try {
-      const images = await storage.getImages();
-      res.json(images);
+      const page = parseInt(req.query.page as string || '1', 10);
+      const limit = parseInt(req.query.limit as string || '10', 10);
+      const count = await storage.getImagesCount();
+      const images = await storage.getImages(page, limit);
+      
+      res.json({
+        images,
+        pagination: {
+          total: count,
+          page,
+          limit,
+          pages: Math.ceil(count / limit)
+        }
+      });
     } catch (error) {
+      console.error("Error fetching images:", error);
       res.status(500).json({ message: "Failed to fetch images" });
     }
   });

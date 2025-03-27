@@ -14,6 +14,13 @@ interface UploadAreaProps {
   onComplete: () => void;
   isUploading: boolean;
   isDeleting: boolean;
+  pagination?: {
+    total: number;
+    page: number;
+    limit: number;
+    pages: number;
+  };
+  onPageChange?: (page: number) => void;
 }
 
 export default function UploadArea({
@@ -24,7 +31,9 @@ export default function UploadArea({
   onCancel,
   onComplete,
   isUploading,
-  isDeleting
+  isDeleting,
+  pagination,
+  onPageChange
 }: UploadAreaProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -126,26 +135,58 @@ export default function UploadArea({
       
       {/* Uploaded Images List */}
       {images.length > 0 && (
-        <ScrollArea className="mt-6 h-60 pixel-border">
-          <div className="grid grid-cols-2 gap-4 p-2">
-            {images.map((img) => (
-              <div key={img.id} className="relative bg-gray-100 pixel-border overflow-hidden h-24">
-                <img
-                  src={`data:image/jpeg;base64,${img.data}`}
-                  className="w-full h-full object-cover"
-                  alt={img.filename}
-                />
-                <button
-                  className="absolute top-1 right-1 bg-red-500 p-1 text-white pixel-art"
-                  onClick={() => onDelete(img.id)}
-                  disabled={isDeleting}
-                >
-                  <Trash2 className="h-4 w-4" />
-                </button>
+        <div className="mt-6">
+          <ScrollArea className="h-60 pixel-border overflow-hidden">
+            <div className="grid grid-cols-2 gap-4 p-2">
+              {images.map((img) => (
+                <div key={img.id} className="relative bg-gray-100 pixel-border overflow-hidden h-24">
+                  <img
+                    src={`data:image/jpeg;base64,${img.data}`}
+                    className="w-full h-full object-cover"
+                    alt={img.filename}
+                    loading="lazy" 
+                  />
+                  <button
+                    className="absolute top-1 right-1 bg-red-500 p-1 text-white pixel-art"
+                    onClick={() => onDelete(img.id)}
+                    disabled={isDeleting}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
+          
+          {/* Pagination controls */}
+          {pagination && pagination.pages > 1 && onPageChange && (
+            <div className="flex justify-center items-center mt-3 space-x-2">
+              <button 
+                onClick={() => onPageChange(Math.max(1, pagination.page - 1))}
+                className={`w-8 h-8 flex items-center justify-center pixel-border ${
+                  pagination.page <= 1 ? 'bg-gray-200 text-gray-500' : 'bg-[#26A269] text-white hover:bg-[#1A7048]'
+                }`}
+                disabled={pagination.page <= 1}
+              >
+                <span className="pixel-art">←</span>
+              </button>
+              
+              <div className="pixel-art text-teal-800">
+                {pagination.page} / {pagination.pages}
               </div>
-            ))}
-          </div>
-        </ScrollArea>
+              
+              <button 
+                onClick={() => onPageChange(Math.min(pagination.pages, pagination.page + 1))}
+                className={`w-8 h-8 flex items-center justify-center pixel-border ${
+                  pagination.page >= pagination.pages ? 'bg-gray-200 text-gray-500' : 'bg-[#26A269] text-white hover:bg-[#1A7048]'
+                }`}
+                disabled={pagination.page >= pagination.pages}
+              >
+                <span className="pixel-art">→</span>
+              </button>
+            </div>
+          )}
+        </div>
       )}
       
       <div className="mt-6 flex justify-between">
