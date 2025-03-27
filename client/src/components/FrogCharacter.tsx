@@ -114,7 +114,7 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
 
       {/* Frog Character Container - now clickable to make blossoms fall */}
       <motion.div 
-        className="relative mb-8"
+        className="relative"
         animate={isBouncing ? { y: [0, -3, -5, -3, 0] } : {}} 
         transition={isBouncing ? { 
           duration: 2.5, 
