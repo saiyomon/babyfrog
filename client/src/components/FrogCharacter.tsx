@@ -534,7 +534,7 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
         {/* Cute Pixel Button */}
         <div className="absolute bottom-[-18px] w-full flex justify-center">
           <div className="pixel-button-container">
-            <button className="pixel-cute-button">
+            <button className="pixel-cute-button" onClick={onTap}>
               <span className="font-pixel text-sm text-black">i'm baby</span>
             </button>
           </div>

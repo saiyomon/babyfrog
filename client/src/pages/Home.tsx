@@ -206,18 +206,8 @@ export default function Home() {
           </p>
         </header>
 
-        {/* Frog Character - no longer clickable */}
-        <FrogCharacter onTap={() => {}} />
-        
-        {/* "I'm baby" button - This is the main button for generating content */}
-        <div className="mb-8">
-          <Button
-            onClick={handleFrogTap}
-            className="bg-[#FFD1DC] hover:bg-[#FF9CB4] text-black font-bold py-3 px-5 pixel-border shadow-none"
-          >
-            <span className="pixel-art text-sm">i'm baby</span>
-          </Button>
-        </div>
+        {/* Frog Character - The button will generate content, not the frog itself */}
+        <FrogCharacter onTap={handleFrogTap} />
 
         {/* Content Display */}
         <ContentDisplay 
