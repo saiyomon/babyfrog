@@ -110,571 +110,194 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
               times: [0, 0.25, 0.75, 1]
             }}
           >
-            {/* Background - Pixel Art Shrine and Trees */}
-            {/* Detailed True Pixel Art Background - Each pixel is a 1x1 rectangle */}
+            {/* New Background - Matching Frog's Style */}
+            {/* True Pixel Art Background - Each pixel is clearly defined */}
             
-            {/* Pixel Art Sky - Layers of blues */}
-            {/* Sky row 1 */}
-            <rect x="0" y="0" width="64" height="1" fill="#5588FF" />
+            {/* Pixel Art Sky - 8-bit style gradient */}
+            {/* Sky gradient in 8-bit style - dark to light */}
+            <rect x="0" y="0" width="64" height="6" fill="#5B6EE1" /> {/* Dark blue top */}
+            <rect x="0" y="6" width="64" height="6" fill="#7289F9" />
+            <rect x="0" y="12" width="64" height="6" fill="#9DBAFF" />
+            <rect x="0" y="18" width="64" height="6" fill="#C6E2FF" />
+            <rect x="0" y="24" width="64" height="6" fill="#DEEEFF" /> {/* Light blue bottom */}
             
-            {/* Sky row 2-10 */}
-            <rect x="0" y="1" width="64" height="9" fill="#66AAFF" />
+            {/* New 8-bit style sun - simpler, blockier design */}
+            <rect x="8" y="4" width="8" height="8" fill="#FED800" /> {/* Main square sun body */}
             
-            {/* Sky row 11-15 */}
-            <rect x="0" y="10" width="64" height="5" fill="#77BBFF" />
+            {/* Highlights - simple 2-color design */}
+            <rect x="9" y="5" width="2" height="2" fill="#FEE568" />
+            <rect x="13" y="5" width="2" height="2" fill="#FEE568" />
+            <rect x="9" y="9" width="2" height="2" fill="#FEE568" />
+            <rect x="13" y="9" width="2" height="2" fill="#FEE568" />
+            <rect x="11" y="7" width="2" height="2" fill="#FFFFFF" /> {/* Center highlight */}
             
-            {/* Sky row 16-20 */}
-            <rect x="0" y="15" width="64" height="5" fill="#88CCFF" />
+            {/* Simple sun rays - blocky style */}
+            <rect x="12" y="2" width="1" height="2" fill="#FED800" /> {/* Top */}
+            <rect x="12" y="12" width="1" height="2" fill="#FED800" /> {/* Bottom */}
+            <rect x="4" y="8" width="4" height="1" fill="#FED800" /> {/* Left */}
+            <rect x="16" y="8" width="4" height="1" fill="#FED800" /> {/* Right */}
             
-            {/* Sky row 21-30 */}
-            <rect x="0" y="20" width="64" height="10" fill="#99DDFF" />
+            {/* Corner rays */}
+            <rect x="6" y="6" width="2" height="1" fill="#FED800" /> {/* Top-left */}
+            <rect x="16" y="6" width="2" height="1" fill="#FED800" /> {/* Top-right */}
+            <rect x="6" y="10" width="2" height="1" fill="#FED800" /> {/* Bottom-left */}
+            <rect x="16" y="10" width="2" height="1" fill="#FED800" /> {/* Bottom-right */}
             
-            {/* Sun - improved pixel by pixel with more detail */}
-            <rect x="7" y="5" width="1" height="1" fill="#FFEE55" />
-            <rect x="8" y="5" width="1" height="1" fill="#FFEE55" />
-            <rect x="9" y="5" width="1" height="1" fill="#FFEE55" />
-            <rect x="10" y="5" width="1" height="1" fill="#FFEE55" />
-            <rect x="11" y="5" width="1" height="1" fill="#FFEE55" />
-            <rect x="12" y="5" width="1" height="1" fill="#FFEE55" />
+            {/* 8-bit Style Clouds - Simplified blocky design */}
+            {/* Cloud 1 - Left */}
+            <rect x="20" y="4" width="8" height="3" fill="#FFFFFF" /> {/* Main cloud block */}
+            <rect x="18" y="5" width="2" height="2" fill="#FFFFFF" /> {/* Left puff */}
+            <rect x="28" y="5" width="3" height="2" fill="#FFFFFF" /> {/* Right puff */}
+            <rect x="19" y="7" width="10" height="2" fill="#FFFFFF" /> {/* Bottom fill */}
             
-            <rect x="6" y="6" width="1" height="1" fill="#FFEE55" />
-            <rect x="7" y="6" width="1" height="1" fill="#FFEE00" />
-            <rect x="8" y="6" width="1" height="1" fill="#FFFF00" />
-            <rect x="9" y="6" width="1" height="1" fill="#FFFF33" />
-            <rect x="10" y="6" width="1" height="1" fill="#FFFF33" />
-            <rect x="11" y="6" width="1" height="1" fill="#FFFF00" />
-            <rect x="12" y="6" width="1" height="1" fill="#FFEE00" />
-            <rect x="13" y="6" width="1" height="1" fill="#FFEE55" />
+            {/* Cloud 1 shading */}
+            <rect x="22" y="4" width="2" height="1" fill="#E0E0E0" />
+            <rect x="26" y="5" width="2" height="1" fill="#E0E0E0" />
+            <rect x="21" y="7" width="3" height="1" fill="#E0E0E0" />
+            <rect x="27" y="7" width="2" height="1" fill="#E0E0E0" />
             
-            <rect x="6" y="7" width="1" height="1" fill="#FFEE55" />
-            <rect x="7" y="7" width="1" height="1" fill="#FFFF00" />
-            <rect x="8" y="7" width="1" height="1" fill="#FFFF33" />
-            <rect x="9" y="7" width="1" height="1" fill="#FFFFAA" />
-            <rect x="10" y="7" width="1" height="1" fill="#FFFFAA" />
-            <rect x="11" y="7" width="1" height="1" fill="#FFFF33" />
-            <rect x="12" y="7" width="1" height="1" fill="#FFFF00" />
-            <rect x="13" y="7" width="1" height="1" fill="#FFEE55" />
+            {/* Cloud 2 - Right */}
+            <rect x="42" y="6" width="10" height="4" fill="#FFFFFF" /> {/* Main cloud block */}
+            <rect x="40" y="8" width="2" height="2" fill="#FFFFFF" /> {/* Left puff */}
+            <rect x="52" y="7" width="3" height="3" fill="#FFFFFF" /> {/* Right puff */}
             
-            <rect x="6" y="8" width="1" height="1" fill="#FFEE55" />
-            <rect x="7" y="8" width="1" height="1" fill="#FFFF00" />
-            <rect x="8" y="8" width="1" height="1" fill="#FFFF33" />
-            <rect x="9" y="8" width="1" height="1" fill="#FFFFAA" />
-            <rect x="10" y="8" width="1" height="1" fill="#FFFFFF" />
-            <rect x="11" y="8" width="1" height="1" fill="#FFFF33" />
-            <rect x="12" y="8" width="1" height="1" fill="#FFFF00" />
-            <rect x="13" y="8" width="1" height="1" fill="#FFEE55" />
+            {/* Cloud 2 shading */}
+            <rect x="44" y="6" width="3" height="1" fill="#E0E0E0" />
+            <rect x="49" y="7" width="2" height="1" fill="#E0E0E0" />
+            <rect x="43" y="9" width="2" height="1" fill="#E0E0E0" />
+            <rect x="47" y="9" width="3" height="1" fill="#E0E0E0" />
             
-            <rect x="6" y="9" width="1" height="1" fill="#FFEE55" />
-            <rect x="7" y="9" width="1" height="1" fill="#FFFF00" />
-            <rect x="8" y="9" width="1" height="1" fill="#FFFF33" />
-            <rect x="9" y="9" width="1" height="1" fill="#FFFFAA" />
-            <rect x="10" y="9" width="1" height="1" fill="#FFFFAA" />
-            <rect x="11" y="9" width="1" height="1" fill="#FFFF33" />
-            <rect x="12" y="9" width="1" height="1" fill="#FFFF00" />
-            <rect x="13" y="9" width="1" height="1" fill="#FFEE55" />
+            {/* Left Tree - Chunky 8-bit Cherry Blossom Tree */}
+            {/* Trunk - blockier style */}
+            <rect x="6" y="30" width="4" height="12" fill="#8B5A2B" /> {/* Main trunk */}
+            <rect x="7" y="30" width="2" height="12" fill="#A0522D" /> {/* Trunk highlight */}
             
-            <rect x="6" y="10" width="1" height="1" fill="#FFEE55" />
-            <rect x="7" y="10" width="1" height="1" fill="#FFEE00" />
-            <rect x="8" y="10" width="1" height="1" fill="#FFFF00" />
-            <rect x="9" y="10" width="1" height="1" fill="#FFFF33" />
-            <rect x="10" y="10" width="1" height="1" fill="#FFFF33" />
-            <rect x="11" y="10" width="1" height="1" fill="#FFFF00" />
-            <rect x="12" y="10" width="1" height="1" fill="#FFEE00" />
-            <rect x="13" y="10" width="1" height="1" fill="#FFEE55" />
+            {/* Left Tree - Blocky Branches */}
+            <rect x="10" y="29" width="3" height="2" fill="#8B5A2B" /> {/* Right branch */}
+            <rect x="3" y="29" width="3" height="2" fill="#8B5A2B" /> {/* Left branch */}
             
-            <rect x="7" y="11" width="1" height="1" fill="#FFEE55" />
-            <rect x="8" y="11" width="1" height="1" fill="#FFEE55" />
-            <rect x="9" y="11" width="1" height="1" fill="#FFEE55" />
-            <rect x="10" y="11" width="1" height="1" fill="#FFEE55" />
-            <rect x="11" y="11" width="1" height="1" fill="#FFEE55" />
-            <rect x="12" y="11" width="1" height="1" fill="#FFEE55" />
+            {/* Cherry Blossom Foliage - Blocky Style */}
+            <rect x="4" y="22" width="8" height="7" fill="#FFB6C1" /> {/* Main foliage block */}
+            <rect x="0" y="25" width="4" height="4" fill="#FFB6C1" /> {/* Left foliage */}
+            <rect x="12" y="24" width="4" height="4" fill="#FFB6C1" /> {/* Right foliage */}
             
-            {/* Sun rays - enhanced */}
-            <rect x="10" y="2" width="1" height="3" fill="#FFEE55" />
-            <rect x="10" y="12" width="1" height="2" fill="#FFEE55" />
-            <rect x="3" y="8" width="3" height="1" fill="#FFEE55" />
-            <rect x="14" y="8" width="3" height="1" fill="#FFEE55" />
-            <rect x="5" y="5" width="1" height="1" fill="#FFEE55" />
-            <rect x="14" y="5" width="1" height="1" fill="#FFEE55" />
-            <rect x="5" y="11" width="1" height="1" fill="#FFEE55" />
-            <rect x="14" y="11" width="1" height="1" fill="#FFEE55" />
+            {/* Pink Highlights - Blocky Style */}
+            <rect x="5" y="23" width="3" height="3" fill="#FFC1CC" /> {/* Main foliage highlight */}
+            <rect x="1" y="26" width="2" height="2" fill="#FFC1CC" /> {/* Left foliage highlight */}
+            <rect x="13" y="25" width="2" height="2" fill="#FFC1CC" /> {/* Right foliage highlight */}
             
-            {/* Pixel Art Clouds */}
-            {/* Cloud 1 */}
-            <rect x="18" y="4" width="1" height="1" fill="#FFFFFF" />
-            <rect x="19" y="4" width="1" height="1" fill="#FFFFFF" />
-            <rect x="20" y="4" width="1" height="1" fill="#FFFFFF" />
-            <rect x="21" y="4" width="1" height="1" fill="#FFFFFF" />
+            {/* White Accents - Blocky Style */}
+            <rect x="6" y="24" width="1" height="1" fill="#FFFFFF" /> {/* Flower detail */}
+            <rect x="9" y="25" width="1" height="1" fill="#FFFFFF" /> {/* Flower detail */}
+            <rect x="2" y="27" width="1" height="1" fill="#FFFFFF" /> {/* Flower detail */}
+            <rect x="14" y="24" width="1" height="1" fill="#FFFFFF" /> {/* Flower detail */}
             
-            <rect x="17" y="5" width="1" height="1" fill="#FFFFFF" />
-            <rect x="18" y="5" width="1" height="1" fill="#FFFFFF" />
-            <rect x="19" y="5" width="1" height="1" fill="#FFFFFF" />
-            <rect x="20" y="5" width="1" height="1" fill="#FFFFFF" />
-            <rect x="21" y="5" width="1" height="1" fill="#FFFFFF" />
-            <rect x="22" y="5" width="1" height="1" fill="#FFFFFF" />
-            <rect x="23" y="5" width="1" height="1" fill="#FFFFFF" />
-            <rect x="24" y="5" width="1" height="1" fill="#FFFFFF" />
+            {/* Right Tree - Pine - Simple Blocky 8-bit Style */}
+            {/* Trunk - chunky style */}
+            <rect x="53" y="31" width="4" height="11" fill="#8B5A2B" /> {/* Main trunk */}
+            <rect x="54" y="31" width="2" height="11" fill="#A0522D" /> {/* Trunk highlight */}
             
-            <rect x="17" y="6" width="1" height="1" fill="#FFFFFF" />
-            <rect x="18" y="6" width="1" height="1" fill="#FFFFFF" />
-            <rect x="19" y="6" width="1" height="1" fill="#FFFFFF" />
-            <rect x="20" y="6" width="1" height="1" fill="#FFFFFF" />
-            <rect x="21" y="6" width="1" height="1" fill="#FFFFFF" />
-            <rect x="22" y="6" width="1" height="1" fill="#FFFFFF" />
-            <rect x="23" y="6" width="1" height="1" fill="#FFFFFF" />
-            <rect x="24" y="6" width="1" height="1" fill="#FFFFFF" />
-            <rect x="25" y="6" width="1" height="1" fill="#FFFFFF" />
+            {/* Pine Foliage - Multi-layer triangle style */}
+            {/* First Triangle (bottom) */}
+            <rect x="49" y="28" width="12" height="3" fill="#228822" /> {/* Bottom wide layer */}
             
-            <rect x="19" y="7" width="1" height="1" fill="#FFFFFF" />
-            <rect x="20" y="7" width="1" height="1" fill="#FFFFFF" />
-            <rect x="21" y="7" width="1" height="1" fill="#FFFFFF" />
-            <rect x="22" y="7" width="1" height="1" fill="#FFFFFF" />
-            <rect x="23" y="7" width="1" height="1" fill="#FFFFFF" />
+            {/* Second Triangle (middle) */}
+            <rect x="50" y="25" width="10" height="3" fill="#22AA22" /> {/* Middle layer */}
             
-            {/* Cloud 2 */}
-            <rect x="45" y="7" width="1" height="1" fill="#FFFFFF" />
-            <rect x="46" y="7" width="1" height="1" fill="#FFFFFF" />
-            <rect x="47" y="7" width="1" height="1" fill="#FFFFFF" />
-            <rect x="48" y="7" width="1" height="1" fill="#FFFFFF" />
-            <rect x="49" y="7" width="1" height="1" fill="#FFFFFF" />
+            {/* Third Triangle (top) */}
+            <rect x="51" y="22" width="8" height="3" fill="#33CC33" /> {/* Top layer */}
             
-            <rect x="44" y="8" width="1" height="1" fill="#FFFFFF" />
-            <rect x="45" y="8" width="1" height="1" fill="#FFFFFF" />
-            <rect x="46" y="8" width="1" height="1" fill="#FFFFFF" />
-            <rect x="47" y="8" width="1" height="1" fill="#FFFFFF" />
-            <rect x="48" y="8" width="1" height="1" fill="#FFFFFF" />
-            <rect x="49" y="8" width="1" height="1" fill="#FFFFFF" />
-            <rect x="50" y="8" width="1" height="1" fill="#FFFFFF" />
-            <rect x="51" y="8" width="1" height="1" fill="#FFFFFF" />
+            {/* Fourth Triangle (peak) */}
+            <rect x="53" y="19" width="4" height="3" fill="#44DD44" /> {/* Peak */}
             
-            <rect x="43" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="44" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="45" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="46" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="47" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="48" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="49" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="50" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="51" y="9" width="1" height="1" fill="#FFFFFF" />
-            <rect x="52" y="9" width="1" height="1" fill="#FFFFFF" />
+            {/* Shading details */}
+            <rect x="51" y="23" width="2" height="1" fill="#228822" /> {/* Left shadow */}
+            <rect x="57" y="23" width="2" height="1" fill="#228822" /> {/* Right shadow */}
+            <rect x="50" y="26" width="2" height="1" fill="#228822" /> {/* Left shadow */}
+            <rect x="58" y="26" width="2" height="1" fill="#228822" /> {/* Right shadow */}
+            <rect x="54" y="20" width="2" height="1" fill="#55EE55" /> {/* Highlight */}
             
-            <rect x="45" y="10" width="1" height="1" fill="#FFFFFF" />
-            <rect x="46" y="10" width="1" height="1" fill="#FFFFFF" />
-            <rect x="47" y="10" width="1" height="1" fill="#FFFFFF" />
-            <rect x="48" y="10" width="1" height="1" fill="#FFFFFF" />
-            <rect x="49" y="10" width="1" height="1" fill="#FFFFFF" />
-            <rect x="50" y="10" width="1" height="1" fill="#FFFFFF" />
+            {/* Shrine - 8-Bit Blocky Style */}
+            {/* Roof Top - Simple triangular shape */}
+            <rect x="22" y="18" width="20" height="2" fill="#8B4513" /> {/* Roof base */}
+            <rect x="24" y="16" width="16" height="2" fill="#A0522D" /> {/* Roof middle */}
+            <rect x="27" y="14" width="10" height="2" fill="#CD853F" /> {/* Roof top */}
+            <rect x="30" y="12" width="4" height="2" fill="#DEB887" /> {/* Roof peak */}
             
-            {/* Left Tree - Cherry Blossom - Trunk */}
-            <rect x="6" y="30" width="1" height="12" fill="#885533" />
-            <rect x="7" y="30" width="1" height="12" fill="#996644" />
-            <rect x="8" y="30" width="1" height="12" fill="#996644" />
-            <rect x="9" y="30" width="1" height="12" fill="#885533" />
+            {/* Building - Simplified blocky structure */}
+            <rect x="25" y="20" width="14" height="12" fill="#D32F2F" /> {/* Main building block */}
+            <rect x="27" y="20" width="10" height="12" fill="#F44336" /> {/* Building highlight */}
             
-            {/* Left Tree - Branches */}
-            <rect x="9" y="30" width="2" height="1" fill="#885533" />
-            <rect x="10" y="29" width="2" height="1" fill="#885533" />
-            <rect x="11" y="28" width="2" height="1" fill="#885533" />
-            <rect x="12" y="27" width="3" height="1" fill="#885533" />
-            <rect x="4" y="29" width="2" height="1" fill="#885533" />
-            <rect x="3" y="28" width="2" height="1" fill="#885533" />
-            <rect x="2" y="27" width="2" height="1" fill="#885533" />
-            <rect x="1" y="26" width="2" height="1" fill="#885533" />
+            {/* Decorative band */}
+            <rect x="25" y="23" width="14" height="2" fill="#FFD700" /> {/* Gold decoration band */}
+            <rect x="27" y="23" width="10" height="2" fill="#FFEB3B" /> {/* Band highlight */}
             
-            {/* Cherry Blossoms - Pixel by Pixel */}
-            <rect x="0" y="24" width="1" height="1" fill="#FFAACC" />
-            <rect x="1" y="24" width="1" height="1" fill="#FFAACC" />
-            <rect x="2" y="24" width="1" height="1" fill="#FFAACC" />
-            <rect x="3" y="24" width="1" height="1" fill="#FFAACC" />
-            <rect x="4" y="24" width="1" height="1" fill="#FFAACC" />
+            {/* Door - Blocky style */}
+            <rect x="29" y="27" width="6" height="5" fill="#E8C170" /> {/* Door block */}
+            <rect x="30" y="27" width="4" height="5" fill="#F9E79F" /> {/* Door highlight */}
             
-            <rect x="0" y="25" width="1" height="1" fill="#FFAACC" />
-            <rect x="1" y="25" width="1" height="1" fill="#FFBBDD" />
-            <rect x="2" y="25" width="1" height="1" fill="#FFBBDD" />
-            <rect x="3" y="25" width="1" height="1" fill="#FFBBDD" />
-            <rect x="4" y="25" width="1" height="1" fill="#FFAACC" />
-            <rect x="5" y="25" width="1" height="1" fill="#FFAACC" />
+            {/* Door Handles - Simple squares */}
+            <rect x="30" y="29" width="1" height="1" fill="#8B4513" /> {/* Left handle */}
+            <rect x="33" y="29" width="1" height="1" fill="#8B4513" /> {/* Right handle */}
             
-            <rect x="1" y="23" width="1" height="1" fill="#FFAACC" />
-            <rect x="2" y="23" width="1" height="1" fill="#FFBBDD" />
-            <rect x="3" y="23" width="1" height="1" fill="#FFCCEE" />
-            <rect x="4" y="23" width="1" height="1" fill="#FFBBDD" />
-            <rect x="5" y="23" width="1" height="1" fill="#FFAACC" />
+            {/* Stairs - Blocky pyramid style */}
+            <rect x="27" y="32" width="10" height="1" fill="#BDC3C7" /> {/* Top stair */}
+            <rect x="26" y="33" width="12" height="1" fill="#D0D3D4" /> {/* Middle stair */}
+            <rect x="25" y="34" width="14" height="1" fill="#E5E7E9" /> {/* Bottom stair */}
             
-            <rect x="2" y="22" width="1" height="1" fill="#FFAACC" />
-            <rect x="3" y="22" width="1" height="1" fill="#FFBBDD" />
-            <rect x="4" y="22" width="1" height="1" fill="#FFAACC" />
+            {/* Ground - Grass - 8-bit style with distinct layers */}
+            <rect x="0" y="42" width="64" height="2" fill="#7EC850" /> {/* Top grass layer - bright */}
+            <rect x="0" y="44" width="64" height="2" fill="#5BB032" /> {/* Middle grass layer */}
+            <rect x="0" y="46" width="64" height="4" fill="#3F8024" /> {/* Bottom grass layer - darker */}
             
-            <rect x="11" y="23" width="1" height="1" fill="#FFAACC" />
-            <rect x="12" y="23" width="1" height="1" fill="#FFAACC" />
-            <rect x="13" y="23" width="1" height="1" fill="#FFAACC" />
-            <rect x="14" y="23" width="1" height="1" fill="#FFAACC" />
+            {/* Stylized Grass Tufts - blocky style */}
+            <rect x="2" y="40" width="2" height="2" fill="#7EC850" />
+            <rect x="8" y="41" width="2" height="1" fill="#7EC850" />
+            <rect x="15" y="40" width="2" height="2" fill="#7EC850" />
+            <rect x="22" y="41" width="2" height="1" fill="#7EC850" />
+            <rect x="28" y="40" width="2" height="2" fill="#7EC850" />
+            <rect x="39" y="41" width="2" height="1" fill="#7EC850" />
+            <rect x="47" y="40" width="2" height="2" fill="#7EC850" />
+            <rect x="57" y="41" width="2" height="1" fill="#7EC850" />
             
-            <rect x="11" y="24" width="1" height="1" fill="#FFAACC" />
-            <rect x="12" y="24" width="1" height="1" fill="#FFBBDD" />
-            <rect x="13" y="24" width="1" height="1" fill="#FFBBDD" />
-            <rect x="14" y="24" width="1" height="1" fill="#FFAACC" />
-            <rect x="15" y="24" width="1" height="1" fill="#FFAACC" />
+            {/* Darker grass tufts for contrast */}
+            <rect x="5" y="41" width="2" height="1" fill="#5BB032" />
+            <rect x="12" y="41" width="1" height="1" fill="#5BB032" />
+            <rect x="19" y="41" width="2" height="1" fill="#5BB032" />
+            <rect x="32" y="41" width="1" height="1" fill="#5BB032" />
+            <rect x="42" y="41" width="2" height="1" fill="#5BB032" />
+            <rect x="52" y="41" width="1" height="1" fill="#5BB032" />
+            <rect x="61" y="41" width="2" height="1" fill="#5BB032" />
             
-            <rect x="12" y="25" width="1" height="1" fill="#FFAACC" />
-            <rect x="13" y="25" width="1" height="1" fill="#FFBBDD" />
-            <rect x="14" y="25" width="1" height="1" fill="#FFAACC" />
+            {/* 8-bit Pond - Simplified with larger blocks of color */}
+            {/* Outer edge - dark blue border */}
+            <rect x="33" y="42" width="20" height="1" fill="#264F73" /> {/* Top edge */}
+            <rect x="33" y="43" width="1" height="6" fill="#264F73" /> {/* Left edge */}
+            <rect x="52" y="43" width="1" height="6" fill="#264F73" /> {/* Right edge */}
+            <rect x="34" y="49" width="18" height="1" fill="#264F73" /> {/* Bottom edge */}
             
-            <rect x="12" y="22" width="1" height="1" fill="#FFAACC" />
-            <rect x="13" y="22" width="1" height="1" fill="#FFCCEE" />
-            <rect x="14" y="22" width="1" height="1" fill="#FFAACC" />
+            {/* Main water area - medium blue */}
+            <rect x="34" y="43" width="18" height="6" fill="#3A7CA5" />
             
-            <rect x="11" y="26" width="1" height="1" fill="#FFAACC" />
-            <rect x="12" y="26" width="1" height="1" fill="#FFBBDD" />
-            <rect x="13" y="26" width="1" height="1" fill="#FFAACC" />
+            {/* Water highlight areas - light blue */}
+            <rect x="36" y="44" width="14" height="4" fill="#5AAFDF" />
             
-            {/* Right Tree - Pine - Trunk */}
-            <rect x="53" y="31" width="1" height="11" fill="#885533" />
-            <rect x="54" y="31" width="1" height="11" fill="#996644" />
-            <rect x="55" y="31" width="1" height="11" fill="#996644" />
-            <rect x="56" y="31" width="1" height="11" fill="#885533" />
+            {/* Brightest center area */}
+            <rect x="38" y="45" width="10" height="2" fill="#81D4FA" />
             
-            {/* Pine Tree - Foliage - Layer by Layer */}
-            {/* Layer 1 */}
-            <rect x="52" y="29" width="1" height="1" fill="#006600" />
-            <rect x="53" y="29" width="1" height="1" fill="#007700" />
-            <rect x="54" y="29" width="1" height="1" fill="#008800" />
-            <rect x="55" y="29" width="1" height="1" fill="#007700" />
-            <rect x="56" y="29" width="1" height="1" fill="#006600" />
-            <rect x="57" y="29" width="1" height="1" fill="#006600" />
+            {/* Water sparkle/highlights - tiny white dots */}
+            <rect x="40" y="44" width="1" height="1" fill="#FFFFFF" />
+            <rect x="45" y="45" width="1" height="1" fill="#FFFFFF" />
+            <rect x="42" y="47" width="1" height="1" fill="#FFFFFF" />
             
-            {/* Layer 2 */}
-            <rect x="51" y="27" width="1" height="1" fill="#006600" />
-            <rect x="52" y="27" width="1" height="1" fill="#007700" />
-            <rect x="53" y="27" width="1" height="1" fill="#008800" />
-            <rect x="54" y="27" width="1" height="1" fill="#009900" />
-            <rect x="55" y="27" width="1" height="1" fill="#008800" />
-            <rect x="56" y="27" width="1" height="1" fill="#007700" />
-            <rect x="57" y="27" width="1" height="1" fill="#006600" />
-            <rect x="58" y="27" width="1" height="1" fill="#006600" />
+            {/* Lily pads - chunky 8-bit style */}
+            {/* First lily pad - larger blocky shape */}
+            <rect x="37" y="44" width="4" height="2" fill="#4CAF50" /> {/* Main pad */}
+            <rect x="38" y="44" width="2" height="1" fill="#81C784" /> {/* Highlight */}
             
-            {/* Layer 3 */}
-            <rect x="51" y="28" width="1" height="1" fill="#006600" />
-            <rect x="52" y="28" width="1" height="1" fill="#007700" />
-            <rect x="53" y="28" width="1" height="1" fill="#008800" />
-            <rect x="54" y="28" width="1" height="1" fill="#009900" />
-            <rect x="55" y="28" width="1" height="1" fill="#008800" />
-            <rect x="56" y="28" width="1" height="1" fill="#007700" />
-            <rect x="57" y="28" width="1" height="1" fill="#006600" />
-            
-            {/* Layer 4 */}
-            <rect x="50" y="25" width="1" height="1" fill="#006600" />
-            <rect x="51" y="25" width="1" height="1" fill="#007700" />
-            <rect x="52" y="25" width="1" height="1" fill="#008800" />
-            <rect x="53" y="25" width="1" height="1" fill="#009900" />
-            <rect x="54" y="25" width="1" height="1" fill="#00AA00" />
-            <rect x="55" y="25" width="1" height="1" fill="#009900" />
-            <rect x="56" y="25" width="1" height="1" fill="#008800" />
-            <rect x="57" y="25" width="1" height="1" fill="#007700" />
-            <rect x="58" y="25" width="1" height="1" fill="#006600" />
-            
-            {/* Layer 5 */}
-            <rect x="50" y="26" width="1" height="1" fill="#006600" />
-            <rect x="51" y="26" width="1" height="1" fill="#007700" />
-            <rect x="52" y="26" width="1" height="1" fill="#008800" />
-            <rect x="53" y="26" width="1" height="1" fill="#009900" />
-            <rect x="54" y="26" width="1" height="1" fill="#00AA00" />
-            <rect x="55" y="26" width="1" height="1" fill="#009900" />
-            <rect x="56" y="26" width="1" height="1" fill="#008800" />
-            <rect x="57" y="26" width="1" height="1" fill="#007700" />
-            <rect x="58" y="26" width="1" height="1" fill="#006600" />
-            
-            {/* Layer 6 - Top */}
-            <rect x="51" y="23" width="1" height="1" fill="#006600" />
-            <rect x="52" y="23" width="1" height="1" fill="#007700" />
-            <rect x="53" y="23" width="1" height="1" fill="#008800" />
-            <rect x="54" y="23" width="1" height="1" fill="#009900" />
-            <rect x="55" y="23" width="1" height="1" fill="#008800" />
-            <rect x="56" y="23" width="1" height="1" fill="#007700" />
-            <rect x="57" y="23" width="1" height="1" fill="#006600" />
-            
-            {/* Layer 7 */}
-            <rect x="52" y="24" width="1" height="1" fill="#006600" />
-            <rect x="53" y="24" width="1" height="1" fill="#007700" />
-            <rect x="54" y="24" width="1" height="1" fill="#008800" />
-            <rect x="55" y="24" width="1" height="1" fill="#007700" />
-            <rect x="56" y="24" width="1" height="1" fill="#006600" />
-            
-            {/* Shrine - Pixel by Pixel - Enhanced with more details */}
-            {/* Roof Top Ridge */}
-            <rect x="22" y="19" width="1" height="1" fill="#773300" />
-            <rect x="23" y="19" width="1" height="1" fill="#884400" />
-            <rect x="24" y="19" width="1" height="1" fill="#884400" />
-            <rect x="25" y="19" width="1" height="1" fill="#884400" />
-            <rect x="26" y="19" width="1" height="1" fill="#884400" />
-            <rect x="27" y="19" width="1" height="1" fill="#884400" />
-            <rect x="28" y="19" width="1" height="1" fill="#884400" />
-            <rect x="29" y="19" width="1" height="1" fill="#884400" />
-            <rect x="30" y="19" width="1" height="1" fill="#884400" />
-            <rect x="31" y="19" width="1" height="1" fill="#884400" />
-            <rect x="32" y="19" width="1" height="1" fill="#884400" />
-            <rect x="33" y="19" width="1" height="1" fill="#884400" />
-            <rect x="34" y="19" width="1" height="1" fill="#884400" />
-            <rect x="35" y="19" width="1" height="1" fill="#884400" />
-            <rect x="36" y="19" width="1" height="1" fill="#884400" />
-            <rect x="37" y="19" width="1" height="1" fill="#884400" />
-            <rect x="38" y="19" width="1" height="1" fill="#884400" />
-            <rect x="39" y="19" width="1" height="1" fill="#884400" />
-            <rect x="40" y="19" width="1" height="1" fill="#773300" />
-            
-            {/* Roof Top */}
-            <rect x="24" y="18" width="1" height="1" fill="#773300" />
-            <rect x="25" y="18" width="1" height="1" fill="#884400" />
-            <rect x="26" y="18" width="1" height="1" fill="#884400" />
-            <rect x="27" y="18" width="1" height="1" fill="#884400" />
-            <rect x="28" y="18" width="1" height="1" fill="#884400" />
-            <rect x="29" y="18" width="1" height="1" fill="#884400" />
-            <rect x="30" y="18" width="1" height="1" fill="#884400" />
-            <rect x="31" y="18" width="1" height="1" fill="#884400" />
-            <rect x="32" y="18" width="1" height="1" fill="#884400" />
-            <rect x="33" y="18" width="1" height="1" fill="#884400" />
-            <rect x="34" y="18" width="1" height="1" fill="#884400" />
-            <rect x="35" y="18" width="1" height="1" fill="#884400" />
-            <rect x="36" y="18" width="1" height="1" fill="#884400" />
-            <rect x="37" y="18" width="1" height="1" fill="#884400" />
-            <rect x="38" y="18" width="1" height="1" fill="#773300" />
-            
-            {/* Building */}
-            <rect x="25" y="20" width="1" height="12" fill="#CC0000" />
-            <rect x="26" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="27" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="28" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="29" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="30" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="31" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="32" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="33" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="34" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="35" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="36" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="37" y="20" width="1" height="12" fill="#DD0000" />
-            <rect x="38" y="20" width="1" height="12" fill="#CC0000" />
-            
-            {/* Door */}
-            <rect x="29" y="27" width="1" height="5" fill="#EEDDAA" />
-            <rect x="30" y="27" width="1" height="5" fill="#FFEEAA" />
-            <rect x="31" y="27" width="1" height="5" fill="#FFEEAA" />
-            <rect x="32" y="27" width="1" height="5" fill="#FFEEAA" />
-            <rect x="33" y="27" width="1" height="5" fill="#FFEEAA" />
-            <rect x="34" y="27" width="1" height="5" fill="#EEDDAA" />
-            
-            {/* Door Handles */}
-            <rect x="30" y="29" width="1" height="1" fill="#884400" />
-            <rect x="33" y="29" width="1" height="1" fill="#884400" />
-            
-            {/* Shrine Decorations */}
-            <rect x="28" y="23" width="1" height="1" fill="#FFBB00" />
-            <rect x="29" y="23" width="1" height="1" fill="#FFCC00" />
-            <rect x="30" y="23" width="1" height="1" fill="#FFDD00" />
-            <rect x="31" y="23" width="1" height="1" fill="#FFDD00" />
-            <rect x="32" y="23" width="1" height="1" fill="#FFDD00" />
-            <rect x="33" y="23" width="1" height="1" fill="#FFDD00" />
-            <rect x="34" y="23" width="1" height="1" fill="#FFCC00" />
-            <rect x="35" y="23" width="1" height="1" fill="#FFBB00" />
-            
-            {/* Stairs */}
-            <rect x="29" y="32" width="1" height="1" fill="#CCCCCC" />
-            <rect x="30" y="32" width="1" height="1" fill="#DDDDDD" />
-            <rect x="31" y="32" width="1" height="1" fill="#DDDDDD" />
-            <rect x="32" y="32" width="1" height="1" fill="#DDDDDD" />
-            <rect x="33" y="32" width="1" height="1" fill="#DDDDDD" />
-            <rect x="34" y="32" width="1" height="1" fill="#CCCCCC" />
-            
-            <rect x="28" y="33" width="1" height="1" fill="#CCCCCC" />
-            <rect x="29" y="33" width="1" height="1" fill="#DDDDDD" />
-            <rect x="30" y="33" width="1" height="1" fill="#DDDDDD" />
-            <rect x="31" y="33" width="1" height="1" fill="#DDDDDD" />
-            <rect x="32" y="33" width="1" height="1" fill="#DDDDDD" />
-            <rect x="33" y="33" width="1" height="1" fill="#DDDDDD" />
-            <rect x="34" y="33" width="1" height="1" fill="#DDDDDD" />
-            <rect x="35" y="33" width="1" height="1" fill="#CCCCCC" />
-            
-            <rect x="27" y="34" width="1" height="1" fill="#CCCCCC" />
-            <rect x="28" y="34" width="1" height="1" fill="#DDDDDD" />
-            <rect x="29" y="34" width="1" height="1" fill="#DDDDDD" />
-            <rect x="30" y="34" width="1" height="1" fill="#DDDDDD" />
-            <rect x="31" y="34" width="1" height="1" fill="#DDDDDD" />
-            <rect x="32" y="34" width="1" height="1" fill="#DDDDDD" />
-            <rect x="33" y="34" width="1" height="1" fill="#DDDDDD" />
-            <rect x="34" y="34" width="1" height="1" fill="#DDDDDD" />
-            <rect x="35" y="34" width="1" height="1" fill="#DDDDDD" />
-            <rect x="36" y="34" width="1" height="1" fill="#CCCCCC" />
-            
-            {/* Ground - Grass */}
-            <rect x="0" y="42" width="64" height="1" fill="#77AA44" />
-            <rect x="0" y="43" width="64" height="1" fill="#669933" />
-            <rect x="0" y="44" width="64" height="1" fill="#558822" />
-            <rect x="0" y="45" width="64" height="1" fill="#447722" />
-            <rect x="0" y="46" width="64" height="4" fill="#336611" />
-            
-            {/* Grass Details */}
-            <rect x="2" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="5" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="9" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="15" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="21" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="24" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="39" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="42" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="47" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="51" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="58" y="41" width="1" height="1" fill="#77AA44" />
-            <rect x="62" y="41" width="1" height="1" fill="#77AA44" />
-            
-            {/* Larger Pond with more detail */}
-            <rect x="36" y="42" width="1" height="1" fill="#2266AA" />
-            <rect x="37" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="38" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="39" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="40" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="41" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="42" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="43" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="44" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="45" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="46" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="47" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="48" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="49" y="42" width="1" height="1" fill="#3377AA" />
-            <rect x="50" y="42" width="1" height="1" fill="#2266AA" />
-            
-            <rect x="35" y="43" width="1" height="1" fill="#2266AA" />
-            <rect x="36" y="43" width="1" height="1" fill="#3377AA" />
-            <rect x="37" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="38" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="39" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="40" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="41" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="42" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="43" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="44" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="45" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="46" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="47" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="48" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="49" y="43" width="1" height="1" fill="#4488BB" />
-            <rect x="50" y="43" width="1" height="1" fill="#3377AA" />
-            <rect x="51" y="43" width="1" height="1" fill="#2266AA" />
-            
-            <rect x="34" y="44" width="1" height="1" fill="#2266AA" />
-            <rect x="35" y="44" width="1" height="1" fill="#3377AA" />
-            <rect x="36" y="44" width="1" height="1" fill="#4488BB" />
-            <rect x="37" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="38" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="39" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="40" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="41" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="42" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="43" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="44" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="45" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="46" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="47" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="48" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="49" y="44" width="1" height="1" fill="#55AADD" />
-            <rect x="50" y="44" width="1" height="1" fill="#4488BB" />
-            <rect x="51" y="44" width="1" height="1" fill="#3377AA" />
-            <rect x="52" y="44" width="1" height="1" fill="#2266AA" />
-            
-            <rect x="33" y="45" width="1" height="1" fill="#2266AA" />
-            <rect x="34" y="45" width="1" height="1" fill="#3377AA" />
-            <rect x="35" y="45" width="1" height="1" fill="#4488BB" />
-            <rect x="36" y="45" width="1" height="1" fill="#55AADD" />
-            <rect x="37" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="38" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="39" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="40" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="41" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="42" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="43" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="44" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="45" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="46" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="47" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="48" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="49" y="45" width="1" height="1" fill="#66CCFF" />
-            <rect x="50" y="45" width="1" height="1" fill="#55AADD" />
-            <rect x="51" y="45" width="1" height="1" fill="#4488BB" />
-            <rect x="52" y="45" width="1" height="1" fill="#3377AA" />
-            <rect x="53" y="45" width="1" height="1" fill="#2266AA" />
-            
-            <rect x="33" y="46" width="1" height="1" fill="#2266AA" />
-            <rect x="34" y="46" width="1" height="1" fill="#3377AA" />
-            <rect x="35" y="46" width="1" height="1" fill="#4488BB" />
-            <rect x="36" y="46" width="1" height="1" fill="#55AADD" />
-            <rect x="37" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="38" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="39" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="40" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="41" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="42" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="43" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="44" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="45" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="46" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="47" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="48" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="49" y="46" width="1" height="1" fill="#66CCFF" />
-            <rect x="50" y="46" width="1" height="1" fill="#55AADD" />
-            <rect x="51" y="46" width="1" height="1" fill="#4488BB" />
-            <rect x="52" y="46" width="1" height="1" fill="#3377AA" />
-            <rect x="53" y="46" width="1" height="1" fill="#2266AA" />
-            
-            <rect x="34" y="47" width="1" height="1" fill="#2266AA" />
-            <rect x="35" y="47" width="1" height="1" fill="#3377AA" />
-            <rect x="36" y="47" width="1" height="1" fill="#4488BB" />
-            <rect x="37" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="38" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="39" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="40" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="41" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="42" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="43" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="44" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="45" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="46" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="47" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="48" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="49" y="47" width="1" height="1" fill="#55AADD" />
-            <rect x="50" y="47" width="1" height="1" fill="#4488BB" />
-            <rect x="51" y="47" width="1" height="1" fill="#3377AA" />
-            <rect x="52" y="47" width="1" height="1" fill="#2266AA" />
-            
-            <rect x="35" y="48" width="1" height="1" fill="#2266AA" />
-            <rect x="36" y="48" width="1" height="1" fill="#3377AA" />
-            <rect x="37" y="48" width="1" height="1" fill="#3377AA" />
-            <rect x="38" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="39" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="40" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="41" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="42" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="43" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="44" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="45" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="46" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="47" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="48" y="48" width="1" height="1" fill="#4488BB" />
-            <rect x="49" y="48" width="1" height="1" fill="#3377AA" />
-            <rect x="50" y="48" width="1" height="1" fill="#3377AA" />
-            <rect x="51" y="48" width="1" height="1" fill="#2266AA" />
-            
-            {/* Lily pads */}
-            <rect x="38" y="44" width="1" height="1" fill="#009900" />
-            <rect x="39" y="44" width="1" height="1" fill="#00AA00" />
-            <rect x="40" y="44" width="1" height="1" fill="#00BB00" />
-            <rect x="41" y="44" width="1" height="1" fill="#00AA00" />
-            <rect x="42" y="44" width="1" height="1" fill="#009900" />
-            
-            <rect x="44" y="46" width="1" height="1" fill="#009900" />
-            <rect x="45" y="46" width="1" height="1" fill="#00AA00" />
-            <rect x="46" y="46" width="1" height="1" fill="#00BB00" />
-            <rect x="47" y="46" width="1" height="1" fill="#00AA00" />
-            <rect x="48" y="46" width="1" height="1" fill="#009900" />
+            {/* Second lily pad */}
+            <rect x="44" y="46" width="5" height="2" fill="#4CAF50" /> {/* Main pad */}
+            <rect x="45" y="46" width="3" height="1" fill="#81C784" /> {/* Highlight */}
             
             {/* True Pixel Art Frog Character */}
             {/* Each pixel is represented by a 1x1 square with sharp edges */}
