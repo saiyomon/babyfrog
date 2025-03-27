@@ -11,6 +11,7 @@ interface ContentDisplayProps {
   onShowAnother: () => void;
   onUploadToggle: () => void;
   isLoading: boolean;
+  onGenerateContent: () => void;
 }
 
 export default function ContentDisplay({
@@ -19,7 +20,8 @@ export default function ContentDisplay({
   message,
   onShowAnother,
   onUploadToggle,
-  isLoading
+  isLoading,
+  onGenerateContent
 }: ContentDisplayProps) {
   if (!isVisible) return null;
 
@@ -90,7 +92,15 @@ export default function ContentDisplay({
       </motion.div>
 
 {/* Action Buttons removed */}
-{/* "I'm baby" Button removed from here and placed in Home.tsx */}
+      
+      {/* "I'm baby" Button - Below Content */}
+      <div className="flex justify-center mt-5">
+        <div className="pixel-button-container">
+          <button className="pixel-cute-button" onClick={onGenerateContent}>
+            <span className="font-pixel text-sm text-black">i'm baby</span>
+          </button>
+        </div>
+      </div>
     </motion.div>
   );
 }
