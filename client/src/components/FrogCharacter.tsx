@@ -15,6 +15,7 @@ interface CherryBlossom {
 
 export default function FrogCharacter({ onTap }: FrogCharacterProps) {
   const [isBouncing, setIsBouncing] = useState(false);
+  const [showEmojis, setShowEmojis] = useState(false);
   const [blossomIdCounter, setBlossomIdCounter] = useState(15); // Track IDs for new blossoms
   
   // Generate 15 cherry blossoms with random properties
@@ -30,7 +31,7 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
   
   const [cherryBlossoms, setCherryBlossoms] = useState<CherryBlossom[]>(initialCherryBlossoms);
   
-  // Function to add more cherry blossoms when the button is clicked
+  // Function to add more cherry blossoms when the frog is clicked
   const addMoreBlossoms = () => {
     const newBlossoms = Array.from({ length: 8 }, (_, i) => ({
       id: blossomIdCounter + i,
@@ -42,6 +43,13 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
     
     setBlossomIdCounter(prev => prev + 8);
     setCherryBlossoms(prevBlossoms => [...prevBlossoms, ...newBlossoms]);
+  };
+  
+  // Function to handle frog click
+  const handleFrogClick = () => {
+    addMoreBlossoms();
+    setShowEmojis(true);
+    setTimeout(() => setShowEmojis(false), 1500); // Show emojis for 1.5 seconds
   };
 
   // Start bounce animation periodically with smoother transitions
@@ -97,7 +105,7 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
         />
       ))}
 
-      {/* Frog Character Container - no longer clickable */}
+      {/* Frog Character Container - now clickable to make blossoms fall */}
       <motion.div 
         className="relative mb-8"
         animate={isBouncing ? { y: [0, -3, -5, -3, 0] } : {}} 
@@ -108,7 +116,28 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
           times: [0, 0.25, 0.5, 0.75, 1]
         } : {}}
       >
-        <svg className="w-72 h-72 pixel-art" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shapeRendering="crispEdges">
+        {/* Shy emojis that appear when frog is clicked */}
+        {showEmojis && (
+          <motion.div 
+            className="absolute top-10 right-12 z-10"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <span className="text-3xl" role="img" aria-label="shy">👉🏻👈🏻</span>
+          </motion.div>
+        )}
+        
+        <svg 
+          className="w-72 h-72 pixel-art cursor-pointer" 
+          viewBox="0 0 64 64" 
+          xmlns="http://www.w3.org/2000/svg" 
+          shapeRendering="crispEdges"
+          onClick={() => {
+            handleFrogClick();
+            onTap(); // Still call the original handler for the content generation
+          }}>
           
 
           
@@ -549,10 +578,7 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
         {/* Cute Pixel Button */}
         <div className="absolute bottom-[-18px] w-full flex justify-center">
           <div className="pixel-button-container">
-            <button className="pixel-cute-button" onClick={() => {
-              addMoreBlossoms(); // Add more cherry blossoms
-              onTap(); // Call the original onTap function
-            }}>
+            <button className="pixel-cute-button" onClick={onTap}>
               <span className="font-pixel text-sm text-black">i'm baby</span>
             </button>
           </div>
