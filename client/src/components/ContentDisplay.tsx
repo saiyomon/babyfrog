@@ -51,53 +51,57 @@ export default function ContentDisplay({
         </motion.div>
       )}
 
-      {/* Message Card - Pixel Art Scroll Style */}
+      {/* Message Card - Smaller Pixel Art Scroll Style (Pokemon Style) */}
       <motion.div
-        className="relative bg-[#FFF9E5] p-6 pb-10 pixel-border message-scroll"
+        className="relative bg-[#FFF9E5] p-4 pb-8 pixel-border message-scroll max-w-xs mx-auto"
         animate={{ scale: [1, 1.02, 1] }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        {/* Top Scroll Border */}
-        <div className="absolute top-0 left-0 right-0 h-4 bg-[#D9A066] border-b-2 border-[#8B4513]"></div>
+        {/* Top Scroll Border - Pokemon Style */}
+        <div className="absolute top-0 left-0 right-0 h-3 bg-[#D9A066] border-b-2 border-[#8B4513]">
+          <div className="absolute top-0 left-0 w-3 h-3 bg-[#D9A066] border-r-2 border-b-2 border-[#8B4513] rounded-br-lg"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 bg-[#D9A066] border-l-2 border-b-2 border-[#8B4513] rounded-bl-lg"></div>
+        </div>
         
-        {/* Bottom Scroll Border */}
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-[#D9A066] border-t-2 border-[#8B4513]"></div>
+        {/* Bottom Scroll Border - Pokemon Style */}
+        <div className="absolute bottom-0 left-0 right-0 h-3 bg-[#D9A066] border-t-2 border-[#8B4513]">
+          <div className="absolute bottom-0 left-0 w-3 h-3 bg-[#D9A066] border-r-2 border-t-2 border-[#8B4513] rounded-tr-lg"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 bg-[#D9A066] border-l-2 border-t-2 border-[#8B4513] rounded-tl-lg"></div>
+        </div>
         
         {isLoading || !message ? (
-          <Skeleton className="w-full h-12 mt-4" />
+          <Skeleton className="w-full h-10 mt-3" />
         ) : (
-          <div className="mt-2">
-            <p className="text-center font-['Bubblegum_Sans'] text-xl text-teal-900 pixel-art py-2">
+          <div className="mt-1">
+            <p className="text-center font-['Bubblegum_Sans'] text-base text-teal-900 pixel-art py-2 pokemon-text">
               {message.text}
             </p>
             
-            {/* Pixel Hearts and Cute Decorations */}
-            <div className="mt-4 flex justify-center space-x-4 pixel-art">
-              <div className="pixel-heart"></div>
-              <div className="pixel-star"></div>
-              <div className="pixel-heart"></div>
-              <div className="pixel-flower"></div>
-              <div className="pixel-heart"></div>
+            {/* Pokemon-Style Pixel Decorations */}
+            <div className="mt-2 flex justify-center space-x-3 pixel-art">
+              <div className="pokemon-heart"></div>
+              <div className="pokemon-pokeball"></div>
+              <div className="pokemon-heart"></div>
             </div>
           </div>
         )}
       </motion.div>
 
-      {/* Action Buttons - Pixel Art Style */}
-      <div className="flex justify-center space-x-4">
+      {/* Action Buttons - Pokemon Style */}
+      <div className="flex justify-center space-x-4 mt-4">
         <Button 
           onClick={onShowAnother}
-          className="bg-[#26A269] hover:bg-[#1A7048] text-white font-bold py-2 px-4 pixel-border shadow-none"
+          className="pokemon-button pokemon-button-green shadow-none"
           disabled={isLoading}
         >
-          <span className="pixel-art">Show Another</span>
+          <span className="pokemon-text text-sm font-['Bubblegum_Sans']">Show Another</span>
         </Button>
         <Button
           onClick={onUploadToggle}
-          className="bg-[#FFAEC9] hover:bg-[#FF69B4] text-teal-900 font-bold py-2 px-4 pixel-border shadow-none"
+          className="pokemon-button pokemon-button-pink shadow-none"
           disabled={isLoading}
         >
-          <span className="pixel-art">Add Images</span>
+          <span className="pokemon-text text-sm font-['Bubblegum_Sans']">Add Images</span>
         </Button>
       </div>
     </motion.div>

@@ -98,76 +98,232 @@
     4px 4px 0 0 rgba(0,0,0,0.2);
 }
 
-/* Pixel Art Decorations */
-.pixel-heart {
-  width: 20px;
-  height: 20px;
+/* Pokemon-Style Pixel Art Decorations */
+.pokemon-text {
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #fff;
+  color: #306BAC;
+  letter-spacing: 0.5px;
+}
+
+/* Pokemon-Style Scroll Button */
+.pokemon-scroll-button {
+  width: 80px;
+  height: 28px;
+  background-color: #D8B941;
+  border: 2px solid #000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 0 #8B6914, 0 0 0 2px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(500px) rotateX(20deg);
+  transition: all 0.15s ease-out;
+}
+
+.pokemon-scroll-button:hover {
+  transform: perspective(500px) rotateX(25deg) translateY(-2px);
+  box-shadow: 0 5px 0 #8B6914, 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-scroll-button:active {
+  transform: perspective(500px) rotateX(15deg) translateY(2px);
+  box-shadow: 0 1px 0 #8B6914, 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-scroll-top {
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  width: 70px;
+  height: 5px;
+  background-color: #FFC870;
+  border: 2px solid #000;
+  border-bottom: none;
+  border-radius: 50% 50% 0 0;
+}
+
+.pokemon-scroll-bottom {
+  position: absolute;
+  bottom: -5px;
+  left: 5px;
+  width: 70px;
+  height: 5px;
+  background-color: #FFC870;
+  border: 2px solid #000;
+  border-top: none;
+  border-radius: 0 0 50% 50%;
+}
+
+.pokemon-scroll-middle {
+  position: relative;
+  z-index: 2;
+  padding: 0 8px;
+}
+
+.pokemon-heart {
+  width: 18px;
+  height: 16px;
   position: relative;
   display: inline-block;
   background-color: transparent;
 }
 
-.pixel-heart::before,
-.pixel-heart::after {
+.pokemon-heart::before,
+.pokemon-heart::after {
   content: "";
-  width: 10px;
-  height: 16px;
+  width: 8px;
+  height: 13px;
   position: absolute;
-  background-color: #FF6B81;
-  border-radius: 50px 50px 0 0;
+  background-color: #FF4554;
+  border-radius: 8px 8px 0 0;
+  border: 2px solid #000;
 }
 
-.pixel-heart::before {
-  left: 0;
+.pokemon-heart::before {
+  left: 1px;
   transform: rotate(-45deg);
   transform-origin: 100% 100%;
 }
 
-.pixel-heart::after {
-  left: 10px;
+.pokemon-heart::after {
+  left: 9px;
   transform: rotate(45deg);
-  transform-origin: 0% 100%;
+  transform-origin: 0 100%;
 }
 
-.pixel-star {
+.pokemon-pokeball {
   width: 20px;
   height: 20px;
   position: relative;
   display: inline-block;
-  background-color: #FFD700;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background-color: #FFF;
+  border-radius: 50%;
+  border: 2px solid #000;
+  overflow: hidden;
 }
 
-.pixel-flower {
-  width: 20px;
-  height: 20px;
+.pokemon-pokeball::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #FF4554;
+}
+
+.pokemon-pokeball::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  background-color: #FFF;
+  border-radius: 50%;
+  border: 2px solid #000;
+  z-index: 2;
+}
+
+/* Pokemon Button Styles */
+.pokemon-button {
   position: relative;
-  display: inline-block;
+  background-color: #eee;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 6px 12px;
+  font-weight: bold;
+  box-shadow: 0 3px 0 #999, 0 0 0 2px rgba(0,0,0,0.2);
+  transition: all 0.15s ease-out;
 }
 
-.pixel-flower::before {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: #FF9EDF;
-  border-radius: 50%;
+.pokemon-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #999, 0 0 0 2px rgba(0,0,0,0.2);
 }
 
-.pixel-flower::after {
-  content: "";
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  width: 6px;
-  height: 6px;
-  background-color: #FFFF00;
-  border-radius: 50%;
+.pokemon-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #999, 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-button-green {
+  background-color: #7DCB92;
+  box-shadow: 0 3px 0 #36946E, 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-button-green:hover {
+  box-shadow: 0 5px 0 #36946E, 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-button-green:active {
+  box-shadow: 0 1px 0 #36946E, 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-button-pink {
+  background-color: #FFA6C9;
+  box-shadow: 0 3px 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-button-pink:hover {
+  box-shadow: 0 5px 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-button-pink:active {
+  box-shadow: 0 1px 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.2);
 }
 
 /* Custom Button Styles */
 button:active {
   transform: translateY(2px);
+}
+
+/* Pokemon Header Style */
+.pokemon-header-container {
+  position: relative;
+  padding: 8px 20px;
+  border: 2px solid #000;
+  background-color: #FFDE00;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #B3A125, 0 0 0 4px rgba(0,0,0,0.2);
+}
+
+.pokemon-header-container::before,
+.pokemon-header-container::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #FF0000;
+  border: 2px solid #000;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pokemon-header-container::before {
+  left: 5px;
+}
+
+.pokemon-header-container::after {
+  right: 5px;
+}
+
+/* Pokemon Footer Style */
+.pokemon-footer {
+  position: relative;
+  padding: 4px 15px;
+  border: 2px solid #000;
+  background-color: #3F51B5;
+  border-radius: 20px;
+  box-shadow: 0 3px 0 #303F9F, 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+.pokemon-footer p {
+  color: #FFDE00;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
 
 /* Custom Scrollbar */

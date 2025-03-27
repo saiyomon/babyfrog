@@ -240,8 +240,15 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
             </motion.g>
           </motion.g>
         </svg>
-        <div className="absolute bottom-[-10px] w-full text-center font-['Bubblegum_Sans'] text-teal-800 text-lg pixel-art">
-          *i'm baby button*
+        {/* Pokemon-Style Scroll Button */}
+        <div className="absolute bottom-[-20px] w-full flex justify-center">
+          <div className="pokemon-scroll-button relative">
+            <div className="pokemon-scroll-top"></div>
+            <div className="pokemon-scroll-middle">
+              <span className="font-['Bubblegum_Sans'] text-teal-900 text-sm pokemon-text">i'm baby</span>
+            </div>
+            <div className="pokemon-scroll-bottom"></div>
+          </div>
         </div>
       </motion.div>
     </>
