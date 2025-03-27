@@ -9,7 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import type { Image, Message } from "@shared/schema";
 
 export default function Home() {
-  const [isContentVisible, setIsContentVisible] = useState(true);
+  const [isContentVisible, setIsContentVisible] = useState(false);
   const [isUploadAreaVisible, setIsUploadAreaVisible] = useState(false);
   const [currentImage, setCurrentImage] = useState<Image | null>(null);
   const [currentMessage, setCurrentMessage] = useState<Message | null>(null);
@@ -206,8 +206,8 @@ export default function Home() {
           </p>
         </header>
 
-        {/* Frog Character - Just for animations, doesn't generate content */}
-        <FrogCharacter onTap={() => {}} />
+        {/* Frog Character - The button will generate content, not the frog itself */}
+        <FrogCharacter onTap={handleFrogTap} />
 
         {/* Content Display */}
         <ContentDisplay 
