@@ -15,6 +15,10 @@ export default function Home() {
   const [currentMessage, setCurrentMessage] = useState<Message | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const { toast } = useToast();
+  
+  // Track shown content to avoid repetition
+  const [shownImageIds, setShownImageIds] = useState<number[]>([]);
+  const [shownMessageIds, setShownMessageIds] = useState<number[]>([]);
 
   // Fetch images with pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,6 +36,21 @@ export default function Home() {
   const { data: messages = [], isLoading: isLoadingMessages } = useQuery<Message[]>({
     queryKey: ['/api/messages'],
   });
+  
+  // Reset tracking arrays when new content is loaded
+  useEffect(() => {
+    if (images.length > 0 && shownImageIds.length === 0) {
+      // Initialize with empty array when images first load
+      setShownImageIds([]);
+    }
+  }, [images]);
+  
+  useEffect(() => {
+    if (messages.length > 0 && shownMessageIds.length === 0) {
+      // Initialize with empty array when messages first load
+      setShownMessageIds([]);
+    }
+  }, [messages]);
 
   // Upload image mutation
   const uploadImageMutation = useMutation({
@@ -105,6 +124,7 @@ export default function Home() {
 
   const showRandomContent = () => {
     console.log("showRandomContent called. Messages:", messages.length, "Images:", images.length);
+    console.log("Already shown images:", shownImageIds.length, "Already shown messages:", shownMessageIds.length);
     
     // Always show a message even if there are no images
     if (messages.length === 0) {
@@ -112,20 +132,57 @@ export default function Home() {
       return;
     }
     
-    // Get random image (if available)
+    // Handle images
     if (images.length > 0) {
-      const randomImageIndex = Math.floor(Math.random() * images.length);
-      console.log("Setting random image index:", randomImageIndex);
-      setCurrentImage(images[randomImageIndex]);
+      // Get image that hasn't been shown yet
+      const remainingImages = images.filter(img => !shownImageIds.includes(img.id));
+      
+      if (remainingImages.length > 0) {
+        // We still have unseen images
+        const randomIndex = Math.floor(Math.random() * remainingImages.length);
+        const selectedImage = remainingImages[randomIndex];
+        console.log("Setting new unseen image with ID:", selectedImage.id);
+        setCurrentImage(selectedImage);
+        
+        // Add to shown images
+        setShownImageIds(prev => [...prev, selectedImage.id]);
+      } else {
+        // All images have been shown, reset and start over
+        console.log("All images have been shown. Resetting image history.");
+        // Pick a random image from all
+        const randomIndex = Math.floor(Math.random() * images.length);
+        setCurrentImage(images[randomIndex]);
+        
+        // Reset tracking with just this image
+        setShownImageIds([images[randomIndex].id]);
+      }
     } else {
       console.log("No images available");
       setCurrentImage(null);
     }
     
-    // Get random message
-    const randomMessageIndex = Math.floor(Math.random() * messages.length);
-    console.log("Setting random message index:", randomMessageIndex);
-    setCurrentMessage(messages[randomMessageIndex]);
+    // Handle messages - same logic
+    const remainingMessages = messages.filter(msg => !shownMessageIds.includes(msg.id));
+    
+    if (remainingMessages.length > 0) {
+      // We still have unseen messages
+      const randomIndex = Math.floor(Math.random() * remainingMessages.length);
+      const selectedMessage = remainingMessages[randomIndex];
+      console.log("Setting new unseen message with ID:", selectedMessage.id);
+      setCurrentMessage(selectedMessage);
+      
+      // Add to shown messages
+      setShownMessageIds(prev => [...prev, selectedMessage.id]);
+    } else {
+      // All messages have been shown, reset and start over
+      console.log("All messages have been shown. Resetting message history.");
+      // Pick a random message from all
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      setCurrentMessage(messages[randomIndex]);
+      
+      // Reset tracking with just this message
+      setShownMessageIds([messages[randomIndex].id]);
+    }
     
     console.log("Content generated successfully");
   };
