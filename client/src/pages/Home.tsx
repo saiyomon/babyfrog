@@ -127,13 +127,16 @@ export default function Home() {
     setCurrentImage(null);
     setCurrentMessage(null);
     
-    // Simulate loading/generation delay (1.5 seconds)
+    // Check if it's the first time or data isn't loaded yet
+    const isFirstLoad = allImages.length === 0;
+    
+    // Simulate loading/generation delay (1.5 seconds normally, 3 seconds on first load)
     setTimeout(() => {
       console.log("Timeout fired, showing random content");
       // Show random content after delay
       showRandomContent();
       setIsGenerating(false);
-    }, 1500);
+    }, isFirstLoad ? 3000 : 1500);  // Longer delay for first load to ensure images are fetched
   };
 
   const showRandomContent = () => {
