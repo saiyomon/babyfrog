@@ -546,3 +546,182 @@ button:active {
   image-rendering: crisp-edges;
   box-shadow: 0 3px 0 #cc4099, 0 0 0 3px rgba(0,0,0,0.1);
 }
+
+/* Pixel Art Loading Animations */
+.pixel-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+/* Cute pixel cat face loading animation */
+.pixel-loading-cat {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.cat-face {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: #FFCC99;
+  border: 2px solid #000;
+  border-radius: 12px;
+}
+
+.cat-ear-left {
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #FFCC99;
+  border: 2px solid #000;
+  transform: rotate(-45deg);
+}
+
+.cat-ear-right {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #FFCC99;
+  border: 2px solid #000;
+  transform: rotate(45deg);
+}
+
+.cat-eye-left {
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  width: 4px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 2px;
+  animation: blink 3s infinite;
+}
+
+.cat-eye-right {
+  position: absolute;
+  right: 12px;
+  top: 16px;
+  width: 4px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 2px;
+  animation: blink 3s infinite;
+}
+
+@keyframes blink {
+  0%, 95%, 100% {
+    transform: scaleY(1);
+  }
+  97.5% {
+    transform: scaleY(0.1);
+  }
+}
+
+.cat-nose {
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  width: 4px;
+  height: 3px;
+  background-color: #FF9999;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+
+.cat-mouth {
+  position: absolute;
+  left: 16px;
+  top: 24px;
+  width: 8px;
+  height: 4px;
+  border-bottom: 2px solid #000;
+  border-radius: 50%;
+}
+
+.cat-blush-left {
+  position: absolute;
+  left: 8px;
+  top: 22px;
+  width: 4px;
+  height: 2px;
+  background-color: #FFC0CB;
+  border-radius: 2px;
+}
+
+.cat-blush-right {
+  position: absolute;
+  right: 8px;
+  top: 22px;
+  width: 4px;
+  height: 2px;
+  background-color: #FFC0CB;
+  border-radius: 2px;
+}
+
+/* Image loading animation */
+.pixel-image-loading {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  animation: bounce 1s infinite alternate;
+}
+
+.loading-pixel {
+  width: 20px;
+  height: 20px;
+  background-color: #FFB6C1;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  animation: colorShift 2s infinite alternate;
+}
+
+.loading-pixel:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+.loading-pixel:nth-child(3n) {
+  animation-delay: 0.75s;
+}
+
+@keyframes colorShift {
+  0% {
+    background-color: #FFB6C1;
+  }
+  50% {
+    background-color: #FF69B4;
+  }
+  100% {
+    background-color: #FFC0CB;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.loading-text {
+  text-align: center;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}

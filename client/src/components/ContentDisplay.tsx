@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Image, Message } from "@shared/schema";
+import PixelLoadingAnimation from "./PixelLoadingAnimation";
 
 interface ContentDisplayProps {
   isVisible: boolean;
@@ -40,7 +41,7 @@ export default function ContentDisplay({
           transition={{ duration: 1 }}
         >
           {isLoading || !image ? (
-            <Skeleton className="w-full h-64" />
+            <PixelLoadingAnimation variant="image" />
           ) : (
             <img
               className="w-full h-64 object-cover"
@@ -58,7 +59,7 @@ export default function ContentDisplay({
         transition={{ duration: 1, delay: 0.2 }}
       >
         {isLoading || !message ? (
-          <Skeleton className="w-full h-20 mt-3" />
+          <PixelLoadingAnimation variant="message" />
         ) : (
           <div className="pokemon-textbox-content p-3 pt-8">
             {/* Left Heart */}

@@ -12,6 +12,7 @@ export default function Home() {
   const [isUploadAreaVisible, setIsUploadAreaVisible] = useState(false);
   const [currentImage, setCurrentImage] = useState<Image | null>(null);
   const [currentMessage, setCurrentMessage] = useState<Message | null>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
   const { toast } = useToast();
 
   // Fetch images
@@ -75,8 +76,19 @@ export default function Home() {
       setIsContentVisible(true);
     }
     
-    // Show random content
-    showRandomContent();
+    // Set loading state
+    setIsGenerating(true);
+    
+    // Reset current content
+    setCurrentImage(null);
+    setCurrentMessage(null);
+    
+    // Simulate loading/generation delay (1.5 seconds)
+    setTimeout(() => {
+      // Show random content after delay
+      showRandomContent();
+      setIsGenerating(false);
+    }, 1500);
   };
 
   const showRandomContent = () => {
@@ -97,7 +109,19 @@ export default function Home() {
   };
 
   const handleShowAnother = () => {
-    showRandomContent();
+    // Set loading state
+    setIsGenerating(true);
+    
+    // Reset current content
+    setCurrentImage(null);
+    setCurrentMessage(null);
+    
+    // Simulate loading/generation delay (1.5 seconds)
+    setTimeout(() => {
+      // Show random content after delay
+      showRandomContent();
+      setIsGenerating(false);
+    }, 1500);
   };
 
   const handleToggleUploadArea = () => {
@@ -176,7 +200,7 @@ export default function Home() {
           message={currentMessage}
           onShowAnother={handleShowAnother}
           onUploadToggle={handleToggleUploadArea}
-          isLoading={isLoadingImages || isLoadingMessages}
+          isLoading={isLoadingImages || isLoadingMessages || isGenerating}
         />
 
         {/* Upload Area */}
