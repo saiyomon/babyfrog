@@ -216,8 +216,8 @@ export default function Home() {
         {/* Frog Character - The button will generate content, not the frog itself */}
         <FrogCharacter onTap={handleFrogTap} />
         
-        {/* Standalone "I'm baby" button that appears when content is not visible */}
-        {!isContentVisible && !isUploadAreaVisible && (
+        {/* Standalone "I'm baby" button - always visible unless upload area is open */}
+        {!isUploadAreaVisible && (
           <div className="flex justify-center mt-5">
             <div className="pixel-button-container">
               <button 

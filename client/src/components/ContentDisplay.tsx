@@ -108,18 +108,7 @@ export default function ContentDisplay({
         </Button>
       </div>
       
-      {/* "I'm baby" Button - Below Content */}
-      <div className="flex justify-center mt-5">
-        <div className="pixel-button-container">
-          <button 
-            className="pixel-cute-button" 
-            onClick={onGenerateContent}
-            type="button"
-          >
-            <span className="font-pixel text-sm text-black">i'm baby</span>
-          </button>
-        </div>
-      </div>
+      {/* Button removed - only using the one from Home component */}
     </motion.div>
   );
 }
