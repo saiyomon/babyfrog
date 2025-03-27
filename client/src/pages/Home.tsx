@@ -217,6 +217,7 @@ export default function Home() {
           onShowAnother={handleShowAnother}
           onUploadToggle={handleToggleUploadArea}
           isLoading={isLoadingImages || isLoadingMessages || isGenerating}
+          onGenerateContent={handleFrogTap}
         />
 
         {/* Upload Area */}

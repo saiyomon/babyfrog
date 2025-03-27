@@ -15,6 +15,7 @@ interface CherryBlossom {
 
 export default function FrogCharacter({ onTap }: FrogCharacterProps) {
   const [isBouncing, setIsBouncing] = useState(false);
+  const [blossomIdCounter, setBlossomIdCounter] = useState(15); // Track IDs for new blossoms
   
   // Generate 15 cherry blossoms with random properties
   const initialCherryBlossoms = useMemo(() => {
@@ -28,6 +29,20 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
   }, []);
   
   const [cherryBlossoms, setCherryBlossoms] = useState<CherryBlossom[]>(initialCherryBlossoms);
+  
+  // Function to add more cherry blossoms when the button is clicked
+  const addMoreBlossoms = () => {
+    const newBlossoms = Array.from({ length: 8 }, (_, i) => ({
+      id: blossomIdCounter + i,
+      size: Math.random() * 5 + 3,
+      left: `${Math.random() * 100}%`,
+      delay: 0, // Start falling immediately
+      duration: Math.random() * 3 + 3, // Fall faster
+    }));
+    
+    setBlossomIdCounter(prev => prev + 8);
+    setCherryBlossoms(prevBlossoms => [...prevBlossoms, ...newBlossoms]);
+  };
 
   // Start bounce animation periodically with smoother transitions
   useEffect(() => {
@@ -534,7 +549,10 @@ export default function FrogCharacter({ onTap }: FrogCharacterProps) {
         {/* Cute Pixel Button */}
         <div className="absolute bottom-[-18px] w-full flex justify-center">
           <div className="pixel-button-container">
-            <button className="pixel-cute-button" onClick={onTap}>
+            <button className="pixel-cute-button" onClick={() => {
+              addMoreBlossoms(); // Add more cherry blossoms
+              onTap(); // Call the original onTap function
+            }}>
               <span className="font-pixel text-sm text-black">i'm baby</span>
             </button>
           </div>
