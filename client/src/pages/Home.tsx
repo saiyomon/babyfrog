@@ -47,9 +47,15 @@ export default function Home() {
   const allImages = allImagesData?.images || [];
 
   // Fetch messages
-  const { data: messages = [], isLoading: isLoadingMessages } = useQuery<Message[]>({
+  const { data: messagesData = { messages: [], count: 0 }, isLoading: isLoadingMessages } = useQuery<{
+    messages: Message[];
+    count: number;
+  }>({
     queryKey: ['/api/messages'],
   });
+  
+  // Extract messages array from response
+  const messages = messagesData?.messages || [];
   
   // Reset tracking arrays when new content is loaded
   useEffect(() => {
