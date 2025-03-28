@@ -109,6 +109,27 @@ export default function Home() {
     },
   });
   
+  // Delete message mutation
+  const deleteMessageMutation = useMutation({
+    mutationFn: async (id: number) => {
+      await apiRequest('DELETE', `/api/messages/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/messages'] });
+      toast({
+        title: "Success!",
+        description: "Message deleted successfully",
+      });
+    },
+    onError: (error) => {
+      toast({
+        title: "Delete failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+  
   // Add message mutation
   const addMessageMutation = useMutation({
     mutationFn: async (text: string) => {
@@ -280,6 +301,10 @@ export default function Home() {
     deleteImageMutation.mutate(id);
   };
   
+  const handleMessageDelete = (id: number) => {
+    deleteMessageMutation.mutate(id);
+  };
+  
   const handleAddMessage = (text: string) => {
     addMessageMutation.mutate(text);
   };
@@ -341,12 +366,14 @@ export default function Home() {
         <UploadArea 
           isVisible={isUploadAreaVisible}
           images={images}
+          messages={messages}
           onUpload={handleFileUpload}
           onDelete={handleImageDelete}
+          onDeleteMessage={handleMessageDelete}
           onCancel={handleUploadCancel}
           onComplete={handleUploadComplete}
           isUploading={uploadImageMutation.isPending}
-          isDeleting={deleteImageMutation.isPending}
+          isDeleting={deleteImageMutation.isPending || deleteMessageMutation.isPending}
           pagination={pagination}
           onPageChange={(page) => setCurrentPage(page)}
           onAddMessage={handleAddMessage}
