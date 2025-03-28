@@ -300,9 +300,9 @@ button:active {
   position: relative;
   padding: 8px 20px;
   border: 2px solid #000;
-  background-color: #66BB6A;
+  background-color: #FC8FB8;
   border-radius: 8px;
-  box-shadow: 0 4px 0 #388E3C, 0 0 0 4px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 0 #D85A8E, 0 0 0 4px rgba(0,0,0,0.2);
 }
 
 .pokemon-header-container::before,
@@ -331,9 +331,9 @@ button:active {
   position: relative;
   padding: 4px 15px;
   border: 2px solid #000;
-  background-color: #4CAF50;
+  background-color: #FF80AB;
   border-radius: 20px;
-  box-shadow: 0 3px 0 #2E7D32, 0 0 0 2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 0 #C2185B, 0 0 0 2px rgba(0,0,0,0.1);
 }
 
 .pokemon-footer p {
@@ -442,19 +442,19 @@ button:active {
 }
 
 .pokemon-button-a {
-  background-color: #4CAF50;
+  background-color: #F48FB1;
 }
 
 .pokemon-button-a:hover {
-  background-color: #6ABF6D;
+  background-color: #F8BBD0;
 }
 
 .pokemon-button-b {
-  background-color: #2E7D32;
+  background-color: #EC407A;
 }
 
 .pokemon-button-b:hover {
-  background-color: #43A047;
+  background-color: #F06292;
 }
 
 /* Cute Pixel Button */
@@ -499,26 +499,26 @@ button:active {
 
 ::-webkit-scrollbar-track {
   background: #F5F5F5; 
-  border: 2px solid #26A269;
+  border: 2px solid #EC407A;
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #26A269; 
+  background: #EC407A; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1A7048; 
+  background: #C2185B; 
 }
 
 /* Pixel Art Header and Footer Styles */
 .pastel-header-container {
   position: relative;
   padding: 5px 15px;
-  background-color: #81C784;
+  background-color: #ff80bf;
   border: 2px solid #000;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  box-shadow: 0 3px 0 #4CAF50, 0 0 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 0 #cc4099, 0 0 0 3px rgba(0,0,0,0.1);
 }
 
 .pastel-header-container::before,
@@ -545,11 +545,11 @@ button:active {
 .pastel-footer-container {
   position: relative;
   padding: 5px 15px;
-  background-color: #81C784;
+  background-color: #ff80bf;
   border: 2px solid #000;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  box-shadow: 0 3px 0 #4CAF50, 0 0 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 0 #cc4099, 0 0 0 3px rgba(0,0,0,0.1);
 }
 
 /* Pixel Art Loading Animations */
