@@ -294,7 +294,7 @@ export default function Home() {
   }));
   
   return (
-    <div className="min-h-screen bg-[#87CEEB] font-[Nunito] text-gray-800 overflow-hidden relative">
+    <div className="min-h-screen font-[Nunito] text-gray-800 overflow-hidden relative bg-transparent">
       {/* Cherry Blossoms */}
       {cherryBlossoms.map(blossom => (
         <div

@@ -17,10 +17,12 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router />
-      <Toaster />
-    </QueryClientProvider>
+    <div className="app-wrapper" style={{ backgroundColor: '#4CAF50', minHeight: '100vh', width: '100%' }}>
+      <QueryClientProvider client={queryClient}>
+        <Router />
+        <Toaster />
+      </QueryClientProvider>
+    </div>
   );
 }
 

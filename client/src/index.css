@@ -8,11 +8,15 @@
   }
 
   body {
-    @apply font-sans antialiased bg-green-100 text-foreground;
+    @apply font-sans antialiased text-foreground;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     overflow-x: hidden;
-    background-color: #e0f2e0;
+    background-color: #4CAF50;
+  }
+
+  html {
+    background-color: #4CAF50;
   }
 }
 
@@ -93,8 +97,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #FFB6C1;
-  box-shadow: 0 0 0 1px #FFCCCB;
+  background-color: #FFD6E0;
+  box-shadow: 0 0 0 1px #FFFFFF;
   /* Make it square for 8-bit aesthetic */
   clip-path: none;
   image-rendering: pixelated;
