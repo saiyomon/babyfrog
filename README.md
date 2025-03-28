@@ -27,10 +27,24 @@ Visit [site-url-here](https://your-site-url.com) to see the application in actio
 
 ### Environment Variables
 
-Create a `.env` file in the root directory with the following variables:
+Create a `.env` file in the root directory based on the `.env.example`:
 
 ```
-DATABASE_URL=postgresql://username:password@localhost:5432/your_database
+# Database connection
+DATABASE_URL=postgresql://username:password@localhost:5432/database_name
+
+# Database pool configuration for handling large datasets
+PG_MAX_CONNECTIONS=20
+
+# File upload configuration
+UPLOAD_MAX_FILE_SIZE=10485760   # 10MB limit for image uploads
+UPLOAD_MAX_FILES=500            # Maximum number of files the app can store
+
+# Port configuration (optional, defaults to 5000)
+PORT=5000
+
+# Node environment 
+NODE_ENV=development
 ```
 
 ### Installation
@@ -60,25 +74,38 @@ DATABASE_URL=postgresql://username:password@localhost:5432/your_database
 
 ## Deployment
 
-### Deploying to GitHub Pages (Frontend Only)
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-1. Update the `package.json` file with your repository name:
-   ```json
-   "homepage": "https://your-username.github.io/your-repo-name",
-   ```
+### Quick Deployment Options
 
-2. Build and deploy:
-   ```
-   npm run build
-   npm run deploy
-   ```
+#### Docker Compose (Recommended)
 
-### Deploying to Render/Vercel/Railway (Full Stack)
+```bash
+# Clone repository
+git clone <repository-url>
 
-1. Connect your GitHub repository to your preferred platform
+# Create necessary directories
+mkdir -p pgdata uploads logs backups
+chmod 777 pgdata uploads logs backups
+
+# Start the application stack
+docker-compose up -d
+```
+
+#### Cloud Service Providers
+
+1. Connect your GitHub repository to your preferred platform (Render/Vercel/Railway/Heroku)
 2. Configure environment variables in the platform settings
 3. Set the build command to `npm run build`
 4. Set the start command to `npm start`
+5. Make sure PostgreSQL is configured
+
+#### Replit Deployment
+
+1. Fork this repository to your Replit account
+2. Create a PostgreSQL database in Replit
+3. Set up environment variables in the Secrets tab
+4. Run the application
 
 ## Usage Guide
 

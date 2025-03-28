@@ -1,120 +1,167 @@
 # Deployment Guide
 
-This document provides detailed instructions for deploying the Froggy Friend application to various platforms.
+This document provides instructions for deploying the "Smol Dumplings Safe Zone" application, an interactive web application featuring a cute pixel art frog character that generates personalized messages and displays custom images.
+
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Environment Variables](#environment-variables)
+- [Deployment Options](#deployment-options)
+  - [Option 1: Docker Compose (Recommended)](#option-1-docker-compose-recommended)
+  - [Option 2: Manual Deployment](#option-2-manual-deployment)
+  - [Option 3: Cloud Deployment](#option-3-cloud-deployment)
+- [Database Setup](#database-setup)
+- [Backup and Maintenance](#backup-and-maintenance)
+- [Troubleshooting](#troubleshooting)
 
 ## Prerequisites
 
-- A PostgreSQL database (provided by your hosting platform or separately managed)
-- Node.js environment for running the application
-- Git for version control
+- Node.js (v18 or later)
+- PostgreSQL (v15 or later)
+- Docker and Docker Compose (for containerized deployment)
+- 1GB+ RAM for comfortable operation
+- At least 1GB of storage space (more if many images will be uploaded)
 
 ## Environment Variables
 
-Ensure these environment variables are set in your hosting platform:
+Create a `.env` file based on the `.env.example` template:
 
-- `DATABASE_URL`: Connection string for your PostgreSQL database
-- `PORT` (optional): Port to run the application on (defaults to 5000)
-- `NODE_ENV`: Set to "production" for production deployments
+```
+# Database connection
+DATABASE_URL=postgresql://username:password@localhost:5432/database_name
+
+# Database pool configuration for handling large datasets
+PG_MAX_CONNECTIONS=20
+
+# File upload configuration
+UPLOAD_MAX_FILE_SIZE=10485760   # 10MB limit for image uploads
+UPLOAD_MAX_FILES=500            # Maximum number of files the app can store
+
+# Port configuration (optional, defaults to 5000)
+PORT=5000
+
+# Node environment 
+NODE_ENV=production
+```
 
 ## Deployment Options
 
-### Heroku
+### Option 1: Docker Compose (Recommended)
 
-1. Create a Heroku account and install the Heroku CLI
-2. Create a new Heroku app:
-   ```
-   heroku create your-app-name
-   ```
+The easiest way to deploy the application is using Docker Compose, which sets up both the application and a PostgreSQL database.
 
-3. Add PostgreSQL add-on:
-   ```
-   heroku addons:create heroku-postgresql:mini
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd froggy-app
    ```
 
-4. Deploy your application:
-   ```
-   git push heroku main
-   ```
-
-5. The application will automatically run database migrations during startup
-
-### Railway
-
-1. Create a Railway account and connect your GitHub repository
-2. Add a PostgreSQL database service
-3. Add the following environment variables:
-   - `DATABASE_URL`: Set to your Railway PostgreSQL connection string
-   - `NODE_ENV`: Set to "production"
-4. Deploy your application
-5. The application will automatically run database migrations during startup
-
-### Render
-
-1. Create a Render account and connect your GitHub repository
-2. Create a new Web Service
-3. Configure the following settings:
-   - Build Command: `npm ci && npm run build`
-   - Start Command: `./scripts/postinstall.sh && npm start`
-4. Add a PostgreSQL database service
-5. Add the environment variables:
-   - `DATABASE_URL`: Set to your Render PostgreSQL connection string
-   - `NODE_ENV`: Set to "production"
-6. Deploy your application
-
-### DigitalOcean App Platform
-
-1. Create a DigitalOcean account and connect your GitHub repository
-2. Create a new App
-3. Add a PostgreSQL database component
-4. Configure the Web Service:
-   - Build Command: `npm ci && npm run build`
-   - Run Command: `./scripts/postinstall.sh && npm start`
-5. Add the environment variables:
-   - `DATABASE_URL`: Set to your DigitalOcean PostgreSQL connection string
-   - `NODE_ENV`: Set to "production"
-6. Deploy your application
-
-### Docker Deployment
-
-For deploying with Docker:
-
-1. Build the Docker image:
-   ```
-   docker build -t froggy-friend-app .
+2. Create necessary directories:
+   ```bash
+   mkdir -p pgdata uploads logs backups
+   chmod 777 pgdata uploads logs backups
    ```
 
-2. Run the container:
-   ```
-   docker run -p 5000:5000 -e DATABASE_URL=your_postgres_connection_string -e NODE_ENV=production froggy-friend-app
-   ```
-
-3. Or use Docker Compose:
-   ```
+3. Start the application stack:
+   ```bash
    docker-compose up -d
    ```
 
+4. Access the application at http://localhost:5000
+
+### Option 2: Manual Deployment
+
+If you prefer to run the application directly:
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd froggy-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Build the application:
+   ```bash
+   npm run build
+   ```
+
+4. Set up your PostgreSQL database and update the DATABASE_URL in your .env file.
+
+5. Run database migrations:
+   ```bash
+   npm run migrate
+   ```
+
+6. Start the application:
+   ```bash
+   npm start
+   ```
+
+7. Access the application at http://localhost:5000 (or the port you configured)
+
+### Option 3: Cloud Deployment
+
+#### Deploying to Replit
+
+1. Create a new Replit project using the repository URL
+2. Configure the PostgreSQL database in Replit
+3. Set the necessary environment variables in the Secrets tool
+4. Run the application with the "Run" button
+
+## Database Setup
+
+The application uses PostgreSQL for data storage. The database schema will be automatically created when you run:
+
+```bash
+npm run migrate
+```
+
+This command creates the necessary tables and indexes for optimal performance.
+
+## Backup and Maintenance
+
+### Automated Backups
+
+When using Docker Compose, backups are automatically scheduled daily and stored in the `backups` directory.
+
+To manually trigger a backup:
+
+```bash
+docker-compose exec backup /backup.sh
+```
+
+### Database Maintenance
+
+For routine maintenance and optimization:
+
+```bash
+# Connect to the PostgreSQL container
+docker-compose exec postgres psql -U postgres -d froggy_app
+
+# Then run maintenance functions
+SELECT maintain_indexes();
+```
+
 ## Troubleshooting
 
-### Database Connection Issues
+### Common Issues
 
-If you encounter database connection issues:
+1. **Database Connection Errors**
+   - Check if your PostgreSQL service is running
+   - Verify DATABASE_URL format and credentials
+   - Ensure network connectivity between app and database
 
-1. Verify your `DATABASE_URL` is correctly formatted
-2. Ensure your database is accessible from your hosting environment
-3. Check if your hosting provider requires SSL for database connections
+2. **Upload Issues**
+   - Check if the `uploads` directory exists and has appropriate permissions
+   - Verify that UPLOAD_MAX_FILE_SIZE is not set too low
+   - Check if you've hit the UPLOAD_MAX_FILES limit
 
-### Running Migrations Manually
+3. **Performance Problems**
+   - Consider increasing PG_MAX_CONNECTIONS for more concurrent users
+   - Check disk space for uploads and database
+   - Optimize the PostgreSQL settings in docker-compose.yml
 
-If you need to run migrations manually:
-
-```
-npm run db:push
-```
-
-### Static Files Not Loading
-
-If static files (images, CSS, JS) are not loading:
-
-1. Check if your hosting provider handles static files differently
-2. Ensure the build process completed successfully
-3. Verify that the static files are being served from the correct location
+For additional help, check the logs in the `logs` directory.
