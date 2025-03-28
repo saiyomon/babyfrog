@@ -549,6 +549,41 @@ button:active {
     0 0 12px #ff2e83,
     inset 0 0 8px #ffc9db;
   animation: neonPulse 1.5s ease-in-out infinite alternate;
+  overflow: hidden;
+}
+
+/* Add textured grit overlay */
+.grit-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Street sign spotlights effect */
+.spotlight {
+  position: absolute;
+  width: 140px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: spotlightFlicker 4s ease-in-out infinite;
+}
+
+@keyframes spotlightFlicker {
+  0%, 100% { opacity: 0.5; }
+  25% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+  75% { opacity: 0.6; }
 }
 
 @keyframes neonPulse {
@@ -575,9 +610,7 @@ button:active {
 }
 
 /* Decorative temple roof-like ornaments */
-.pastel-header-container::before,
-.pastel-header-container::after {
-  content: '';
+.temple-roof-ornament {
   position: absolute;
   height: 12px;
   width: 12px;
@@ -586,16 +619,15 @@ button:active {
   border: 2px solid #000;
   image-rendering: pixelated;
   box-shadow: 0 0 6px #ff2e83;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 
-.pastel-header-container::before {
+.roof-ornament-left {
   left: 8px;
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 
-.pastel-header-container::after {
+.roof-ornament-right {
   right: 8px;
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 
 /* Add temple roof decorations along the top */
@@ -632,6 +664,21 @@ button:active {
     0 0 8px #ff2e83,
     inset 0 0 6px #ffc9db;
   animation: neonPulse 1.5s ease-in-out infinite alternate;
+  overflow: hidden;
+}
+
+/* Add textured grit overlay to footer */
+.pastel-footer-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Pixel Art Loading Animations */

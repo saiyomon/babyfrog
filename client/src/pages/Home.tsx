@@ -346,11 +346,21 @@ export default function Home() {
               ))}
             </div>
             
+            {/* Add decorative roof ornaments */}
+            <div className="temple-roof-ornament roof-ornament-left"></div>
+            <div className="temple-roof-ornament roof-ornament-right"></div>
+            
             {/* Add decorative lanterns */}
             <div className="temple-lantern temple-lantern-left"></div>
             <div className="temple-lantern temple-lantern-right"></div>
             
-            <h1 className="font-pixel text-2xl md:text-3xl mb-1 text-pink-900" style={{ textShadow: '0 0 6px #ff2e83, 0 0 12px #ff2e83' }}>
+            {/* Add spotlight effect for street restaurant sign look */}
+            <div className="spotlight"></div>
+            
+            {/* Add grit texture overlay */}
+            <div className="grit-texture"></div>
+            
+            <h1 className="font-pixel text-2xl md:text-3xl mb-1 text-pink-900 relative z-10" style={{ textShadow: '0 0 6px #ff2e83, 0 0 12px #ff2e83' }}>
               Valeria's Froggy Friend
             </h1>
           </div>
@@ -394,8 +404,11 @@ export default function Home() {
         {/* Asian Temple Neon Footer */}
         <footer className="mt-12 text-center">
           <div className="pastel-footer-container inline-block relative">
+            {/* Add spotlight effect for street restaurant sign look */}
+            <div className="spotlight"></div>
+            
             <p 
-              className="font-pixel text-sm text-pink-900 cursor-pointer hover:text-pink-500 transition-colors"
+              className="font-pixel text-sm text-pink-900 cursor-pointer hover:text-pink-500 transition-colors relative z-10"
               onClick={handleToggleUploadArea}
               title="Secret Upload Area"
               style={{ textShadow: '0 0 4px #ff2e83, 0 0 8px #ff2e83' }}
@@ -404,13 +417,13 @@ export default function Home() {
             </p>
             {/* Small decorative elements for temple style */}
             <span 
-              className="absolute -left-2 -top-1 text-xs" 
+              className="absolute -left-2 -top-1 text-xs z-10" 
               style={{ color: '#ff2e83', textShadow: '0 0 4px #ff2e83' }}
             >
               ❀
             </span>
             <span 
-              className="absolute -right-2 -top-1 text-xs" 
+              className="absolute -right-2 -top-1 text-xs z-10" 
               style={{ color: '#ff2e83', textShadow: '0 0 4px #ff2e83' }}
             >
               ❀
