@@ -4,6 +4,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import FrogBattle from './FrogBattle';
+import { 
+  PixelFrog, PixelNinjaFrog, PixelMageFrog, PixelKnightFrog, PixelWitchFrog,
+  PixelBug, PixelFly, PixelSpider, PixelDragonfly, PixelWasp, PixelBeetle 
+} from './PixelSprites';
 
 interface FrogClickerProps {
   isOpen: boolean;
@@ -69,6 +74,8 @@ export default function FrogClicker({ isOpen, onClose }: FrogClickerProps) {
   const [showClassSelection, setShowClassSelection] = useState<boolean>(false);
   const [autoClicking, setAutoClicking] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>("battle");
+  const [showSkillEffect, setShowSkillEffect] = useState<boolean>(false);
+  const [currentSkillType, setCurrentSkillType] = useState<string>("normal");
   
   const autoClickerRef = useRef<number | null>(null);
   const skillIntervalRef = useRef<number | null>(null);
@@ -297,6 +304,15 @@ export default function FrogClicker({ isOpen, onClose }: FrogClickerProps) {
       const damage = stats.clickPower;
       const newHp = Math.max(0, enemy.hp - damage);
       
+      // Show basic attack effect
+      setCurrentSkillType("normal");
+      setShowSkillEffect(true);
+      
+      // Hide effect after a short time
+      setTimeout(() => {
+        setShowSkillEffect(false);
+      }, 300);
+      
       // Update enemy HP
       setEnemy({
         ...enemy,
@@ -328,6 +344,32 @@ export default function FrogClicker({ isOpen, onClose }: FrogClickerProps) {
       // Calculate damage with stats
       const damage = skillToUse.damage + stats.attack;
       totalDamage += damage;
+      
+      // Determine skill type/effect based on name or class
+      let skillType = "normal";
+      
+      if (skillToUse.name.includes("Fire") || skillToUse.name.includes("Meteor") || skillToUse.name.includes("Explosion")) {
+        skillType = "fire";
+      } else if (skillToUse.name.includes("Ice") || skillToUse.name.includes("Freeze")) {
+        skillType = "ice";
+      } else if (skillToUse.name.includes("Lightning") || skillToUse.name.includes("Thunder")) {
+        skillType = "lightning";
+      } else if (skillToUse.name.includes("Shadow") || skillToUse.name.includes("Dark") || skillToUse.name.includes("Curse")) {
+        skillType = "shadow";
+      } else if (skillToUse.name.includes("Toxic") || skillToUse.name.includes("Poison")) {
+        skillType = "poison";
+      } else if (skillToUse.name.includes("Slash") || skillToUse.name.includes("Blade") || skillToUse.name.includes("Sword")) {
+        skillType = "slash";
+      }
+      
+      // Show skill effect
+      setCurrentSkillType(skillType);
+      setShowSkillEffect(true);
+      
+      // Hide skill effect after a short time
+      setTimeout(() => {
+        setShowSkillEffect(false);
+      }, 500);
       
       // Update the skill's last used timestamp
       const updatedSkills = skills.map(skill => {
@@ -487,11 +529,14 @@ export default function FrogClicker({ isOpen, onClose }: FrogClickerProps) {
                 <Progress value={(enemy.hp / enemy.maxHp) * 100} className="w-full h-4 mb-4" />
                 <div className="font-pixel">HP: {enemy.hp}/{enemy.maxHp}</div>
                 
-                <div className="p-8 relative">
-                  <div className="text-6xl absolute bottom-0 left-1/2 transform -translate-x-1/2">
-                    {selectedClass ? selectedClass.sprite : "🐸"}
-                  </div>
-                </div>
+                <FrogBattle 
+                  enemyType={enemy.name.split(' ').pop() || 'Bug'}
+                  frogClass={selectedClass?.name || null}
+                  onAttack={handleClick}
+                  showSkillEffect={showSkillEffect}
+                  skillType={currentSkillType}
+                  damage={stats.clickPower}
+                />
                 
                 <Button 
                   onClick={handleClick} 
@@ -516,7 +561,12 @@ export default function FrogClicker({ isOpen, onClose }: FrogClickerProps) {
                       onClick={() => selectClass(frogClass)}
                     >
                       <div className="text-xl font-pixel flex items-center">
-                        <span className="text-3xl mr-2">{frogClass.sprite}</span>
+                        <div className="mr-2 transform scale-75">
+                          {frogClass.name === "Ninja Frog" && <PixelNinjaFrog />}
+                          {frogClass.name === "Mage Frog" && <PixelMageFrog />}
+                          {frogClass.name === "Knight Frog" && <PixelKnightFrog />}
+                          {frogClass.name === "Witch Frog" && <PixelWitchFrog />}
+                        </div>
                         {frogClass.name}
                       </div>
                       <p className="text-sm mt-2">{frogClass.description}</p>

@@ -1,0 +1,192 @@
+/* Pixel Art Battle Animations */
+
+.battleContainer {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.enemyContainer {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  transform: scale(2);
+  transition: all 0.2s ease;
+}
+
+.frogContainer {
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  transform: scale(2);
+  transition: all 0.2s ease;
+}
+
+/* Pixel art sprites */
+.pixelSprite {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transform-origin: center;
+}
+
+/* Battle animations */
+@keyframes shake {
+  0% { transform: translateX(0) scale(2); }
+  25% { transform: translateX(-5px) scale(2); }
+  50% { transform: translateX(5px) scale(2); }
+  75% { transform: translateX(-5px) scale(2); }
+  100% { transform: translateX(0) scale(2); }
+}
+
+@keyframes attack {
+  0% { transform: translateX(0) scale(2); }
+  30% { transform: translateX(20px) scale(2); }
+  40% { transform: translateX(20px) scale(2); }
+  100% { transform: translateX(0) scale(2); }
+}
+
+@keyframes damage {
+  0% { transform: translateX(0) scale(2); opacity: 1; }
+  10% { transform: translateX(-10px) scale(2); opacity: 0.7; }
+  20% { transform: translateX(10px) scale(2); opacity: 0.8; }
+  30% { transform: translateX(-10px) scale(2); opacity: 0.9; }
+  40% { transform: translateX(10px) scale(2); opacity: 1; }
+  100% { transform: translateX(0) scale(2); opacity: 1; }
+}
+
+.enemyAttack {
+  animation: attack 0.5s ease;
+}
+
+.frogAttack {
+  animation: attack 0.5s ease;
+}
+
+.takeDamage {
+  animation: damage 0.5s ease;
+}
+
+/* Class-specific styles */
+.ninja .pixelSprite {
+  filter: hue-rotate(270deg);
+}
+
+.mage .pixelSprite {
+  filter: hue-rotate(180deg);
+}
+
+.knight .pixelSprite {
+  filter: hue-rotate(90deg);
+}
+
+.witch .pixelSprite {
+  filter: hue-rotate(320deg);
+}
+
+/* Flash animation for critical hits */
+@keyframes flash {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(3); }
+  100% { filter: brightness(1); }
+}
+
+.criticalHit {
+  animation: flash 0.3s ease;
+}
+
+/* Floating damage text */
+.damageText {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ff0000;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px #000;
+  animation: floatUp 1s forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -30px); }
+}
+
+/* Battle background elements */
+.battleGround {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: #4caf50;
+  border-top: 2px solid #2e7d32;
+}
+
+/* Pixel art platforms */
+.enemyPlatform {
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  width: 60px;
+  height: 10px;
+  background-color: #8d6e63;
+  border: 2px solid #5d4037;
+  transform: translateX(50%);
+}
+
+.frogPlatform {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  width: 60px;
+  height: 10px;
+  background-color: #8d6e63;
+  border: 2px solid #5d4037;
+  transform: translateX(-50%);
+}
+
+/* Level up effect */
+@keyframes levelUp {
+  0% { transform: scale(2); filter: brightness(1); }
+  50% { transform: scale(2.5); filter: brightness(2); }
+  100% { transform: scale(2); filter: brightness(1); }
+}
+
+.levelUp {
+  animation: levelUp 1s ease;
+}
+
+/* Skill effect */
+.skillEffect {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: skillMove 0.7s forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes skillMove {
+  0% { 
+    opacity: 1; 
+    left: 100px;
+    transform: scale(0.5); 
+  }
+  100% { 
+    opacity: 0.8; 
+    left: calc(100% - 150px);
+    transform: scale(1.5);
+  }
+}
