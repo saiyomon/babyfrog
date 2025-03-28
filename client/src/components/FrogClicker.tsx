@@ -540,7 +540,7 @@ export default function FrogClicker({ isOpen, onClose }: FrogClickerProps) {
                 
                 <Button 
                   onClick={handleClick} 
-                  className="mt-8 w-40 h-20 text-xl font-pixel pokemon-button"
+                  className="mt-8 w-40 h-20 text-xl font-pixel pokemon-button animate-pulse hover:animate-none"
                 >
                   Click to Attack! (+{stats.clickPower})
                 </Button>
@@ -587,7 +587,15 @@ export default function FrogClicker({ isOpen, onClose }: FrogClickerProps) {
                           <div className="text-xs">{skill.description}</div>
                           <div className="text-xs">Damage: {skill.damage + stats.attack} | Cooldown: {skill.cooldown}s</div>
                         </div>
-                        <Progress value={getCooldownPercent(skill)} className="w-20 h-2" />
+                        <div className="flex flex-col items-center">
+                          <Progress 
+                            value={getCooldownPercent(skill)} 
+                            className={`w-20 h-2 ${getCooldownPercent(skill) < 100 ? 'bg-red-200' : 'bg-green-200'}`} 
+                          />
+                          <div className="text-xs mt-1">
+                            {getCooldownPercent(skill) < 100 ? 'Cooling down...' : 'Ready!'}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}

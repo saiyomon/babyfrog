@@ -94,43 +94,59 @@ export default function FrogBattle({
     };
   }, []);
   
+  // Simple pulse animation for sprites to look more alive
+  const [spriteScale, setSpriteScale] = useState<number>(1);
+  
+  // Breathing animation effect
+  useEffect(() => {
+    const breathingInterval = setInterval(() => {
+      setSpriteScale(prev => prev === 1 ? 1.05 : 1);
+    }, 800);
+    
+    return () => clearInterval(breathingInterval);
+  }, []);
+  
   // Render the appropriate enemy sprite based on type
   const renderEnemySprite = () => {
+    const style = { transform: `scale(${spriteScale})`, transition: 'transform 0.8s ease-in-out' };
+    
     switch (enemyType.toLowerCase()) {
       case 'fly':
-        return <PixelFly />;
+        return <div style={style}><PixelFly /></div>;
       case 'spider':
-        return <PixelSpider />;
+        return <div style={style}><PixelSpider /></div>;
       case 'dragonfly':
       case 'butterfly':
       case 'moth':
-        return <PixelDragonfly />;
+        return <div style={style}><PixelDragonfly /></div>;
       case 'wasp':
       case 'hornet':
-        return <PixelWasp />;
+        return <div style={style}><PixelWasp /></div>;
       case 'beetle':
-        return <PixelBeetle />;
+        return <div style={style}><PixelBeetle /></div>;
       case 'bug':
       default:
-        return <PixelBug />;
+        return <div style={style}><PixelBug /></div>;
     }
   };
   
   // Render the appropriate frog sprite based on class
   const renderFrogSprite = () => {
-    if (!frogClass) return <PixelFrog />;
+    const style = { transform: `scale(${1/spriteScale})`, transition: 'transform 0.8s ease-in-out' };
+    
+    if (!frogClass) return <div style={style}><PixelFrog /></div>;
     
     switch (frogClass.toLowerCase()) {
       case 'ninja frog':
-        return <PixelNinjaFrog />;
+        return <div style={style}><PixelNinjaFrog /></div>;
       case 'mage frog':
-        return <PixelMageFrog />;
+        return <div style={style}><PixelMageFrog /></div>;
       case 'knight frog':
-        return <PixelKnightFrog />;
+        return <div style={style}><PixelKnightFrog /></div>;
       case 'witch frog':
-        return <PixelWitchFrog />;
+        return <div style={style}><PixelWitchFrog /></div>;
       default:
-        return <PixelFrog />;
+        return <div style={style}><PixelFrog /></div>;
     }
   };
   

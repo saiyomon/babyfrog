@@ -5,11 +5,46 @@
   height: 200px;
   width: 100%;
   overflow: hidden;
-  background-color: #f8f9fa;
+  background: linear-gradient(to bottom, #87CEEB 0%, #e0f7fa 100%);
   border-radius: 8px;
   margin-bottom: 16px;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+}
+
+/* Add cloud background */
+.battleContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-image: 
+    radial-gradient(circle at 10% 20%, #fff 10px, transparent 10px),
+    radial-gradient(circle at 30% 15%, #fff 15px, transparent 15px),
+    radial-gradient(circle at 50% 25%, #fff 10px, transparent 10px),
+    radial-gradient(circle at 70% 20%, #fff 15px, transparent 15px),
+    radial-gradient(circle at 90% 15%, #fff 10px, transparent 10px);
+  animation: moveClouds 30s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes moveClouds {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 0%; }
+}
+
+@keyframes enemyIdle {
+  0% { transform: scale(2) translateY(0); }
+  50% { transform: scale(2) translateY(-3px); }
+  100% { transform: scale(2) translateY(0); }
+}
+
+@keyframes frogIdle {
+  0% { transform: scale(2) translateY(0); }
+  50% { transform: scale(2) translateY(-5px); }
+  100% { transform: scale(2) translateY(0); }
 }
 
 .enemyContainer {
@@ -18,6 +53,7 @@
   right: 50px;
   transform: scale(2);
   transition: all 0.2s ease;
+  animation: enemyIdle 2s ease-in-out infinite;
 }
 
 .frogContainer {
@@ -26,6 +62,7 @@
   left: 50px;
   transform: scale(2);
   transition: all 0.2s ease;
+  animation: frogIdle 1.5s ease-in-out infinite;
 }
 
 /* Pixel art sprites */
@@ -46,31 +83,34 @@
 }
 
 @keyframes attack {
-  0% { transform: translateX(0) scale(2); }
-  30% { transform: translateX(20px) scale(2); }
-  40% { transform: translateX(20px) scale(2); }
-  100% { transform: translateX(0) scale(2); }
+  0% { transform: translateX(0) scale(2) translateY(0); }
+  30% { transform: translateX(20px) scale(2) translateY(-3px); }
+  40% { transform: translateX(20px) scale(2) translateY(-3px); }
+  100% { transform: translateX(0) scale(2) translateY(0); }
 }
 
 @keyframes damage {
-  0% { transform: translateX(0) scale(2); opacity: 1; }
-  10% { transform: translateX(-10px) scale(2); opacity: 0.7; }
-  20% { transform: translateX(10px) scale(2); opacity: 0.8; }
-  30% { transform: translateX(-10px) scale(2); opacity: 0.9; }
-  40% { transform: translateX(10px) scale(2); opacity: 1; }
-  100% { transform: translateX(0) scale(2); opacity: 1; }
+  0% { transform: translateX(0) scale(2) translateY(0); opacity: 1; }
+  10% { transform: translateX(-10px) scale(2) translateY(-3px); opacity: 0.7; }
+  20% { transform: translateX(10px) scale(2) translateY(-3px); opacity: 0.8; }
+  30% { transform: translateX(-10px) scale(2) translateY(-2px); opacity: 0.9; }
+  40% { transform: translateX(10px) scale(2) translateY(-2px); opacity: 1; }
+  100% { transform: translateX(0) scale(2) translateY(0); opacity: 1; }
 }
 
 .enemyAttack {
   animation: attack 0.5s ease;
+  animation-iteration-count: 1;
 }
 
 .frogAttack {
   animation: attack 0.5s ease;
+  animation-iteration-count: 1;
 }
 
 .takeDamage {
   animation: damage 0.5s ease;
+  animation-iteration-count: 1;
 }
 
 /* Class-specific styles */
@@ -131,7 +171,54 @@
   border-top: 2px solid #2e7d32;
 }
 
+/* Animate grass */
+.battleGround::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image:
+    linear-gradient(to top, transparent 0%, transparent 50%, #81c784 50%, #81c784 100%),
+    linear-gradient(to top, transparent 0%, transparent 50%, #81c784 50%, #81c784 100%),
+    linear-gradient(to top, transparent 0%, transparent 50%, #81c784 50%, #81c784 100%),
+    linear-gradient(to top, transparent 0%, transparent 50%, #81c784 50%, #81c784 100%),
+    linear-gradient(to top, transparent 0%, transparent 50%, #81c784 50%, #81c784 100%),
+    linear-gradient(to top, transparent 0%, transparent 50%, #81c784 50%, #81c784 100%),
+    linear-gradient(to top, transparent 0%, transparent 50%, #81c784 50%, #81c784 100%);
+  background-position: 
+    5% 0, 20% 0, 35% 0, 50% 0, 65% 0, 80% 0, 95% 0;
+  background-size: 
+    4px 10px, 4px 7px, 4px 9px, 4px 8px, 4px 6px, 4px 9px, 4px 7px;
+  background-repeat: no-repeat;
+  animation: grassSway 3s ease-in-out infinite alternate;
+}
+
+@keyframes grassSway {
+  0% {
+    background-position: 
+      5% 0, 20% 0, 35% 0, 50% 0, 65% 0, 80% 0, 95% 0;
+  }
+  100% {
+    background-position: 
+      7% 0, 18% 0, 37% 0, 48% 0, 67% 0, 78% 0, 93% 0;
+  }
+}
+
 /* Pixel art platforms */
+@keyframes floatPlatform {
+  0% { transform: translateX(50%) translateY(0); }
+  50% { transform: translateX(50%) translateY(-2px); }
+  100% { transform: translateX(50%) translateY(0); }
+}
+
+@keyframes floatPlatform2 {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-2px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+
 .enemyPlatform {
   position: absolute;
   top: 70px;
@@ -141,6 +228,19 @@
   background-color: #8d6e63;
   border: 2px solid #5d4037;
   transform: translateX(50%);
+  animation: floatPlatform 3s ease-in-out infinite;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.enemyPlatform::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  width: 40px;
+  height: 30px;
+  background: 
+    radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, transparent 70%);
 }
 
 .frogPlatform {
@@ -152,6 +252,19 @@
   background-color: #8d6e63;
   border: 2px solid #5d4037;
   transform: translateX(-50%);
+  animation: floatPlatform2 3.5s ease-in-out infinite;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.frogPlatform::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  width: 40px;
+  height: 30px;
+  background: 
+    radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, transparent 70%);
 }
 
 /* Level up effect */
