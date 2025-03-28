@@ -300,9 +300,11 @@ button:active {
   position: relative;
   padding: 8px 20px;
   border: 2px solid #000;
-  background-color: #FC8FB8;
+  background: linear-gradient(to right, #f8bbd0, #f48fb1, #f06292, #f8bbd0);
+  background-size: 300% 100%;
+  animation: gradientPulse 7s ease infinite;
   border-radius: 8px;
-  box-shadow: 0 4px 0 #D85A8E, 0 0 0 4px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 0 #ec407a, 0 0 0 4px rgba(0,0,0,0.2);
 }
 
 .pokemon-header-container::before,
@@ -331,9 +333,11 @@ button:active {
   position: relative;
   padding: 4px 15px;
   border: 2px solid #000;
-  background-color: #FF80AB;
+  background: linear-gradient(to right, #f8bbd0, #f48fb1, #f06292, #f8bbd0);
+  background-size: 300% 100%;
+  animation: gradientPulse 7s ease infinite;
   border-radius: 20px;
-  box-shadow: 0 3px 0 #C2185B, 0 0 0 2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 0 #ec407a, 0 0 0 2px rgba(0,0,0,0.1);
 }
 
 .pokemon-footer p {
@@ -442,19 +446,27 @@ button:active {
 }
 
 .pokemon-button-a {
-  background-color: #F48FB1;
+  background: linear-gradient(to right, #f8bbd0, #f48fb1, #f06292, #f8bbd0);
+  background-size: 300% 100%;
+  animation: gradientPulse 7s ease infinite;
 }
 
 .pokemon-button-a:hover {
-  background-color: #F8BBD0;
+  background: linear-gradient(to right, #fce4ec, #f8bbd0, #f8bbd0, #fce4ec);
+  background-size: 300% 100%;
+  animation: gradientPulse 5s ease infinite;
 }
 
 .pokemon-button-b {
-  background-color: #EC407A;
+  background: linear-gradient(to right, #f48fb1, #f06292, #ec407a, #f48fb1);
+  background-size: 300% 100%;
+  animation: gradientPulse 7s ease infinite;
 }
 
 .pokemon-button-b:hover {
-  background-color: #F06292;
+  background: linear-gradient(to right, #f8bbd0, #f48fb1, #f48fb1, #f8bbd0);
+  background-size: 300% 100%;
+  animation: gradientPulse 5s ease infinite;
 }
 
 /* Cute Pixel Button */
@@ -465,10 +477,12 @@ button:active {
 
 .pixel-cute-button {
   padding: 4px 12px;
-  background-color: #FFB7C5;
+  background: linear-gradient(to right, #f8bbd0, #f48fb1, #f06292, #f8bbd0);
+  background-size: 300% 100%;
+  animation: gradientPulse 7s ease infinite;
   border: 2px solid #000;
   border-radius: 0;
-  box-shadow: 0 3px 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 0 #ec407a, 0 0 0 2px rgba(0,0,0,0.1);
   margin-bottom: 3px;
   transition: all 0.15s;
   cursor: pointer;
@@ -480,15 +494,19 @@ button:active {
 }
 
 .pixel-cute-button:hover {
-  background-color: #FFC1CC;
+  background: linear-gradient(to right, #fce4ec, #f8bbd0, #f8bbd0, #fce4ec);
+  background-size: 300% 100%;
+  animation: gradientPulse 5s ease infinite;
   transform: translateY(-1px);
-  box-shadow: 0 4px 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 0 #ec407a, 0 0 0 2px rgba(0,0,0,0.1);
 }
 
 .pixel-cute-button:active {
   transform: translateY(3px);
-  background-color: #FF9AAC;
-  box-shadow: 0 0 0 #FF69B4, 0 0 0 2px rgba(0,0,0,0.1);
+  background: linear-gradient(to right, #f48fb1, #f06292, #ec407a, #f48fb1);
+  background-size: 300% 100%;
+  animation: gradientPulse 7s ease infinite;
+  box-shadow: 0 0 0 #ec407a, 0 0 0 2px rgba(0,0,0,0.1);
 }
 
 /* Custom Scrollbar */
@@ -510,15 +528,30 @@ button:active {
   background: #C2185B; 
 }
 
+/* Gradient animation for "I'm baby" effect */
+@keyframes gradientPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Pixel Art Header and Footer Styles */
 .pastel-header-container {
   position: relative;
   padding: 5px 15px;
-  background-color: #ff80bf;
+  background: linear-gradient(to right, #f8bbd0, #f48fb1, #f06292, #f8bbd0);
+  background-size: 300% 100%;
+  animation: gradientPulse 7s ease infinite;
   border: 2px solid #000;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  box-shadow: 0 3px 0 #cc4099, 0 0 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 0 #ec407a, 0 0 0 3px rgba(0,0,0,0.1);
 }
 
 .pastel-header-container::before,
@@ -545,11 +578,13 @@ button:active {
 .pastel-footer-container {
   position: relative;
   padding: 5px 15px;
-  background-color: #ff80bf;
+  background: linear-gradient(to right, #f8bbd0, #f48fb1, #f06292, #f8bbd0);
+  background-size: 300% 100%;
+  animation: gradientPulse 7s ease infinite;
   border: 2px solid #000;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  box-shadow: 0 3px 0 #cc4099, 0 0 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 0 #ec407a, 0 0 0 3px rgba(0,0,0,0.1);
 }
 
 /* Pixel Art Loading Animations */
