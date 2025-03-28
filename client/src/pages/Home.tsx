@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import FrogCharacter from "@/components/FrogCharacter";
 import ContentDisplay from "@/components/ContentDisplay";
 import UploadArea from "@/components/UploadArea";
-import PokemonGame from "@/components/PokemonGame";
+import FrogClicker from "@/components/FrogClicker";
 import { Button } from "@/components/ui/button";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
@@ -321,7 +321,7 @@ export default function Home() {
     addMessageMutation.mutate(text);
   };
   
-  // Handle Pokémon game
+  // Handle Frog Clicker game
   const togglePokemonGame = () => {
     setIsGameVisible(prev => !prev);
   };
@@ -389,7 +389,7 @@ export default function Home() {
           <div 
             className="pokeball"
             onClick={togglePokemonGame}
-            title="Secret Pokémon Game"
+            title="Frog Clicker Game"
           ></div>
         </header>
 
@@ -455,8 +455,8 @@ export default function Home() {
           </div>
         </footer>
         
-        {/* Pokémon Game */}
-        <PokemonGame 
+        {/* Frog Clicker Game */}
+        <FrogClicker 
           isOpen={isGameVisible}
           onClose={() => setIsGameVisible(false)}
         />
