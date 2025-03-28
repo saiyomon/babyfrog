@@ -538,47 +538,100 @@ button:active {
 /* Pixel Art Header and Footer Styles */
 .pastel-header-container {
   position: relative;
-  padding: 5px 15px;
-  background: linear-gradient(to bottom, #f8bbd0, #f48fb1, #f06292, #f8bbd0);
-  background-size: 100% 300%;
-  animation: gradientPulse 7s ease infinite;
-  border: 2px solid #000;
+  padding: 8px 28px;
+  background-color: #ff8eb4;
+  border: 3px solid #ff2e83;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  box-shadow: 0 3px 0 #ec407a, 0 0 0 3px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 
+    0 0 6px #ff2e83,
+    0 0 12px #ff2e83,
+    inset 0 0 8px #ffc9db;
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
 }
 
+@keyframes neonPulse {
+  from {
+    box-shadow: 
+      0 0 6px #ff2e83,
+      0 0 12px #ff2e83,
+      inset 0 0 8px #ffc9db;
+    text-shadow: 
+      0 0 4px #ff2e83,
+      0 0 8px #ff2e83;
+  }
+  to {
+    box-shadow: 
+      0 0 8px #ff2e83,
+      0 0 16px #ff2e83,
+      0 0 24px #ff2e83,
+      inset 0 0 12px #ffc9db;
+    text-shadow: 
+      0 0 6px #ff2e83,
+      0 0 12px #ff2e83,
+      0 0 18px #ff2e83;
+  }
+}
+
+/* Decorative temple roof-like ornaments */
 .pastel-header-container::before,
 .pastel-header-container::after {
   content: '';
   position: absolute;
-  width: 6px;
-  height: 6px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #ffffff;
-  border: 1px solid #000;
+  height: 12px;
+  width: 12px;
+  top: -2px;
+  background-color: #ff2e83;
+  border: 2px solid #000;
   image-rendering: pixelated;
+  box-shadow: 0 0 6px #ff2e83;
 }
 
 .pastel-header-container::before {
-  left: 4px;
+  left: 8px;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 
 .pastel-header-container::after {
-  right: 4px;
+  right: 8px;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+/* Add temple roof decorations along the top */
+.pastel-header-container .temple-roof {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.pastel-header-container .roof-tile {
+  width: 6px;
+  height: 6px;
+  margin: 0 3px;
+  background-color: #ff2e83;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  box-shadow: 0 0 4px #ff2e83;
 }
 
 .pastel-footer-container {
   position: relative;
   padding: 5px 15px;
-  background: linear-gradient(to bottom, #f8bbd0, #f48fb1, #f06292, #f8bbd0);
-  background-size: 100% 300%;
-  animation: gradientPulse 7s ease infinite;
-  border: 2px solid #000;
+  background-color: #ff8eb4;
+  border: 2px solid #ff2e83;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  box-shadow: 0 3px 0 #ec407a, 0 0 0 3px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 
+    0 0 4px #ff2e83,
+    0 0 8px #ff2e83,
+    inset 0 0 6px #ffc9db;
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
 }
 
 /* Pixel Art Loading Animations */
@@ -758,4 +811,63 @@ button:active {
   margin-top: 4px;
   font-size: 0.75rem;
   white-space: nowrap;
+}
+
+/* Asian Temple Style Lanterns */
+.temple-lantern {
+  position: absolute;
+  width: 14px;
+  height: 18px;
+  background-color: #ff4d94;
+  border: 2px solid #000;
+  border-radius: 5px;
+  top: -6px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow: 0 0 6px #ff2e83;
+  animation: lanternSway 3s ease-in-out infinite alternate;
+}
+
+.temple-lantern::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 4px;
+  background-color: #ffc9db;
+  border: 1px solid #000;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.temple-lantern::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #ffc9db;
+  border: 1px solid #000;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.temple-lantern-left {
+  left: -18px;
+  animation-delay: 0.5s;
+}
+
+.temple-lantern-right {
+  right: -18px;
+  animation-delay: 1s;
+}
+
+@keyframes lanternSway {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
 }

@@ -336,10 +336,21 @@ export default function Home() {
       ))}
     
       <div className="w-full px-4 py-6 flex flex-col items-center">
-        {/* Cute Pastel Header */}
+        {/* Asian Temple Neon Sign Header */}
         <header className="w-full text-center mb-4">
           <div className="pastel-header-container relative inline-block mb-2">
-            <h1 className="font-pixel text-2xl md:text-3xl mb-1 text-pink-700">
+            {/* Add decorative temple roof tiles */}
+            <div className="temple-roof">
+              {[...Array(7)].map((_, i) => (
+                <div key={i} className="roof-tile"></div>
+              ))}
+            </div>
+            
+            {/* Add decorative lanterns */}
+            <div className="temple-lantern temple-lantern-left"></div>
+            <div className="temple-lantern temple-lantern-right"></div>
+            
+            <h1 className="font-pixel text-2xl md:text-3xl mb-1 text-pink-900" style={{ textShadow: '0 0 6px #ff2e83, 0 0 12px #ff2e83' }}>
               Valeria's Froggy Friend
             </h1>
           </div>
@@ -380,16 +391,30 @@ export default function Home() {
           isAddingMessage={addMessageMutation.isPending}
         />
 
-        {/* Cute Pastel Footer */}
+        {/* Asian Temple Neon Footer */}
         <footer className="mt-12 text-center">
-          <div className="pastel-footer-container inline-block">
+          <div className="pastel-footer-container inline-block relative">
             <p 
-              className="font-pixel text-sm text-pink-700 cursor-pointer hover:text-pink-500 transition-colors"
+              className="font-pixel text-sm text-pink-900 cursor-pointer hover:text-pink-500 transition-colors"
               onClick={handleToggleUploadArea}
               title="Secret Upload Area"
+              style={{ textShadow: '0 0 4px #ff2e83, 0 0 8px #ff2e83' }}
             >
               smol dumplings safe zone
             </p>
+            {/* Small decorative elements for temple style */}
+            <span 
+              className="absolute -left-2 -top-1 text-xs" 
+              style={{ color: '#ff2e83', textShadow: '0 0 4px #ff2e83' }}
+            >
+              ❀
+            </span>
+            <span 
+              className="absolute -right-2 -top-1 text-xs" 
+              style={{ color: '#ff2e83', textShadow: '0 0 4px #ff2e83' }}
+            >
+              ❀
+            </span>
           </div>
         </footer>
       </div>
