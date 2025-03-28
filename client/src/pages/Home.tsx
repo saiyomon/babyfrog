@@ -108,6 +108,28 @@ export default function Home() {
       });
     },
   });
+  
+  // Add message mutation
+  const addMessageMutation = useMutation({
+    mutationFn: async (text: string) => {
+      const response = await apiRequest('POST', '/api/messages', { text });
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/messages'] });
+      toast({
+        title: "Success!",
+        description: "Message added successfully",
+      });
+    },
+    onError: (error) => {
+      toast({
+        title: "Failed to add message",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
 
   const handleFrogTap = () => {
     // The frog tap now generates content
@@ -257,6 +279,10 @@ export default function Home() {
   const handleImageDelete = (id: number) => {
     deleteImageMutation.mutate(id);
   };
+  
+  const handleAddMessage = (text: string) => {
+    addMessageMutation.mutate(text);
+  };
 
   // Create cherry blossoms
   const cherryBlossoms = Array.from({ length: 20 }, (_, i) => ({
@@ -323,12 +349,20 @@ export default function Home() {
           isDeleting={deleteImageMutation.isPending}
           pagination={pagination}
           onPageChange={(page) => setCurrentPage(page)}
+          onAddMessage={handleAddMessage}
+          isAddingMessage={addMessageMutation.isPending}
         />
 
         {/* Cute Pastel Footer */}
         <footer className="mt-12 text-center">
           <div className="pastel-footer-container inline-block">
-            <p className="font-pixel text-sm text-pink-700">smol dumplings safe zone</p>
+            <p 
+              className="font-pixel text-sm text-pink-700 cursor-pointer hover:text-pink-500 transition-colors"
+              onClick={handleToggleUploadArea}
+              title="Secret Upload Area"
+            >
+              smol dumplings safe zone
+            </p>
           </div>
         </footer>
       </div>
