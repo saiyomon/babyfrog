@@ -681,6 +681,54 @@ button:active {
   pointer-events: none;
 }
 
+/* Pokéball styles */
+.pokeball {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(to bottom, #ff0000 0%, #ff0000 50%, #ffffff 50%, #ffffff 100%);
+  border-radius: 50%;
+  border: 3px solid #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 999;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+  overflow: visible;
+}
+
+.pokeball:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.pokeball::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #000;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.pokeball::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  border: 3px solid #000;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
 /* Pixel Art Loading Animations */
 .pixel-loading-container {
   display: flex;

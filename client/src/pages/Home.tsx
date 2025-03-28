@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import FrogCharacter from "@/components/FrogCharacter";
 import ContentDisplay from "@/components/ContentDisplay";
 import UploadArea from "@/components/UploadArea";
+import PokemonGame from "@/components/PokemonGame";
 import { Button } from "@/components/ui/button";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
@@ -14,6 +15,7 @@ export default function Home() {
   const [currentImage, setCurrentImage] = useState<Image | null>(null);
   const [currentMessage, setCurrentMessage] = useState<Message | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isGameVisible, setIsGameVisible] = useState(false);
   const { toast } = useToast();
   
   // Track shown content to avoid repetition
@@ -37,6 +39,9 @@ export default function Home() {
     pagination: { total: number; page: number; limit: number; pages: number };
   }>({
     queryKey: ['/api/images', { page: 1, limit: 100 }], // Get up to 100 images
+    retry: 3,
+    staleTime: 60000, // 1 minute
+    refetchOnWindowFocus: false,
   });
   
   // Images for the UploadArea component (paginated)
@@ -46,12 +51,14 @@ export default function Home() {
   // All images for random content generation (non-paginated)
   const allImages = allImagesData?.images || [];
 
-  // Fetch messages
+  // Fetch messages with retry
   const { data: messagesData = { messages: [], count: 0 }, isLoading: isLoadingMessages } = useQuery<{
     messages: Message[];
     count: number;
   }>({
     queryKey: ['/api/messages'],
+    retry: 3,
+    staleTime: 60000, // 1 minute
   });
   
   // Extract messages array from response
@@ -313,6 +320,11 @@ export default function Home() {
   const handleAddMessage = (text: string) => {
     addMessageMutation.mutate(text);
   };
+  
+  // Handle Pokémon game
+  const togglePokemonGame = () => {
+    setIsGameVisible(prev => !prev);
+  };
 
   // Create cherry blossoms
   const cherryBlossoms = Array.from({ length: 20 }, (_, i) => ({
@@ -372,6 +384,13 @@ export default function Home() {
           <p className="text-purple-800 text-xs md:text-sm font-pixel">
             Click the froggy for a special surprise!
           </p>
+          
+          {/* Secret Pokéball Button */}
+          <div 
+            className="pokeball"
+            onClick={togglePokemonGame}
+            title="Secret Pokémon Game"
+          ></div>
         </header>
 
         {/* Frog Character */}
@@ -435,6 +454,12 @@ export default function Home() {
             </span>
           </div>
         </footer>
+        
+        {/* Pokémon Game */}
+        <PokemonGame 
+          isOpen={isGameVisible}
+          onClose={() => setIsGameVisible(false)}
+        />
       </div>
     </div>
   );
