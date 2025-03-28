@@ -183,17 +183,11 @@ export default function Home() {
   };
 
   const showRandomContent = () => {
-    console.log("showRandomContent called. Messages:", messages.length, "Images:", allImages.length);
+    console.log("showRandomContent called. Messages:", messages, "Images:", allImages.length);
     console.log("Already shown images:", shownImageIds.length, "Already shown messages:", shownMessageIds.length);
     
-    // Always show a message even if there are no images
-    if (messages.length === 0) {
-      console.log("No messages available");
-      return;
-    }
-    
     // Handle images - use allImages (non-paginated) for selection
-    if (allImages.length > 0) {
+    if (allImages && allImages.length > 0) {
       // Get image that hasn't been shown yet
       const remainingImages = allImages.filter(img => !shownImageIds.includes(img.id));
       
@@ -222,26 +216,31 @@ export default function Home() {
     }
     
     // Handle messages - same logic
-    const remainingMessages = messages.filter(msg => !shownMessageIds.includes(msg.id));
-    
-    if (remainingMessages.length > 0) {
-      // We still have unseen messages
-      const randomIndex = Math.floor(Math.random() * remainingMessages.length);
-      const selectedMessage = remainingMessages[randomIndex];
-      console.log("Setting new unseen message with ID:", selectedMessage.id);
-      setCurrentMessage(selectedMessage);
+    if (messages && messages.length > 0) {
+      const remainingMessages = messages.filter(msg => !shownMessageIds.includes(msg.id));
       
-      // Add to shown messages
-      setShownMessageIds(prev => [...prev, selectedMessage.id]);
+      if (remainingMessages.length > 0) {
+        // We still have unseen messages
+        const randomIndex = Math.floor(Math.random() * remainingMessages.length);
+        const selectedMessage = remainingMessages[randomIndex];
+        console.log("Setting new unseen message with ID:", selectedMessage.id);
+        setCurrentMessage(selectedMessage);
+        
+        // Add to shown messages
+        setShownMessageIds(prev => [...prev, selectedMessage.id]);
+      } else {
+        // All messages have been shown, reset and start over
+        console.log("All messages have been shown. Resetting message history.");
+        // Pick a random message from all
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        setCurrentMessage(messages[randomIndex]);
+        
+        // Reset tracking with just this message
+        setShownMessageIds([messages[randomIndex].id]);
+      }
     } else {
-      // All messages have been shown, reset and start over
-      console.log("All messages have been shown. Resetting message history.");
-      // Pick a random message from all
-      const randomIndex = Math.floor(Math.random() * messages.length);
-      setCurrentMessage(messages[randomIndex]);
-      
-      // Reset tracking with just this message
-      setShownMessageIds([messages[randomIndex].id]);
+      console.log("No messages available");
+      setCurrentMessage(null);
     }
     
     console.log("Content generated successfully");
